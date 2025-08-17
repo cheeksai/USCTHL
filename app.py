@@ -1539,7 +1539,10 @@ def home():
         else:
             result = {"error": "please enter a valid input bub"}
 
-    winner_key = result["winner"].split(" (")[0]
+    winner_key = None
+    if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
+        winner_key = result["winner"].split(" (")[0]
+    
     
     return render_template_string(HTML_TEMPLATE, result=result,headline=headline, team_colors=team_colors, winner_key=winner_key
 )
