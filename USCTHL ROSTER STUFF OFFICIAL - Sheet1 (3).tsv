@@ -1,0 +1,800 @@
+Matthew Tkachuk	LW1	Heat	19
+Mark Scheifele	C1	Heat	55
+Kirill Marchenko	RW1	Heat	86
+Nick Paul	LW2	Heat	20
+Nick Schmaltz	C2	Heat	8
+Viktor Arvidsson	RW2	Heat	33
+Marcus Foligno	LW3	Heat	17
+Boone Jenner	C3	Heat	38
+Taylor Raddysh	RW3	Heat	16
+Travis Boyd	LW4	Heat	72
+Nico Sturm	C4	Heat	7
+Mitchell Chaffee	RW4	Heat	41
+Mattias Ekholm	LD1	Heat	14
+Seth Jones	RD1	Heat	3
+Daniil Miromanov	LD2	Heat	62
+Jeff Petry	RD2	Heat	46
+Josh Mahura	LD3	Heat	28
+Cale Fleury	RD3	Heat	18
+Juuse Saros	G1	Heat	74
+Cam Talbot	G2	Heat	39
+Ivan Barbashev	LW1	Cobalts	49
+Nico Hischier	C1	Cobalts	13
+Jason Zucker	RW1	Cobalts	17
+Chandler Stephenson	LW2	Cobalts	9
+Anton Lundell	C2	Cobalts	15
+Frank Vatrano	RW2	Cobalts	77
+Tomas Nosek	LW3	Cobalts	92
+Kirby Dach	C3	Cobalts	78
+Jack Quinn	RW3	Cobalts	2
+Yakov Trenin	LW4	Cobalts	73
+Ivan Ivan	C4	Cobalts	82
+Ryan Johansen	RW4	Cobalts	12
+Mikhail Sergachev	LD1	Cobalts	98
+Michael Kesselring	RD1	Cobalts	7
+Jake McCabe	LD2	Cobalts	22
+Cam Fowler	RD2	Cobalts	4
+Scott Perunovich	LD3	Cobalts	26
+Rasmus Ristolainen	RD3	Cobalts	55
+Andrei Vasilevskiy	G1	Cobalts	88
+Kevin Lankinen	G2	Cobalts	32
+Elias Pettersson	LW1	Oceanics	40
+Sebastian Aho	C1	Oceanics	20
+Kirill Kaprizov	RW1	Oceanics	97
+Mason Appleton	LW2	Oceanics	22
+Mikael Granlund	C2	Oceanics	64
+Claude Giroux	RW2	Oceanics	28
+Axel Jonsson Fjällby	LW3	Oceanics	71
+Nic Dowd	C3	Oceanics	26
+Denis Malgin	RW3	Oceanics	62
+Parker Kelly	LW4	Oceanics	17
+Cody Glass	C4	Oceanics	12
+Benoit-Olivier Groulx	RW4	Oceanics	24
+Josh Morrissey	LD1	Oceanics	44
+Justin Faulk	RD1	Oceanics	72
+Niko Mikkola	LD2	Oceanics	77
+Shayne Gostisbehere	RD2	Oceanics	4
+Ryan Suter	LD3	Oceanics	2
+Trevor van Riemsdyk	RD3	Oceanics	57
+Jordan Binnington	G1	Oceanics	50
+Martin Jones	G2	Oceanics	31
+Pius Suter	LW1	Grinders	24
+Robert Thomas	C1	Grinders	18
+Ivan Demidov	RW1	Grinders	93
+Zach Benson	LW2	Grinders	9
+Calle Jarnkrok	C2	Grinders	19
+Justin Brazeau	RW2	Grinders	15
+Jiri Kulich	LW3	Grinders	20
+Jackson Blake	C3	Grinders	53
+Nikolai Kovalenko	RW3	Grinders	51
+Brennan Othmann	LW4	Grinders	79
+Oliver Moore	C4	Grinders	11
+Nicolas Deslauriers	RW4	Grinders	43
+Mikey Anderson	LD1	Grinders	44
+Marco Scandella	RD1	Grinders	6
+Jacob Bryson	LD2	Grinders	78
+Vincent Desharnais	RD2	Grinders	5
+Jake Christiansen	LD3	Grinders	2
+Jacob MacDonald	RD3	Grinders	26
+Arvid Söderblom	G1	Grinders	40
+Jet Greaves	G2	Grinders	73
+Jake Guentzel	LW1	Tsunami	59
+Martin Necas	C1	Tsunami	88
+Seth Jarvis	RW1	Tsunami	24
+Dylan Holloway	LW2	Tsunami	81
+Bo Horvat	C2	Tsunami	14
+Vincent Trocheck	RW2	Tsunami	16
+Marcus Johansson	LW3	Tsunami	90
+Adam Lowry	C3	Tsunami	17
+Yegor Chinakhov	RW3	Tsunami	9
+Nicholas Robertson	LW4	Tsunami	89
+Jonatan Berggren	C4	Tsunami	48
+Colin Blackwell	RW4	Tsunami	15
+Ryan Pulock	LD1	Tsunami	6
+John Carlson	RD1	Tsunami	74
+Pierre-Olivier Joseph	LD2	Tsunami	73
+Josh Manson	RD2	Tsunami	42
+Henri Jokiharju	LD3	Tsunami	20
+Ilya Lyubushkin	RD3	Tsunami	46
+Spencer Knight	G1	Tsunami	30
+Ville Husso	G2	Tsunami	33
+Dylan Guenther	LW1	Rockets	11
+Aleksander Barkov	C1	Rockets	16
+Filip Zadina	RW1	Rockets	8
+Alex Iafallo	LW2	Rockets	9
+Dylan Strome	C2	Rockets	17
+Tomas Tatar	RW2	Rockets	90
+Pierre Engvall	LW3	Rockets	18
+Nick Cousins	C3	Rockets	21
+Frank Nazar	RW3	Rockets	91
+Janne Kuokkanen	LW4	Rockets	59
+Sam Lafferty	C4	Rockets	81
+Klim Kostin	RW4	Rockets	10
+Miro Heiskanen	LD1	Rockets	4
+Evan Bouchard	RD1	Rockets	2
+Oliver Ekman-Larsson	LD2	Rockets	95
+Bowen Byram	RD2	Rockets	44
+Dylan Samberg	LD3	Rockets	54
+Mattias Samuelsson	RD3	Rockets	23
+Logan Thompson	G1	Rockets	48
+Samuel Montembeault	G2	Rockets	35
+Will Cuylle	LW1	Thunderbolts	49
+Joel Eriksson Ek	C1	Thunderbolts	14
+Mikko Rantanen	RW1	Thunderbolts	96
+Tyler Bertuzzi	LW2	Thunderbolts	59
+Morgan Frost	C2	Thunderbolts	16
+Tom Wilson	RW2	Thunderbolts	43
+Eric Robinson	LW3	Thunderbolts	51
+J.T. Compher	C3	Thunderbolts	37
+Luke Kunin	RW3	Thunderbolts	11
+Nolan Foote	LW4	Thunderbolts	25
+Michael Carcone	C4	Thunderbolts	53
+Alexey Toropchenko	RW4	Thunderbolts	13
+Travis Sanheim	LD1	Thunderbolts	6
+Sean Durzi	RD1	Thunderbolts	50
+Carson Soucy	LD2	Thunderbolts	7
+Simon Nemec	RD2	Thunderbolts	17
+Zach Bogosian	LD3	Thunderbolts	24
+Matt Dumba	RD3	Thunderbolts	3
+Elvis Merzlikins	G1	Thunderbolts	90
+Scott Wedgewood	G2	Thunderbolts	41
+Filip Forsberg	LW1	Demons	9
+Brayden Point	C1	Demons	21
+Alexis Lafrenière	RW1	Demons	13
+Anthony Duclair	LW2	Demons	11
+William Eklund	C2	Demons	71
+Kyle Palmieri	RW2	Demons	20
+Radek Faksa	LW3	Demons	12
+Filip Chytil	C3	Demons	72
+Matt Coronato	RW3	Demons	27
+Jordan Greenway	LW4	Demons	18
+Zach Dean	C4	Demons	14
+Mike Amadio	RW4	Demons	22
+Jake Sanderson	LD1	Demons	85
+Dougie Hamilton	RD1	Demons	7
+Brayden McNabb	LD2	Demons	3
+Adam Boqvist	RD2	Demons	34
+Yegor Zamula	LD3	Demons	5
+Calvin de Haan	RD3	Demons	44
+Connor Hellebuyck	G1	Demons	37
+Ilya Samsonov	G2	Demons	35
+Steven Stamkos	LW1	Pilots	91
+Gabe Vilardi	C1	Pilots	13
+Clayton Keller	RW1	Pilots	9
+Erik Haula	LW2	Pilots	56
+Logan Stankoven	C2	Pilots	22
+Bobby Brink	RW2	Pilots	10
+Max Domi	LW3	Pilots	11
+Ryan McLeod	C3	Pilots	71
+Joel Farabee	RW3	Pilots	86
+Carl Grundström	LW4	Pilots	38
+Vinni Lettieri	C4	Pilots	95
+Brett Leason	RW4	Pilots	20
+Gustav Forsling	LD1	Pilots	42
+Jake Walman	RD1	Pilots	96
+Ryan McDonagh	LD2	Pilots	27
+Jared Spurgeon	RD2	Pilots	46
+Matt Grzelcyk	LD3	Pilots	24
+Jan Rutta	RD3	Pilots	84
+Dustin Wolf	G1	Pilots	32
+Adin Hill	G2	Pilots	33
+Pavel Buchnevich	LW1	Mountain Lions	89
+Sidney Crosby	C1	Mountain Lions	87
+William Nylander	RW1	Mountain Lions	88
+Anders Lee	LW2	Mountain Lions	27
+Brayden Schenn	C2	Mountain Lions	10
+Brendan Gallagher	RW2	Mountain Lions	11
+Robby Fabbri	LW3	Mountain Lions	13
+Ridly Greig	C3	Mountain Lions	71
+Jesper Boqvist	RW3	Mountain Lions	70
+Philipp Kurashev	LW4	Mountain Lions	23
+Tyson Jost	C4	Mountain Lions	17
+Noel Acciari	RW4	Mountain Lions	52
+Kaiden Guhle	LD1	Mountain Lions	21
+Noah Dobson	RD1	Mountain Lions	53
+Ryan Lindgren	LD2	Mountain Lions	55
+John Marino	RD2	Mountain Lions	6
+Axel Sandin-Pellikka	LD3	Mountain Lions	4
+Nils Lundkvist	RD3	Mountain Lions	5
+Anthony Stolarz	G1	Mountain Lions	41
+Arturs Silovs	G2	Mountain Lions	31
+Brady Tkachuk	LW1	Motors	7
+Nick Suzuki	C1	Motors	14
+Patrick Kane	RW1	Motors	88
+Jaden Schwartz	LW2	Motors	17
+Tyler Seguin	C2	Motors	91
+Patrik Laine	RW2	Motors	92
+Mike Hoffman	LW3	Motors	68
+Andrew Copp	C3	Motors	18
+Brandon Duhaime	RW3	Motors	12
+Blake Lizotte	LW4	Motors	46
+Mavrik Bourque	C4	Motors	22
+Sam Gagner	RW4	Motors	89
+Lane Hutson	LD1	Motors	48
+Sean Walker	RD1	Motors	26
+Derek Forbort	LD2	Motors	27
+Dante Fabbro	RD2	Motors	15
+Elias Petersson	LD3	Motors	25
+Tyson Barrie	RD3	Motors	8
+Casey DeSmith	G1	Motors	1
+Yaroslav Askarov	G2	Motors	30
+Alex DeBrincat	LW1	Sunshine	93
+Sam Reinhart	C1	Sunshine	13
+Brock Boeser	RW1	Sunshine	6
+Jamie Benn	LW2	Sunshine	14
+Tomas Hertl	C2	Sunshine	48
+Mathieu Joseph	RW2	Sunshine	71
+Oskar Lindblom	LW3	Sunshine	23
+Cole Sillinger	C3	Sunshine	4
+Givani Smith	RW3	Sunshine	54
+Andreas Johnsson	LW4	Sunshine	11
+Matthew Rempe	C4	Sunshine	73
+Cole Koepke	RW4	Sunshine	45
+Artem Zub	LD1	Sunshine	22
+Erik Karlsson	RD1	Sunshine	65
+Mario Ferraro	LD2	Sunshine	38
+Zach Whitecloud	RD2	Sunshine	2
+Juuso Valimaki	LD3	Sunshine	44
+Will Borgen	RD3	Sunshine	17
+Jacob Markstrom	G1	Sunshine	25
+Dan Vladar	G2	Sunshine	80
+Gustav Nyquist	LW1	Hawks	41
+Connor McDavid	C1	Hawks	97
+Matt Duchene	RW1	Hawks	95
+Victor Olofsson	LW2	Hawks	71
+Nick Foligno	C2	Hawks	17
+Luke Evangelista	RW2	Hawks	77
+Tanner Pearson	LW3	Hawks	70
+Lars Eller	C3	Hawks	20
+Nathan Bastian	RW3	Hawks	14
+Morgan Barron	LW4	Hawks	36
+Justin Kirkland	C4	Hawks	54
+MacKenzie Entwistle	RW4	Hawks	58
+Owen Power	LD1	Hawks	25
+Radko Gudas	RD1	Hawks	7
+Ben Chiarot	LD2	Hawks	8
+Alexandre Carrier	RD2	Hawks	45
+Mark Giordano	LD3	Hawks	5
+Scott Mayfield	RD3	Hawks	24
+Mackenzie Blackwood	G1	Hawks	39
+Lukas Dostal	G2	Hawks	1
+Matthew Boldy	LW1	Hammerheads	12
+Jack Eichel	C1	Hammerheads	9
+Jordan Kyrou	RW1	Hammerheads	25
+Gabriel Landeskog	LW2	Hammerheads	92
+Anthony Cirelli	C2	Hammerheads	71
+Ilya Mikheyev	RW2	Hammerheads	95
+Sean Kuraly	LW3	Hammerheads	7
+Shane Wright	C3	Hammerheads	51
+Mattias Janmark	RW3	Hammerheads	13
+Ty Dellandrea	LW4	Hammerheads	53
+Dalibor Dvorsky	C4	Hammerheads	54
+Kevin Stenlund	RW4	Hammerheads	82
+Jonas Brodin	LD1	Hammerheads	52
+Cam York	RD1	Hammerheads	8
+Dmitry Orlov	LD2	Hammerheads	81
+Ian Cole	RD2	Hammerheads	28
+Oliver Kylington	LD3	Hammerheads	58
+Cody Ceci	RD3	Hammerheads	44
+Chris Driedger	G1	Hammerheads	60
+David Rittich	G2	Hammerheads	31
+Kyle Connor	LW1	Ghosts	81
+Artturi Lehkonen	C1	Ghosts	62
+Jordan Eberle	RW1	Ghosts	7
+David Perron	LW2	Ghosts	57
+Adam Henrique	C2	Ghosts	19
+Maxim Tsyplakov	RW2	Ghosts	71
+Jordan Martinook	LW3	Ghosts	48
+Jonny Brodzinski	C3	Ghosts	22
+Connor Brown	RW3	Ghosts	28
+Boris Katchouk	LW4	Ghosts	13
+Conor Geekie	C4	Ghosts	14
+Jakob Silfverberg	RW4	Ghosts	33
+Alexander Romanov	LD1	Ghosts	27
+Moritz Seider	RD1	Ghosts	53
+Jon Merrill	LD2	Ghosts	4
+Tyler Myers	RD2	Ghosts	47
+Urho Vaakanainen	LD3	Ghosts	18
+Luke Schenn	RD3	Ghosts	5
+Linus Ullmark	G1	Ghosts	35
+Malcolm Subban	G2	Ghosts	30
+Jason Robertson	LW1	Rebels	21
+Casey Mittelstadt	C1	Rebels	37
+Travis Konecny	RW1	Rebels	11
+Juraj Slafkovsky	LW2	Rebels	20
+David Kampf	C2	Rebels	64
+Valeri Nichushkin	RW2	Rebels	13
+Taylor Hall	LW3	Rebels	71
+Sam Steel	C3	Rebels	18
+Cole Smith	RW3	Rebels	36
+Austin Watson	LW4	Rebels	24
+Josh Doan	C4	Rebels	91
+Vasily Podkolzin	RW4	Rebels	92
+Vince Dunn	LD1	Rebels	29
+Adam Fox	RD1	Rebels	23
+Vladislav Gavrikov	LD2	Rebels	84
+Jacob Trouba	RD2	Rebels	8
+Jalen Chatfield	LD3	Rebels	5
+Colin Miller	RD3	Rebels	6
+Jack Campbell	G1	Rebels	30
+Jaroslav Halak	G2	Rebels	41
+Sean Monahan	LW1	Blood Hounds	23
+Jack Hughes	C1	Blood Hounds	86
+Mason Marchment	RW1	Blood Hounds	27
+Trent Frederic	LW2	Blood Hounds	21
+Phillip Danault	C2	Blood Hounds	24
+Jake DeBrusk	RW2	Blood Hounds	73
+Mark Jankowski	LW3	Blood Hounds	77
+Ryan Poehling	C3	Blood Hounds	25
+Blake Wheeler	RW3	Blood Hounds	17
+Patrick Maroon	LW4	Blood Hounds	19
+Noah Gregor	C4	Blood Hounds	9
+Dryden Hunt	RW4	Blood Hounds	15
+Jaccob Slavin	LD1	Blood Hounds	74
+Christopher Tanev	RD1	Blood Hounds	8
+Alec Martinez	LD2	Blood Hounds	14
+Ryan Graves	RD2	Blood Hounds	33
+Simon Benoit	LD3	Blood Hounds	2
+Henry Thrun	RD3	Blood Hounds	3
+Semyon Varlamov	G1	Blood Hounds	40
+Jonas Johansson	G2	Blood Hounds	31
+Conor Garland	LW1	Metrostars	83
+Josh Norris	C1	Metrostars	13
+Owen Tippett	RW1	Metrostars	74
+Blake Coleman	LW2	Metrostars	21
+Colton Sissons	C2	Metrostars	10
+Andrei Kuzmenko	RW2	Metrostars	96
+Brandon Saad	LW3	Metrostars	20
+Sam Carrick	C3	Metrostars	39
+Kasperi Kapanen	RW3	Metrostars	42
+Nathan Walker	LW4	Metrostars	26
+Rutger McGroarty	C4	Metrostars	3
+Christian Fischer	RW4	Metrostars	36
+Devon Toews	LD1	Metrostars	7
+Cale Makar	RD1	Metrostars	8
+Nicolas Hague	LD2	Metrostars	14
+Robert Bortuzzo	RD2	Metrostars	41
+Olli Maatta	LD3	Metrostars	2
+Travis Dermott	RD3	Metrostars	23
+Darcy Kuemper	G1	Metrostars	35
+Laurent Brossoit	G2	Metrostars	38
+Cole Caufield	LW1	Vipers	13
+Sean Couturier	C1	Vipers	14
+Mitchell Marner	RW1	Vipers	93
+Jordan Staal	LW2	Vipers	11
+Joe Veleno	C2	Vipers	90
+Kaapo Kakko	RW2	Vipers	84
+Brett Howden	LW3	Vipers	21
+Jack Drury	C3	Vipers	18
+Dominik Kubalík	RW3	Vipers	81
+Drew O'Connor	LW4	Vipers	10
+Hendrix Lapierre	C4	Vipers	29
+Zack MacEwen	RW4	Vipers	17
+Noah Hanifin	LD1	Vipers	15
+Brenden Dillon	RD1	Vipers	5
+Marcus Pettersson	LD2	Vipers	28
+Justin Barron	RD2	Vipers	20
+Simon Edvinsson	LD3	Vipers	77
+Kevin Korchinski	RD3	Vipers	55
+Igor Shesterkin	G1	Vipers	31
+Justus Annunen	G2	Vipers	60
+Artemi Panarin	LW1	Lumberjacks	10
+Dylan Cozens	C1	Lumberjacks	24
+Alex Tuch	RW1	Lumberjacks	89
+Quinton Byfield	LW2	Lumberjacks	55
+Adam Fantilli	C2	Lumberjacks	19
+Reilly Smith	RW2	Lumberjacks	91
+Alexander Kerfoot	LW3	Lumberjacks	15
+Pierre-Luc Dubois	C3	Lumberjacks	80
+Anthony Beauvillier	RW3	Lumberjacks	72
+Noah Cates	LW4	Lumberjacks	27
+Peyton Krebs	C4	Lumberjacks	18
+Marco Kasper	RW4	Lumberjacks	92
+Zach Werenski	LD1	Lumberjacks	8
+Filip Hronek	RD1	Lumberjacks	17
+Philip Broberg	LD2	Lumberjacks	6
+Nick Jensen	RD2	Lumberjacks	3
+Jonathan Pudas	LD3	Lumberjacks	64
+Troy Stecher	RD3	Lumberjacks	51
+Jesper Wallstedt	G1	Lumberjacks	30
+Tristan Jarry	G2	Lumberjacks	35
+Trevor Zegras	LW1	Blizzards	46
+Wyatt Johnston	C1	Blizzards	53
+Rickard Rakell	RW1	Blizzards	67
+Josh Anderson	LW2	Blizzards	17
+Kevin Hayes	C2	Blizzards	13
+Justin Danforth	RW2	Blizzards	7
+Evgenii Dadonov	LW3	Blizzards	63
+Curtis Lazar	C3	Blizzards	42
+Craig Smith	RW3	Blizzards	15
+Isak Rosén	LW4	Blizzards	61
+Calum Ritchie	C4	Blizzards	71
+Luke Glendening	RW4	Blizzards	11
+Roman Josi	LD1	Blizzards	59
+Hampus Lindholm	RD1	Blizzards	27
+Thomas Harley	LD2	Blizzards	55
+Brandt Clarke	RD2	Blizzards	92
+Jordan Harris	LD3	Blizzards	22
+Tony DeAngelo	RD3	Blizzards	4
+Ilya Sorokin	G1	Blizzards	30
+Joel Hofer	G2	Blizzards	30
+Teuvo Teravainen	LW1	Supernovas	86
+Anze Kopitar	C1	Supernovas	11
+Dawson Mercer	RW1	Supernovas	90
+Oliver Bjorkstrand	LW2	Supernovas	22
+Kent Johnson	C2	Supernovas	91
+Ryan Leonard	RW2	Supernovas	9
+Brendan Lemieux	LW3	Supernovas	48
+Adam Gaudette	C3	Supernovas	81
+Brett Ritchie	RW3	Supernovas	23
+Ryan Lasch	LW4	Supernovas	19
+Mark Kastelic	C4	Supernovas	47
+Walker Duehr	RW4	Supernovas	71
+Johnathan Kovacevic	LD1	Supernovas	8
+Darren Raddysh	RD1	Supernovas	43
+Seamus Casey	LD2	Supernovas	24
+Erik Gudbranson	RD2	Supernovas	44
+Emil Martinsen Lilleberg	LD3	Supernovas	78
+Artyom Levshunov	RD3	Supernovas	55
+Eric Comrie	G1	Supernovas	1
+Matt Murray	G2	Supernovas	30
+Brad Marchand	LW1	Cannons	63
+Mika Zibanejad	C1	Cannons	93
+Adrian Kempe	RW1	Cannons	9
+Brandon Hagel	LW2	Cannons	38
+Barrett Hayton	C2	Cannons	27
+Trevor Moore	RW2	Cannons	12
+Brandon Tanev	LW3	Cannons	13
+Oskar Sundqvist	C3	Cannons	70
+Warren Foegele	RW3	Cannons	37
+Jimmy Vesey	LW4	Cannons	26
+Max Sasson	C4	Cannons	36
+Keegan Kolesar	RW4	Cannons	55
+Michael Matheson	LD1	Cannons	8
+Brandon Carlo	RD1	Cannons	25
+Thomas Chabot	LD2	Cannons	73
+J.J. Moser	RD2	Cannons	90
+Erik Brännström	LD3	Cannons	62
+David Savard	RD3	Cannons	58
+Sergei Bobrovsky	G1	Cannons	72
+Jake Allen	G2	Cannons	34
+Isac Lundeström	LW1	Blue Jays	21
+Michael McCarron	C1	Blue Jays	47
+Drake Batherson	RW1	Blue Jays	19
+Trey Fix-Wolansky	LW2	Blue Jays	64
+Zachary L'Heureux	C2	Blue Jays	68
+Gabe Perreault	RW2	Blue Jays	94
+Jonathan Lekkerimäki	LW3	Blue Jays	24
+Connor Bunnaman	C3	Blue Jays	82
+Jimmy Snuggerud	RW3	Blue Jays	12
+Fabian Lysell	LW4	Blue Jays	23
+Matthew Wood	C4	Blue Jays	52
+Olle Lycksell	RW4	Blue Jays	15
+Zac Jones	LD1	Blue Jays	6
+T.J. Brodie	RD1	Blue Jays	78
+Sebastan Aho	LD2	Blue Jays	25
+Maveric Lamoureux	RD2	Blue Jays	10
+William Lagesson	LD3	Blue Jays	84
+Jack Thompson	RD3	Blue Jays	26
+Carter Hart	G1	Blue Jays	79
+Leevi Merilainen	G2	Blue Jays	1
+Dylan Larkin	LW1	Miners	71
+Elias Lindholm	C1	Miners	28
+Nikita Kucherov	RW1	Miners	86
+Michael Rasmussen	LW2	Miners	27
+Jack McBain	C2	Miners	22
+Fabian Zetterlund	RW2	Miners	20
+Cam Atkinson	LW3	Miners	13
+Juuso Pärssinen	C3	Miners	75
+T.J. Oshie	RW3	Miners	77
+Jesse Ylönen	LW4	Miners	56
+Tyler Johnson	C4	Miners	90
+Sam Colangelo	RW4	Miners	46
+Jakob Chychrun	LD1	Miners	6
+Adam Larsson	RD1	Miners	5
+Dmitry Kulikov	LD2	Miners	7
+Matt Roy	RD2	Miners	3
+Logan Stanley	LD3	Miners	64
+Dylan Coghlan	RD3	Miners	52
+Ukko-Pekka Luukkonen	G1	Miners	1
+Alex Nedeljkovic	G2	Miners	39
+Chris Kreider	LW1	Steamrollers	20
+Logan Couture	C1	Steamrollers	39
+Stefan Noesen	RW1	Steamrollers	11
+Max Pacioretty	LW2	Steamrollers	67
+Jack Roslovic	C2	Steamrollers	96
+Nick Bjugstad	RW2	Steamrollers	17
+Sonny Milano	LW3	Steamrollers	15
+Will Smith	C3	Steamrollers	2
+Tanner Jeannot	RW3	Steamrollers	84
+Tyler Motte	LW4	Steamrollers	15
+Nick Bonino	C4	Steamrollers	13
+Matthew Phillips	RW4	Steamrollers	54
+Shea Theodore	LD1	Steamrollers	27
+Nikita Zadorov	RD1	Steamrollers	91
+Jamie Oleksiak	LD2	Steamrollers	24
+Jackson LaCombe	RD2	Steamrollers	60
+Erik Gustafsson	LD3	Steamrollers	56
+Jack Johnson	RD3	Steamrollers	3
+Jonathan Quick	G1	Steamrollers	32
+Ivan Fedotov	G2	Steamrollers	82
+Mason McTavish	LW1	Bison	23
+J.T. Miller	C1	Bison	8
+Andrei Svechnikov	RW1	Bison	37
+Matias Maccelli	LW2	Bison	63
+Leo Carlsson	C2	Bison	91
+Simon Holmström	RW2	Bison	10
+Connor Zary	LW3	Bison	47
+Scott Laughton	C3	Bison	24
+Alex Killorn	RW3	Bison	17
+Tye Kartye	LW4	Bison	12
+Mackie Samoskevich	C4	Bison	25
+Gavin Brindley	RW4	Bison	45
+K'Andre Miller	LD1	Bison	19
+Luke Hughes	RD1	Bison	43
+Jeremy Lauzon	LD2	Bison	3
+Erik Johnson	RD2	Bison	6
+Joel Edmundson	LD3	Bison	20
+Arber Xhekaj	RD3	Bison	72
+Pyotr Kochetkov	G1	Bison	52
+James Reimer	G2	Bison	34
+Evan Rodrigues	LW1	Twisters	9
+Ryan O'Reilly	C1	Twisters	90
+Bryan Rust	RW1	Twisters	17
+Ryan Donato	LW2	Twisters	8
+Shane Pinto	C2	Twisters	12
+Ryan Hartman	RW2	Twisters	38
+Nils Höglander	LW3	Twisters	21
+Alex Newhook	C3	Twisters	18
+Alexander Holtz	RW3	Twisters	26
+Connor Dewar	LW4	Twisters	19
+Nicolas Aube-Kubel	C4	Twisters	96
+Cal Clutterbuck	RW4	Twisters	15
+Brock Faber	LD1	Twisters	14
+Alex Pietrangelo	RD1	Twisters	7
+Nick Seeler	LD2	Twisters	24
+Connor Murphy	RD2	Twisters	5
+Gustav Lindström	LD3	Twisters	27
+Jani Hakanpää	RD3	Twisters	28
+Marc-Andre Fleury	G1	Twisters	29
+Anton Forsberg	G2	Twisters	31
+Timo Meier	LW1	Destroyers	28
+Tage Thompson	C1	Destroyers	72
+David Pastrnak	RW1	Destroyers	88
+Cole Perfetti	LW2	Destroyers	91
+Aliaksei Protas	C2	Destroyers	21
+Nino Niederreiter	RW2	Destroyers	62
+Dmitri Voronkov	LW3	Destroyers	10
+Mikael Backlund	C3	Destroyers	11
+Anthony Mantha	RW3	Destroyers	39
+Ivan Miroshnichenko	LW4	Destroyers	63
+Jesperi Kotkaniemi	C4	Destroyers	82
+Brock McGinn	RW4	Destroyers	23
+Rasmus Dahlin	LD1	Destroyers	26
+Rasmus Andersson	RD1	Destroyers	4
+Brady Skjei	LD2	Destroyers	76
+Colton Parayko	RD2	Destroyers	55
+Alexander Alexeyev	LD3	Destroyers	27
+Damon Severson	RD3	Destroyers	78
+Ilya Sorokin	G1	Destroyers	30
+Joey Daccord	G2	Destroyers	35
+John Tavares	LW1	Sea Lions	91
+Auston Matthews	C1	Sea Lions	34
+Jonathan Marchessault	RW1	Sea Lions	81
+Miles Wood	LW2	Sea Lions	28
+Logan Cooley	C2	Sea Lions	92
+Arthur Kaliyev	RW2	Sea Lions	43
+Matt Nieto	LW3	Sea Lions	83
+Jason Dickinson	C3	Sea Lions	16
+Kevin Labanc	RW3	Sea Lions	64
+Phillip Di Giuseppe	LW4	Sea Lions	33
+Joshua Roy	C4	Sea Lions	89
+Emil Bemström	RW4	Sea Lions	52
+Adam Pelech	LD1	Sea Lions	3
+Brandon Montour	RD1	Sea Lions	62
+Darnell Nurse	LD2	Sea Lions	25
+Nick Perbix	RD2	Sea Lions	48
+David Jiricek	LD3	Sea Lions	55
+Timothy Liljegren	RD3	Sea Lions	37
+Charlie Lindgren	G1	Sea Lions	79
+Vitek Vanecek	G2	Sea Lions	41
+Kevin Fiala	LW1	Toros	22
+Leon Draisaitl	C1	Toros	29
+Troy Terry	RW1	Toros	19
+Evander Kane	LW2	Toros	91
+Ryan Strome	C2	Toros	16
+Tyson Foerster	RW2	Toros	71
+Alex Barré-Boulet	LW3	Toros	12
+Zachary Bolduc	C3	Toros	76
+Michael Spacek	RW3	Toros	43
+Liam O'Brien	LW4	Toros	38
+Jasper Weatherby	C4	Toros	26
+Luca Del Bel Belluz	RW4	Toros	65
+Victor Hedman	LD1	Toros	77
+Zayne Parekh	RD1	Toros	89
+Haydn Fleury	LD2	Toros	24
+Jayden Struble	RD2	Toros	47
+Kaeden Korczak	LD3	Toros	6
+Denton Mateychuk	RD3	Toros	5
+Alex Lyon	G1	Toros	34
+Joel Blomqvist	G2	Toros	30
+Alex Ovechkin	LW1	Wildcats	8
+Evgeni Malkin	C1	Wildcats	71
+Tyler Toffoli	RW1	Wildcats	73
+Jeff Skinner	LW2	Wildcats	53
+Pavel Zacha	C2	Wildcats	18
+Nicolas Roy	RW2	Wildcats	55
+William Carrier	LW3	Wildcats	28
+Thomas Novak	C3	Wildcats	82
+Martin Pospisil	RW3	Wildcats	76
+Barclay Goodrow	LW4	Wildcats	23
+Bobby McMann	C4	Wildcats	78
+Daniel Sprong	RW4	Wildcats	10
+Brett Pesce	LD1	Wildcats	22
+Neal Pionk	RD1	Wildcats	4
+Martin Fehervary	LD2	Wildcats	42
+Brent Burns	RD2	Wildcats	88
+Connor Clifton	LD3	Wildcats	75
+Braden Schneider	RD3	Wildcats	45
+Stuart Skinner	G1	Wildcats	74
+Kaapo Kähkönen	G2	Wildcats	34
+Jesper Bratt	LW1	Gladiators	63
+Michael Bunting	C1	Gladiators	58
+Matvei Michkov	RW1	Gladiators	39
+Danton Heinen	LW2	Gladiators	43
+Oskar Bäck	C2	Gladiators	10
+Mathieu Olivier	RW2	Gladiators	24
+Ryan Lomberg	LW3	Gladiators	70
+Anthony Richard	C3	Gladiators	90
+Dominik Kahun	RW3	Gladiators	21
+Emil Heineman	LW4	Gladiators	51
+Oliver Kapanen	C4	Gladiators	91
+Fedor Svechkov	RW4	Gladiators	40
+Uvis Balinskis	LD1	Gladiators	26
+Aaron Ekblad	RD1	Gladiators	5
+Emil Andrae	LD2	Gladiators	36
+Nick Blankenburg	RD2	Gladiators	37
+Dakota Mermis	LD3	Gladiators	6
+Logan Mailloux	RD3	Gladiators	94
+Jake Oettinger	G1	Gladiators	29
+Philipp Grubauer	G2	Gladiators	31
+Jonathan Huberdeau	LW1	Robbers	10
+Roope Hintz	C1	Robbers	24
+Mats Zuccarello	RW1	Robbers	36
+Jonathan Drouin	LW2	Robbers	27
+Macklin Celebrini	C2	Robbers	71
+John-Jason Peterka	RW2	Robbers	77
+Vladislav Namestnikov	LW3	Robbers	7
+Yegor Sharangovich	C3	Robbers	17
+Michael Eyssimont	RW3	Robbers	21
+Joel Kiviranta	LW4	Robbers	94
+Andreas Athanasiou	C4	Robbers	89
+Trevor Lewis	RW4	Robbers	61
+Quinn Hughes	LD1	Robbers	43
+Drew Doughty	RD1	Robbers	8
+Rasmus Sandin	LD2	Robbers	38
+Mason Lohrei	RD2	Robbers	6
+Pavel Mintyukov	LD3	Robbers	34
+Marc-Edouard Vlasic	RD3	Robbers	44
+Akira Schmid	G1	Robbers	40
+Antti Raanta	G2	Robbers	32
+Sam Bennett	LW1	Bandits	9
+Tim Stützle	C1	Bandits	18
+Nathan MacKinnon	RW1	Bandits	29
+Connor McMichael	LW2	Bandits	24
+Ryan Nugent-Hopkins	C2	Bandits	93
+Alex Laferriere	RW2	Bandits	14
+Ondrej Palat	LW3	Bandits	8
+Cutter Gauthier	C3	Bandits	61
+Garnet Hathaway	RW3	Bandits	19
+A.J. Greer	LW4	Bandits	10
+Christian Dvorak	C4	Bandits	28
+Corey Perry	RW4	Bandits	90
+Morgan Rielly	LD1	Bandits	44
+Charlie McAvoy	RD1	Bandits	73
+Esa Lindell	LD2	Bandits	23
+Ethan Bear	RD2	Bandits	25
+Olen Zellweger	LD3	Bandits	51
+Kevin Bahl	RD3	Bandits	7
+Jeremy Swayman	G1	Bandits	1
+Karel Vejmelka	G2	Bandits	70
+Carter Verhaeghe	LW1	Dragons	23
+Marco Rossi	C1	Dragons	25
+Jared McCann	RW1	Dragons	19
+Andrew Mangiapane	LW2	Dragons	89
+Nazem Kadri	C2	Dragons	91
+Jean-Gabriel Pageau	RW2	Dragons	44
+James van Riemsdyk	LW3	Dragons	21
+Jake Evans	C3	Dragons	73
+Jakub Vrana	RW3	Dragons	13
+Liam Öhgren	LW4	Dragons	28
+Casey Cizikas	C4	Dragons	53
+Samuel Honzek	RW4	Dragons	29
+Jonas Siegenthaler	LD1	Dragons	71
+Samuel Girard	RD1	Dragons	49
+Ryker Evans	LD2	Dragons	39
+Erik Cernak	RD2	Dragons	81
+Nate Schmidt	LD3	Dragons	88
+Marcus Björk	RD3	Dragons	47
+John Gibson	G1	Dragons	36
+Samuel Ersson	G2	Dragons	33
+Eeli Tolvanen	LW1	Spartans	20
+Brock Nelson	C1	Spartans	11
+Lucas Raymond	RW1	Spartans	23
+Beck Malenstyn	LW2	Spartans	29
+Eetu Luostarinen	C2	Spartans	27
+Yanni Gourde	RW2	Spartans	37
+Lukas Reichel	LW3	Spartans	73
+John Beecher	C3	Spartans	19
+Joel Armia	RW3	Spartans	40
+Pierre-Edouard Bellemare	LW4	Spartans	41
+David Gustafsson	C4	Spartans	91
+Marat Khusnutdinov	RW4	Spartans	92
+Nick Leddy	LD1	Spartans	4
+Dylan DeMelo	RD1	Spartans	2
+Brett Kulak	LD2	Spartans	17
+Jordan Spence	RD2	Spartans	21
+Zeev Buium	LD3	Spartans	8
+Brayden Pachal	RD3	Spartans	94
+Filip Gustavsson	G1	Spartans	32
+Alexandar Georgiev	G2	Spartans	30
+Kiefer Sherwood	LW1	Leopards	44
+William Karlsson	C1	Leopards	71
+Mark Stone	RW1	Leopards	61
+Paul Cotter	LW2	Leopards	47
+Matty Beniers	C2	Leopards	10
+Charlie Coyle	RW2	Leopards	13
+Sammy Blais	LW3	Leopards	79
+Morgan Geekie	C3	Leopards	39
+Logan O'Connor	RW3	Leopards	25
+Zemgus Girgensons	LW4	Leopards	28
+Rasmus Kupari	C4	Leopards	15
+Elmer Söderblom	RW4	Leopards	85
+MacKenzie Weegar	LD1	Leopards	52
+Kris Letang	RD1	Leopards	58
+Jacob Middleton	LD2	Leopards	5
+Jamie Drysdale	RD2	Leopards	9
+Ty Emberson	LD3	Leopards	49
+Conor Timmins	RD3	Leopards	20
+Joonas Korpisalo	G1	Leopards	70
+Connor Ingram	G2	Leopards	29
+Zach Hyman	LW1	Wolverines	18
+Ross Colton	C1	Wolverines	20
+Mathew Barzal	RW1	Wolverines	13
+Jake Neighbours	LW2	Wolverines	63
+Teddy Blueger	C2	Wolverines	53
+Pavel Dorofeyev	RW2	Wolverines	16
+Dakota Joshua	LW3	Wolverines	81
+Matthew Poitras	C3	Wolverines	51
+Philip Tomasino	RW3	Wolverines	26
+Steven Lorentz	LW4	Wolverines	78
+Alex Turcotte	C4	Wolverines	15
+Rafaël Harvey-Pinard	RW4	Wolverines	49
+Ivan Provorov	LD1	Wolverines	9
+Torey Krug	RD1	Wolverines	47
+Brian Dumoulin	LD2	Wolverines	2
+Jacob Bernard-Docker	RD2	Wolverines	24
+Sami Niku	LD3	Wolverines	8
+Sam Malinski	RD3	Wolverines	70
+Frederik Andersen	G1	Wolverines	31
+Petr Mrazek	G2	Wolverines	34
+Nikolaj Ehlers	LW1	Admirals	27
+Connor Bedard	C1	Admirals	98
+Matthew Knies	RW1	Admirals	23
+Andre Burakovsky	LW2	Admirals	95
+Frederick Gaudreau	C2	Admirals	89
+Vladimir Tarasenko	RW2	Admirals	91
+Lawson Crouse	LW3	Admirals	67
+Alexander Wennberg	C3	Admirals	21
+Jesper Fast	RW3	Admirals	71
+Alexandre Texier	LW4	Admirals	9
+Radim Zohorna	C4	Admirals	63
+Pontus Holmberg	RW4	Admirals	29
+Alex Vlasic	LD1	Admirals	72
+Justin Holl	RD1	Admirals	3
+Jake Bean	LD2	Admirals	24
+Andrew Peeke	RD2	Admirals	52
+Kyle Burroughs	LD3	Admirals	7
+Declan Chisholm	RD3	Admirals	47
+Joseph Woll	G1	Admirals	60
+Devon Levi	G2	Admirals	28
