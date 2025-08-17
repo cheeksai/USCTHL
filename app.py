@@ -7,19 +7,21 @@ import os
 app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(BASE_DIR, r"C:\Users\jacks\Downloads\USCTHL 2025-26 Rosters - Major League 3(in).csv")
 
-df = pd.read_csv(csv_path)
-
+roster_csv = os.path.join(BASE_DIR, "rosters.csv")
+df = pd.read_csv(roster_csv)
 df.drop(['Pos'], axis=1, inplace=True)
 inf = df.dropna()
-info = inf.drop([12,19,22])
+info = inf.drop([12, 19, 22])
 
-dataframe = pd.read_csv(r"C:\Users\jacks\Downloads\USCTHL ROSTER STUFF OFFICIAL - Sheet1 (3).tsv", sep='\t',header = None)
+official_roster = os.path.join(BASE_DIR, "roster_official.tsv")
+dataframe = pd.read_csv(official_roster, sep='\t', header=None)
 dataframe.columns = ['Player', 'Position', 'Team', 'Number']
 
-df1 = pd.read_csv(r"C:\Users\jacks\Downloads\USCTHL Assist Matrix - Sheet1.tsv", sep='\t', index_col=0)
+assist_matrix = os.path.join(BASE_DIR, "assists")
+df1 = pd.read_csv(assist_matrix, sep='\t', index_col=0)
 df1 = df1.drop(index=df1.index[-1], columns='assister')
+
 
 
 print(info.columns.tolist())
