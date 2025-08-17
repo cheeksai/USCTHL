@@ -1,13 +1,7 @@
-﻿services:
+services:
   - type: web
     name: uscthl
     env: python
-    buildCommand: \
-pip
-install
--r
-requirements.txt\
-    startCommand: \python
-app.py\
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
     pythonVersion: 3.11.8
-
