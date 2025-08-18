@@ -1329,7 +1329,6 @@ HTML_TEMPLATE = """
       width: 45%;
       display: flex;
       border: 4px solid;
-      text-align: left;
       padding: 0;
     }
     .team-info {
@@ -1338,18 +1337,16 @@ HTML_TEMPLATE = """
       display: flex;
       flex-direction: column;
       justify-content: center;
+      text-align: center;
     }
     .team-info.home {
-      text-align: left;
-      align-items: flex-start;
+      align-items: center;
     }
     .team-info.away {
-      text-align: right;
-      align-items: flex-end;
+      align-items: center;
     }
     .team-logo {
       flex: 1;
-      border-left: 2px solid #ccc;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1455,7 +1452,9 @@ HTML_TEMPLATE = """
             </h3>
             <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
           </div>
-          <div class="team-logo" style="background-color: {{ team_colors[result["team1"]["name"]][0] }};">
+          <div class="team-logo"
+               style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
+                      border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
             <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
           </div>
         </div>
@@ -1467,7 +1466,9 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
                     color: {{ team_colors[result["team2"]["name"]][1] }};
                     border-color: {{ team_colors[result["team2"]["name"]][1] }};">
-          <div class="team-logo" style="border-left: none; border-right: 2px solid #ccc; background-color: {{ team_colors[result["team2"]["name"]][0] }};">
+          <div class="team-logo"
+               style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
+                      border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
             <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
           </div>
           <div class="team-info away">
