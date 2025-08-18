@@ -1328,7 +1328,6 @@ HTML_TEMPLATE = """
     .team-box {
       width: 45%;
       padding: 10px;
-      border: 1px solid #ccc;
       text-align: center;
     }
     .vs-box {
@@ -1336,7 +1335,7 @@ HTML_TEMPLATE = """
       text-align: center;
       font-size: 1.5em;
       font-weight: bold;
-      color: #rgb(16,16,16);
+      color: #101010;
     }
     .logo {
       width: 100px;
@@ -1419,7 +1418,8 @@ HTML_TEMPLATE = """
       <div class="team-row">
         <div class="team-box"
              style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
-                    color: {{ team_colors[result["team1"]["name"]][1] }};">
+                    color: {{ team_colors[result["team1"]["name"]][1] }};
+                    border: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
           <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
             Home: {{ result["team1"]["name"] }}
           </h3>
@@ -1429,7 +1429,8 @@ HTML_TEMPLATE = """
         <div class="vs-box">VS</div>
         <div class="team-box"
              style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
-                    color: {{ team_colors[result["team2"]["name"]][1] }};">
+                    color: {{ team_colors[result["team2"]["name"]][1] }};
+                    border: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
           <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
             Away: {{ result["team2"]["name"] }}
           </h3>
