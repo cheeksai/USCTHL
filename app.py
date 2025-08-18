@@ -1312,7 +1312,7 @@ HTML_TEMPLATE = """
     body {
       font-family: Arial, sans-serif;
       margin: 30px;
-      background-color: "rgb(222,227,237)";
+      background-color: rgb(222,227,237);
     }
     h1, h2, h3 {
       color: #2c3e50;
