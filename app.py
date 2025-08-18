@@ -1345,7 +1345,7 @@ HTML_TEMPLATE = """
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: inherit;
+      background-color: "rgb(222,227,237)";
     }
     .team-logo img {
       max-width: 100%;
