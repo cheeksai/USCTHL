@@ -1542,10 +1542,14 @@ def home():
         winner_key = result["winner"].split(" (")[0]
 
     def get_logo(team_name):
-        filename = f"{team_name.lower()}.png"
-        full_path = os.path.join(app.static_folder, "logos", filename)
-        if os.path.exists(full_path):
-            return url_for('static', filename=f'logos/{filename}')
+        logo_dir = os.path.join(app.static_folder, "logos")
+        prefix = team_name + " "
+        suffix = "Logo.jpg"
+    
+        for file in os.listdir(logo_dir):
+            if file.startswith(prefix) and file.endswith(suffix):
+                return url_for('static', filename=f'logos/{file}')
+        return None
 
     logo1 = get_logo(result["team1"]["name"]) if result else None
     logo2 = get_logo(result["team2"]["name"]) if result else None
