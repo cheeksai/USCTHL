@@ -1494,61 +1494,71 @@ from flask import request, render_template_string
 def home():
     result = None
     headline = None
+
     if request.method == 'POST':
         raw_team1 = request.form.get('team1')
         raw_team2 = request.form.get('team2')
 
         team_thing1 = normalize_team_input(raw_team1)
         team_thing2 = normalize_team_input(raw_team2)
-        
 
         if team_thing1 and team_thing2:
-                result = simulate_game(team_thing1, team_thing2)
-                if result and not result.get("error"):
+            result = simulate_game(team_thing1, team_thing2)
+            if result and not result.get("error"):
+                team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
+                team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
 
-                    team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
-                    team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
-                    
-                    headline = headline_generator(
-                        team1 = result["team1"]["name"],
-                        team2 = result["team2"]["name"],
-                        score1 = result["ot1_score"],
-                        score2 = result["ot2_score"],
-                        winner = result["winner"],
-                        overtime = result["overtime"],
-                        ot_winner = result.get("ot_winner", ""),
-                        ot_scorers = result.get("ot_scorers", ["N/A"]),
-                        ot_scorers_name = result["ot_scorers_name"] if result.get("ot_scorers") else "N/A",
-                        ot1_score = result.get("ot1_score", result["team1"]["total_goals"]),
-                        ot2_score = result.get("ot2_score", result["team2"]["total_goals"]),
-                        goalie1=result["team1"]["goalie"],
-                        goalie2=result["team2"]["goalie"],
-                        period_events=result["period_events"],
-                        hat_trick_scorer = result.get("hat_trick_scorer"),
-                        team1_period1=result["team1_periods"][0],
-                        team1_period2=result["team1_periods"][1],
-                        team1_period3=result["team1_periods"][2],
-                        team2_period1=result["team2_periods"][0],
-                        team2_period2=result["team2_periods"][1],
-                        team2_period3=result["team2_periods"][2],
-                        all_goals = result.get("all_goals", [])
-                    )
-
-                else:
-                    result = {"error": "Invalid team thing there, bub"}
+                headline = headline_generator(
+                    team1 = result["team1"]["name"],
+                    team2 = result["team2"]["name"],
+                    score1 = result["ot1_score"],
+                    score2 = result["ot2_score"],
+                    winner = result["winner"],
+                    overtime = result["overtime"],
+                    ot_winner = result.get("ot_winner", ""),
+                    ot_scorers = result.get("ot_scorers", ["N/A"]),
+                    ot_scorers_name = result["ot_scorers_name"] if result.get("ot_scorers") else "N/A",
+                    ot1_score = result.get("ot1_score", result["team1"]["total_goals"]),
+                    ot2_score = result.get("ot2_score", result["team2"]["total_goals"]),
+                    goalie1 = result["team1"]["goalie"],
+                    goalie2 = result["team2"]["goalie"],
+                    period_events = result["period_events"],
+                    hat_trick_scorer = result.get("hat_trick_scorer"),
+                    team1_period1 = result["team1_periods"][0],
+                    team1_period2 = result["team1_periods"][1],
+                    team1_period3 = result["team1_periods"][2],
+                    team2_period1 = result["team2_periods"][0],
+                    team2_period2 = result["team2_periods"][1],
+                    team2_period3 = result["team2_periods"][2],
+                    all_goals = result.get("all_goals", [])
+                )
+            else:
+                result = {"error": "Invalid team thing there, bub"}
         else:
             result = {"error": "please enter a valid input bub"}
 
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
         winner_key = result["winner"].split(" (")[0]
-    
-    logo1 = url_for('static', filename=f'logos/{result["team1"]["name"].lower()}.png') if result else None
-    logo2 = url_for('static', filename=f'logos/{result["team2"]["name"].lower()}.png') if result else None
-    
-    return render_template_string(HTML_TEMPLATE, result=result,headline=headline, team_colors=team_colors, winner_key=winner_key, logo1=logo1, logo2=logo2
-)
 
+    def get_logo(team_name):
+        filename = f"{team_name.lower()}.png"
+        full_path = os.path.join(app.static_folder, "logos", filename)
+        if os.path.exists(full_path):
+            return url_for('static', filename=f'logos/{filename}')
+
+    logo1 = get_logo(result["team1"]["name"]) if result else None
+    logo2 = get_logo(result["team2"]["name"]) if result else None
+
+    return render_template_string(
+        HTML_TEMPLATE,
+        result=result,
+        headline=headline,
+        team_colors=team_colors,
+        winner_key=winner_key,
+        logo1=logo1,
+        logo2=logo2
+    )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
