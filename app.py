@@ -1333,17 +1333,12 @@ HTML_TEMPLATE = """
     }
     .team-info {
       flex: 2;
-      padding: 15px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
-    }
-    .team-info.home {
-      align-items: center;
-    }
-    .team-info.away {
-      align-items: center;
+      padding: 15px;
     }
     .team-logo {
       flex: 1;
@@ -1446,7 +1441,7 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
                     color: {{ team_colors[result["team1"]["name"]][1] }};
                     border-color: {{ team_colors[result["team1"]["name"]][1] }};">
-          <div class="team-info home">
+          <div class="team-info">
             <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
               Home: {{ result["team1"]["name"] }}
             </h3>
@@ -1471,7 +1466,7 @@ HTML_TEMPLATE = """
                       border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
             <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
           </div>
-          <div class="team-info away">
+          <div class="team-info">
             <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
               Away: {{ result["team2"]["name"] }}
             </h3>
