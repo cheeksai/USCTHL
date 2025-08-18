@@ -1322,13 +1322,33 @@ HTML_TEMPLATE = """
     .team-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
       margin-bottom: 20px;
     }
     .team-box {
       width: 45%;
+      display: flex;
+      border: 4px solid;
+      text-align: left;
+      padding: 0;
+    }
+    .team-info {
+      flex: 2;
+      padding: 15px;
+    }
+    .team-logo {
+      flex: 1;
+      border-left: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+    }
+    .team-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       padding: 10px;
-      text-align: center;
     }
     .vs-box {
       width: 10%;
@@ -1336,12 +1356,9 @@ HTML_TEMPLATE = """
       font-size: 1.5em;
       font-weight: bold;
       color: #101010;
-    }
-    .logo {
-      width: 100px;
-      height: 100px;
-      background-color: #ddd;
-      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .period-container {
       display: flex;
@@ -1416,26 +1433,38 @@ HTML_TEMPLATE = """
     {% else %}
 
       <div class="team-row">
+        <!-- Home Team -->
         <div class="team-box"
              style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
                     color: {{ team_colors[result["team1"]["name"]][1] }};
-                    border: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
-          <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-            Home: {{ result["team1"]["name"] }}
-          </h3>
-          <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo" class="logo">
-          <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+                    border-color: {{ team_colors[result["team1"]["name"]][1] }};">
+          <div class="team-info">
+            <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
+              Home: {{ result["team1"]["name"] }}
+            </h3>
+            <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+          </div>
+          <div class="team-logo">
+            <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
+          </div>
         </div>
+
         <div class="vs-box">VS</div>
+
+        <!-- Away Team -->
         <div class="team-box"
              style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
                     color: {{ team_colors[result["team2"]["name"]][1] }};
-                    border: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
-          <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-            Away: {{ result["team2"]["name"] }}
-          </h3>
-          <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo" class="logo">
-          <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+                    border-color: {{ team_colors[result["team2"]["name"]][1] }};">
+          <div class="team-logo" style="border-left: none; border-right: 2px solid #ccc;">
+            <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
+          </div>
+          <div class="team-info">
+            <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
+              Away: {{ result["team2"]["name"] }}
+            </h3>
+            <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+          </div>
         </div>
       </div>
 
