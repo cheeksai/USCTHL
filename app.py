@@ -1402,10 +1402,10 @@ HTML_TEMPLATE = """
   <h1>USCTHL Game Simulator</h1>
 
   <form method="POST" class="form-section">
-    <label for="team1">Team 1:</label>
+    <label for="team1">Home:</label>
     <input type="text" name="team1" id="team1" required>
     &nbsp;&nbsp;
-    <label for="team2">Team 2:</label>
+    <label for="team2">Away:</label>
     <input type="text" name="team2" id="team2" required>
     &nbsp;&nbsp;
     <button type="submit">Simulate</button>
@@ -1421,7 +1421,7 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
                     color: {{ team_colors[result["team1"]["name"]][1] }};">
           <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-            Team 1: {{ result["team1"]["name"] }}
+            Home: {{ result["team1"]["name"] }}
           </h3>
           <div class="logo">Logo</div>
           <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
@@ -1431,7 +1431,7 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
                     color: {{ team_colors[result["team2"]["name"]][1] }};">
           <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-            Team 2: {{ result["team2"]["name"] }}
+            Away: {{ result["team2"]["name"] }}
           </h3>
           <div class="logo">Logo</div>
           <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
