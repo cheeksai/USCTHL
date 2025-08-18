@@ -1423,7 +1423,7 @@ HTML_TEMPLATE = """
           <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
             Home: {{ result["team1"]["name"] }}
           </h3>
-          <div class="logo">Logo</div>
+          <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo" class="logo">
           <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
         </div>
         <div class="vs-box">VS</div>
@@ -1433,7 +1433,7 @@ HTML_TEMPLATE = """
           <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
             Away: {{ result["team2"]["name"] }}
           </h3>
-          <div class="logo">Logo</div>
+          <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo" class="logo">
           <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
         </div>
       </div>
@@ -1543,8 +1543,10 @@ def home():
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
         winner_key = result["winner"].split(" (")[0]
     
+    logo1 = url_for('static', filename=f'logos/{result["team1"]["name"].lower()}.png') if result else None
+    logo2 = url_for('static', filename=f'logos/{result["team2"]["name"].lower()}.png') if result else None
     
-    return render_template_string(HTML_TEMPLATE, result=result,headline=headline, team_colors=team_colors, winner_key=winner_key
+    return render_template_string(HTML_TEMPLATE, result=result,headline=headline, team_colors=team_colors, winner_key=winner_key, logo1=logo1, logo2=logo2
 )
 
 
