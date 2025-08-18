@@ -1335,6 +1335,17 @@ HTML_TEMPLATE = """
     .team-info {
       flex: 2;
       padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .team-info.home {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .team-info.away {
+      text-align: right;
+      align-items: flex-end;
     }
     .team-logo {
       flex: 1;
@@ -1342,7 +1353,7 @@ HTML_TEMPLATE = """
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #f9f9f9;
+      background-color: inherit;
     }
     .team-logo img {
       max-width: 100%;
@@ -1438,13 +1449,13 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
                     color: {{ team_colors[result["team1"]["name"]][1] }};
                     border-color: {{ team_colors[result["team1"]["name"]][1] }};">
-          <div class="team-info">
+          <div class="team-info home">
             <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
               Home: {{ result["team1"]["name"] }}
             </h3>
             <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
           </div>
-          <div class="team-logo">
+          <div class="team-logo" style="background-color: {{ team_colors[result["team1"]["name"]][0] }};">
             <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
           </div>
         </div>
@@ -1456,10 +1467,10 @@ HTML_TEMPLATE = """
              style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
                     color: {{ team_colors[result["team2"]["name"]][1] }};
                     border-color: {{ team_colors[result["team2"]["name"]][1] }};">
-          <div class="team-logo" style="border-left: none; border-right: 2px solid #ccc;">
+          <div class="team-logo" style="border-left: none; border-right: 2px solid #ccc; background-color: {{ team_colors[result["team2"]["name"]][0] }};">
             <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
           </div>
-          <div class="team-info">
+          <div class="team-info away">
             <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
               Away: {{ result["team2"]["name"] }}
             </h3>
