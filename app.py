@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, url_for
 import pandas as pd
 import numpy as np
 import random
