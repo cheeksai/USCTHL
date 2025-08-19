@@ -1313,9 +1313,10 @@ HTML_TEMPLATE = """
       font-family: Arial, sans-serif;
       margin: 30px;
       background-color: rgb(222,227,237);
+      color: black;
     }
     h1, h2, h3 {
-      color: #2c3e50;
+      color: black;
     }
     .form-section {
       margin-bottom: 30px;
@@ -1421,7 +1422,7 @@ HTML_TEMPLATE = """
 
   <h1>USCTHL Game Simulator</h1>
 
-  <form method="POST" class="form-section" style="color: black;">
+  <form method="POST" class="form-section">
     <label for="team1">Home:</label>
     <input type="text" name="team1" id="team1" required>
     &nbsp;&nbsp;
