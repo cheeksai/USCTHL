@@ -1546,6 +1546,7 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
+
 from flask import request, render_template_string
 
 @app.route('/', methods=['GET', 'POST'])
