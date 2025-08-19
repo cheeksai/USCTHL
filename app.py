@@ -1327,8 +1327,20 @@ HTML_TEMPLATE = """
     .team-box {
       width: 45%;
       display: flex;
+      flex-direction: column;
       border: 4px solid;
       padding: 0;
+    }
+    .team-label {
+      text-align: center;
+      font-weight: bold;
+      padding: 8px;
+      background-color: #f0f0f0;
+      border-bottom: 2px solid #ccc;
+    }
+    .team-content {
+      display: flex;
+      flex: 1;
     }
     .team-info {
       flex: 2;
@@ -1453,40 +1465,42 @@ HTML_TEMPLATE = """
 
       <div class="team-row">
         <!-- Home Team -->
-        <div class="team-box"
-             style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
-                    color: {{ team_colors[result["team1"]["name"]][1] }};
-                    border-color: {{ team_colors[result["team1"]["name"]][1] }};">
-          <div class="team-info">
-            <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-              {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
-            </h3>
-            <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
-          </div>
-          <div class="team-logo"
+        <div class="team-box" style="border-color: {{ team_colors[result["team1"]["name"]][1] }};">
+          <div class="team-label">Home</div>
+          <div class="team-content"
                style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
-                      border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
-            <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
+                      color: {{ team_colors[result["team1"]["name"]][1] }};">
+            <div class="team-info">
+              <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
+                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+              </h3>
+              <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+            </div>
+            <div class="team-logo"
+                 style="border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
+              <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
+            </div>
           </div>
         </div>
 
         <div class="vs-box">VS</div>
 
         <!-- Away Team -->
-        <div class="team-box"
-             style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
-                    color: {{ team_colors[result["team2"]["name"]][1] }};
-                    border-color: {{ team_colors[result["team2"]["name"]][1] }};">
-          <div class="team-logo"
+        <div class="team-box" style="border-color: {{ team_colors[result["team2"]["name"]][1] }};">
+          <div class="team-label">Away</div>
+          <div class="team-content"
                style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
-                      border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
-            <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
-          </div>
-          <div class="team-info">
-            <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-              {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
-            </h3>
-            <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+                      color: {{ team_colors[result["team2"]["name"]][1] }};">
+            <div class="team-logo"
+                 style="border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
+              <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
+            </div>
+            <div class="team-info">
+              <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
+                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+              </h3>
+              <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1517,7 +1531,15 @@ HTML_TEMPLATE = """
            style="background-color: {{ team_colors[winner_key][0] }};
                   color: {{ team_colors[winner_key][1] }};">
         <div class="winner-label">Winner</div>
-        <span class="winner-name">{{ result["winner"] }}</span><br><br>
+        <span class="winner-name">
+          {% if result["winner"] == result["team1"]["name"] %}
+            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+          {% elif result["winner"] == result["team2"]["name"] %}
+            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+          {% else %}
+            {{ result["winner"] }}
+          {% endif %}
+        </span><br><br>
         <strong>Final Score</strong><br>
         {% if result["ot1_score"] > result["ot2_score"] %}
           <span style="color: {{ team_colors[winner_key][1] }};">
@@ -1537,7 +1559,7 @@ HTML_TEMPLATE = """
         <div class="headline-box">
           <div class="headline-label">Headline</div>
           <p class="headline">{{ headline }}</p>
-        </div>
+            </div>
       {% endif %}
 
     {% endif %}
@@ -1546,7 +1568,6 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
-
 
 from flask import request, render_template_string
 
