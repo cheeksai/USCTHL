@@ -1303,9 +1303,6 @@ team_colors = {
     "Washington": ["rgb(4,0,74)", "rgb(254,244,0)"]
 }
 
-team1 = team1, team_names[team1]
-team2 = team2, team_names[team2]
-
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -1390,12 +1387,23 @@ HTML_TEMPLATE = """
       margin: 5px 0;
       font-size: 0.95em;
     }
+    .headline-box {
+      width: 60%;
+      margin: 0 auto 20px auto;
+      background-color: #fff;
+      border: 1px solid #000;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    .headline-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
     .headline {
       font-size: 1.2em;
       font-weight: bold;
-      margin-top: 30px;
       color: black;
-      text-align: center;
     }
     .winner-box {
       width: 60%;
@@ -1403,6 +1411,11 @@ HTML_TEMPLATE = """
       padding: 15px 20px;
       border-radius: 0px;
       text-align: center;
+    }
+    .winner-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
     .winner-name {
       font-size: 1.25em;
@@ -1415,6 +1428,7 @@ HTML_TEMPLATE = """
       font-style: italic;
       color: #8e44ad;
       text-align: center;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -1445,7 +1459,7 @@ HTML_TEMPLATE = """
                     border-color: {{ team_colors[result["team1"]["name"]][1] }};">
           <div class="team-info">
             <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-              Home: {{ result["team1"]["name"] }}
+              {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
             </h3>
             <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
           </div>
@@ -1470,7 +1484,7 @@ HTML_TEMPLATE = """
           </div>
           <div class="team-info">
             <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-              Away: {{ result["team2"]["name"] }}
+              {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
             </h3>
             <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
           </div>
@@ -1502,9 +1516,9 @@ HTML_TEMPLATE = """
       <div class="winner-box"
            style="background-color: {{ team_colors[winner_key][0] }};
                   color: {{ team_colors[winner_key][1] }};">
-        <strong>Winner:</strong>
+        <div class="winner-label">Winner</div>
         <span class="winner-name">{{ result["winner"] }}</span><br><br>
-        <strong>Final Score:</strong>
+        <strong>Final Score</strong><br>
         {% if result["ot1_score"] > result["ot2_score"] %}
           <span style="color: {{ team_colors[winner_key][1] }};">
             {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
@@ -1514,10 +1528,16 @@ HTML_TEMPLATE = """
             {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
           </span>
         {% endif %}
+        {% if result["overtime"] == "Yes" %}
+          <div class="overtime">(OT)</div>
+        {% endif %}
       </div>
 
       {% if headline %}
-        <p class="headline">{{ headline }}</p>
+        <div class="headline-box">
+          <div class="headline-label">Headline</div>
+          <p class="headline">{{ headline }}</p>
+        </div>
       {% endif %}
 
     {% endif %}
@@ -1526,7 +1546,6 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
-
 from flask import request, render_template_string
 
 @app.route('/', methods=['GET', 'POST'])
@@ -1598,6 +1617,7 @@ def home():
         result=result,
         headline=headline,
         team_colors=team_colors,
+        team_name=team_name,
         winner_key=winner_key,
         logo1=logo1,
         logo2=logo2
