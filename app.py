@@ -1617,7 +1617,7 @@ def home():
         result=result,
         headline=headline,
         team_colors=team_colors,
-        team_name=team_name,
+        team_names=team_names,
         winner_key=winner_key,
         logo1=logo1,
         logo2=logo2
