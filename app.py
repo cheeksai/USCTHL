@@ -1546,18 +1546,22 @@ HTML_TEMPLATE = """
   <br><br>
   <strong>Final Score</strong><br>
   {% if result["ot1_score"] > result["ot2_score"] %}
-    <span style="color: {{ team_colors[winner_key][1] }};">
-      {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-    </span>
-  {% else %}
-    <span style="color: {{ team_colors[winner_key][1] }};">
-      {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-    </span>
-  {% endif %}
+  <span style="color: {{ team_colors[winner_key][1] }};">
+    {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+    {% if result["overtime"] == "Yes" %}
+      <span class="overtime">(OT)</span>
+    {% endif %}
+  </span>
+{% else %}
+  <span style="color: {{ team_colors[winner_key][1] }};">
+    {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+    {% if result["overtime"] == "Yes" %}
+      <span class="overtime">(OT)</span>
+    {% endif %}
+  </span>
+{% endif %}
 
-  {% if result["overtime"] == "Yes" %}
-    <div class="overtime">(OT)</div>
-  {% endif %}
+
 </div>
 
     
