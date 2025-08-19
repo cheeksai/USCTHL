@@ -1380,7 +1380,7 @@ HTML_TEMPLATE = """
     .period-box h4 {
       margin-top: -5px;
       margin-bottom: 10px;
-      color: #2c3e50;
+      color: black;
       text-align: center;
     }
     .period-box p {
