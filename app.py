@@ -441,12 +441,12 @@ def simulate_game(team1, team2):
 
         if difference > 0:
             ot_winner = team1
-            winner = f"{team1}
+            winner = f"{team1}"
             score1 += 1
             ot_scorers = ot_scorers_team1
         else:
             ot_winner = team2
-            winner = f"{team2}
+            winner = f"{team2}"
             score2 += 1
             ot_scorers = ot_scorers_team2
         #else:
