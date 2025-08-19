@@ -1628,7 +1628,7 @@ def home():
 
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
-        winner_key = result["winner"].split(" (")[0]
+        winner_key = result["winner"].split(" (")[0].strip()
 
     def get_logo(team_name):
         logo_dir = os.path.join(app.static_folder, "logos")
