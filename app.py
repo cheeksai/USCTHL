@@ -1380,6 +1380,12 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
     }
+    .overtime {
+      color: black
+      font-size: 0.9em;
+      margin-left: 6px;
+    }
+
     .period-box {
       width: 60%;
       background-color: #FFFFFF;
