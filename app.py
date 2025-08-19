@@ -1261,7 +1261,7 @@ def headline_generator(**kwargs):
     #elif shootout = 'Yes' then headline = shootout
 
 team_colors = {
-    "Arizona": ["rgb(255,245,0)", "rgb(242,12,23)"],
+    "Arizona": ["rgb(242,12,23)", "rgb(255,245,0)"],
     "Atlanta": ["rgb(4,0,74)", "rgb(236,121,1)"],
     "Baltimore": ["rgb(4,0,74)", "rgb(7,178,239)"],
     "Boise": ["rgb(73,31,33)", "rgb(232,213,177)"],
