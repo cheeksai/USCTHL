@@ -1391,7 +1391,7 @@ HTML_TEMPLATE = """
       font-size: 1.2em;
       font-weight: bold;
       margin-top: 30px;
-      color: #2c3e50;
+      color: black;
       text-align: center;
     }
     .winner-box {
