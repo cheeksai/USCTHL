@@ -1315,9 +1315,6 @@ HTML_TEMPLATE = """
       background-color: rgb(222,227,237);
       color: black;
     }
-    h1, h2, h3 {
-      color: black;
-    }
     .form-section {
       margin-bottom: 30px;
     }
