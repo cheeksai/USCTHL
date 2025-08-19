@@ -441,12 +441,12 @@ def simulate_game(team1, team2):
 
         if difference > 0:
             ot_winner = team1
-            winner = f"{team1} (won in OT)"
+            winner = f"{team1}
             score1 += 1
             ot_scorers = ot_scorers_team1
         else:
             ot_winner = team2
-            winner = f"{team2} (won in OT)"
+            winner = f"{team2}
             score2 += 1
             ot_scorers = ot_scorers_team2
         #else:
@@ -1547,6 +1547,7 @@ HTML_TEMPLATE = """
 </html>
 """
 
+
 from flask import request, render_template_string
 
 @app.route('/', methods=['GET', 'POST'])
@@ -1566,6 +1567,8 @@ def home():
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
                 team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
+                result["team1"]["place"] = team_thing1
+                result["team2"]["place"] = team_thing2
 
                 headline = headline_generator(
                     team1 = result["team1"]["name"],
