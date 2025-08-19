@@ -1303,6 +1303,9 @@ team_colors = {
     "Washington": ["rgb(4,0,74)", "rgb(254,244,0)"]
 }
 
+team1 = team1, team_names[team1]
+team2 = team2, team_names[team2]
+
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
