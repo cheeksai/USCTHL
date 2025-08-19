@@ -1278,7 +1278,7 @@ team_colors = {
     "Indianapolis": ["rgb(2,245,202)", "rgb(4,4,4)"],
     "Iowa": ["rgb(161,2,3)", "rgb(225,86,52)"],
     "Jacksonville": ["rgb(241,19,5)", "rgb(4,4,4)"],
-    "Kansas City": ["rgb(1,190,33)", "rgb(4,4,4)"],
+    "Kansas City": ["rgb(1,90,33)", "rgb(4,4,4)"],
     "Las Vegas": ["rgb(242,230,7)", "rgb(4,4,4)"],
     "Lincoln": ["rgb(202,96,0)", "rgb(4,4,4)"],
     "Long Island": ["rgb(21,188,219)", "rgb(10,4,241)"],
