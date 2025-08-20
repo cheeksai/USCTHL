@@ -836,7 +836,7 @@ headline_choices = {
     "{team1} turns scoring frenzy into convincing win",
     "{team2} can't keep pace as {team1} lights the lamp repeatedly",
     "{team1} runs wild in offensive showcase vs {team2}",
-    "Multi-goal effort from  powers {team1} past {team2}",
+    "{team1} overcomes {team2} with timely goals and relentless pressure",
     "Fireworks fly in {team1}'s high-octane victory"
 ],
 "high_score_team1_loss": [
@@ -854,7 +854,7 @@ headline_choices = {
     "{team2} turns scoring frenzy into convincing win",
     "{team1} can't keep pace as {team2} lights the lamp repeatedly",
     "{team2} runs wild in offensive showcase vs {team1}",
-    "Multi-goal effort from  powers {team2} past {team1}",
+    "{team2} overcomes {team1} with timely goals and relentless pressure",
     "Fireworks fly in {team2}'s high-octane victory"
 ],
 "high_score_team2_loss": [
@@ -1380,12 +1380,6 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
     }
-    .overtime {
-      color: black
-      font-size: 0.9em;
-      margin-left: 6px;
-    }
-
     .period-box {
       width: 60%;
       background-color: #FFFFFF;
@@ -1447,6 +1441,7 @@ HTML_TEMPLATE = """
       color: #8e44ad;
       text-align: center;
       margin-top: 10px;
+      color: black;
     }
   </style>
 </head>
