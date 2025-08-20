@@ -1364,6 +1364,11 @@ HTML_TEMPLATE = """
       object-fit: contain;
       padding: 10px;
     }
+    .final-score-label {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
     .vs-box {
       width: 10%;
       text-align: center;
@@ -1437,7 +1442,6 @@ HTML_TEMPLATE = """
       font-weight: bold;
     }
     .overtime {
-      font-style: italic;
       font-size: 0.9em;
       margin-left: 6px;
       color: #8e44ad;
@@ -1543,8 +1547,7 @@ HTML_TEMPLATE = """
     </span>
   </div>
 
-  <br><br>
-  <strong>Final Score</strong><br>
+  <div class="final-score-label">Final Score:</div>
     {% if result["ot1_score"] > result["ot2_score"] %}
       <span style="color: {{ team_colors[winner_key][1] }};">
         {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
