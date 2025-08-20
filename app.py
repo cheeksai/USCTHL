@@ -1551,19 +1551,20 @@ HTML_TEMPLATE = """
 
   <br><br>
   <strong>Final Score</strong><br>
-  {% if result["ot1_score"] > result["ot2_score"] %}
-  <span style="color: {{ team_colors[winner_key][1] }};">
-    {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-    {% if result["overtime"] == "Yes" %}
-      <span class="overtime">(OT)</span>
-    {% endif %}
-  </span>
-{% else %}
-  <span style="color: {{ team_colors[winner_key][1] }};">
-    {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-    {% if result["overtime"] == "Yes" %}
-      <span class="overtime">(OT)</span>
-    {% endif %}
+    {% if result["ot1_score"] > result["ot2_score"] %}
+      <span style="color: {{ team_colors[winner_key][1] }};">
+        {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+      </span>
+      {% if result["overtime"] == "Yes" %}
+        <span class="overtime" style="color: {{ team_colors['overtime'][1] }};">(OT)</span>
+      {% endif %}
+    {% else %}
+      <span style="color: {{ team_colors[winner_key][1] }};">
+        {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+      </span>
+      {% if result["overtime"] == "Yes" %}
+        <span class="overtime" style="color: {{ team_colors['overtime'][1] }};">(OT)</span>
+      {% endif %}
   </span>
 {% endif %}
 
