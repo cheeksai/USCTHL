@@ -1438,10 +1438,9 @@ HTML_TEMPLATE = """
     }
     .overtime {
       font-style: italic;
+      font-size: 0.9em;
+      margin-left: 6px;
       color: #8e44ad;
-      text-align: center;
-      margin-top: 10px;
-      color: black;
     }
   </style>
 </head>
@@ -1529,8 +1528,8 @@ HTML_TEMPLATE = """
           </div>
     
           <div class="winner-box"
-               style="background-color: {{ team_colors[winner_key][0] }};
-                      color: {{ team_colors[winner_key][1] }};">
+             style="background-color: {{ team_colors[winner_key][0] }};
+                    color: black;">
             <div class="winner-label">
     Winner:
     <span class="winner-name">
