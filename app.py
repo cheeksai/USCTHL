@@ -1648,6 +1648,8 @@ def home():
     logo1 = get_logo(result["team1"]["name"]) if result else None
     logo2 = get_logo(result["team2"]["name"]) if result else None
 
+    team_colors.setdefault("overtime", ["#000000", black])
+
     return render_template_string(
         HTML_TEMPLATE,
         result=result,
