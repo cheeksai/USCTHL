@@ -1411,13 +1411,12 @@ HTML_TEMPLATE = """
       font-size: 0.95em;
     }
     .headline-box {
-      position: absolute;
-      bottom: 0;
       width: 100%;
       background-color: white;
       text-align: center;
       padding: 10px 0;
-      z-index: 10;
+      margin-top: 40px;
+      border-top: 2px solid #000;
     }
     .headline-label {
       font-size: 1.1em;
@@ -1592,11 +1591,13 @@ def home():
 
         if team_thing1 and team_thing2:
             result = simulate_game(team_thing1, team_thing2)
+            result["team1"]["place"] = result["team1"].get("place", team_thing1).strip()
+            result["team2"]["place"] = result["team2"].get("place", team_thing2).strip()
+        
             result["team1"]["name"] = result["team1"]["name"].strip()
             result["team2"]["name"] = result["team2"]["name"].strip()
-            result["team1"]["place"] = result["team1"]["place"].strip()
-            result["team2"]["place"] = result["team2"]["place"].strip()
             result["winner"] = result["winner"].strip()
+
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
                 team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
