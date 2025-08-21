@@ -1424,7 +1424,7 @@ HTML_TEMPLATE = """
       margin-bottom: 10px;
     }
     .headline {
-      font-size: 1.2em;
+      font-size: 1.6em;
       font-weight: bold;
       color: black;
     }
@@ -1529,17 +1529,12 @@ HTML_TEMPLATE = """
         </div>
       {% endif %}
     
-      {% if headline %}
-        <div class="period-box"
-             style="background-color: {{ team_colors[result["winner"]][0] if result["winner"] in team_colors else '#fff' }};
-                    border-color: {{ team_colors[result["winner"]][1] if result["winner"] in team_colors else '#000' }};">
-          <h4 style="color: {{ team_colors[result["winner"]][1] if result["winner"] in team_colors else 'black' }};">Headline</h4>
-          <p class="headline"
-             style="color: {{ team_colors[result["winner"]][1] if result["winner"] in team_colors else 'black' }};">
-            {{ headline }}
-          </p>
-        </div>
-      {% endif %}
+     {% if headline %}
+      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
+        <div class="headline-label">Headline</div>
+        <p class="headline" style="color: black;">{{ headline }}</p>
+      </div>
+    {% endif %}
     </div>
     
     {% set winner_key = result["winner"] %}
