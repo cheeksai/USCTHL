@@ -1554,19 +1554,19 @@ HTML_TEMPLATE = """
     
       <div class="score-line">
           <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
-            {% if result["overtime"] == "Yes" %}(OT) {% endif %}
             {% if result["ot1_score"] > result["ot2_score"] %}
               {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
             {% else %}
               {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
             {% endif %}
+            {% if result["overtime"] == "Yes" %} (OT){% endif %}
           </span>
         </div>
             
         {%endif%}
     {%endif%}
     {% if headline %}
-      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
+      <div class="headline-box" style="background-color: #fff; border-top: 2px solid #000; text-align: center; margin-top: 60px;">
         <div class="headline-label">Headline</div>
         <p class="headline" style="color: black;">{{ headline }}</p>
       </div>
