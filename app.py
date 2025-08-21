@@ -1476,7 +1476,7 @@ HTML_TEMPLATE = """
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
               </h3>
               <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
             </div>
@@ -1500,7 +1500,7 @@ HTML_TEMPLATE = """
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
               </h3>
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
@@ -1538,9 +1538,9 @@ HTML_TEMPLATE = """
         Winner:
         <span class="winner-name">
           {% if result["winner"] == result["team1"]["name"] %}
-            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
           {% elif result["winner"] == result["team2"]["name"] %}
-            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
           {% else %}
             {{ result["winner"] }}
           {% endif %}
@@ -1626,6 +1626,7 @@ def home():
                 result = {"error": "Invalid team thing there, bub"}
         else:
             result = {"error": "please enter a valid input bub"}
+            
 
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
