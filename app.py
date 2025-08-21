@@ -1410,30 +1410,13 @@ HTML_TEMPLATE = """
       margin: 5px 0;
       font-size: 0.95em;
     }
-    .headline-box {
-      width: 100%;
-      background-color: white;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 40px;
-      border-top: 2px solid #000;
-    }
-    .headline-label {
-      font-size: 1.1em;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .headline {
-      font-size: 1.6em;
-      font-weight: bold;
-      color: black;
-    }
     .winner-box {
       width: 60%;
-      margin: 0 auto 20px auto;
+      margin: 40px auto 20px auto;
       padding: 15px 20px;
       border-radius: 0px;
       text-align: center;
+      border-top: 2px solid #000;
     }
     .winner-label {
       font-size: 1.1em;
@@ -1446,6 +1429,24 @@ HTML_TEMPLATE = """
     }
     .score-text {
       font-weight: bold;
+    }
+    .headline-box {
+      width: 100%;
+      background-color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 60px;
+      border-top: 2px solid #000;
+    }
+    .headline-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .headline {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: black;
     }
   </style>
 </head>
@@ -1469,6 +1470,7 @@ HTML_TEMPLATE = """
     {% else %}
 
       <div class="team-row">
+        <!-- Home Team -->
         <div class="team-box" style="border-color: {{ team_colors[result["team1"]["name"]][1] }};">
           <div class="team-content"
                style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
@@ -1489,6 +1491,7 @@ HTML_TEMPLATE = """
 
         <div class="vs-box">VS</div>
 
+        <!-- Away Team -->
         <div class="team-box" style="border-color: {{ team_colors[result["team2"]["name"]][1] }};">
           <div class="team-content"
                style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
@@ -1508,72 +1511,72 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-    <div class="period-container">
-      {% for period in result["periods"] %}
-        <div class="period-box">
-          <h4>{{ period["label"] }}</h4>
-          {% if period["events"] %}
-            {% for event in period["events"] %}
-              <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
-            {% endfor %}
-          {% else %}
-            <p>No Scoring</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-    
-      {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
-        <div class="period-box">
-          <h4>Overtime</h4>
-          <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
-        </div>
-      {% endif %}
-    </div>
-    
+      <div class="period-container">
+        {% for period in result["periods"] %}
+          <div class="period-box">
+            <h4>{{ period["label"] }}</h4>
+            {% if period["events"] %}
+              {% for event in period["events"] %}
+                <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
+              {% endfor %}
+            {% else %}
+              <p>No Scoring</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
+          <div class="period-box">
+            <h4>Overtime</h4>
+            <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if result and not result.get("error") %}
     {% set winner_key = result["winner"] %}
-    <div class="winner-box"
-         style="background-color: {{ team_colors[winner_key][0]}};">
-      <div class="winner-label"
-           style="color: {{ team_colors[winner_key][1] }}">
+    <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
+      <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
         Winner:
         <span class="winner-name">
           {% if result["winner"] == result["team1"]["name"] %}
-            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
+            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
           {% elif result["winner"] == result["team2"]["name"] %}
-            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
+            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
           {% else %}
             {{ result["winner"] }}
           {% endif %}
         </span>
       </div>
-    
-      <div class="final-score-label"
-           style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+
+      <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
         Final Score:
       </div>
-    
-      <div class="score-line">
-          <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
-            {% if result["ot1_score"] > result["ot2_score"] %}
-              {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-            {% else %}
-              {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-            {% endif %}
-            {% if result["overtime"] == "Yes" %} (OT){% endif %}
-          </span>
-        </div>
-            
-        {%endif%}
-    {%endif%}
-    {% if headline %}
-      <div class="headline-box" style="background-color: #fff; border-top: 2px solid #000; text-align: center; margin-top: 60px;">
-        <div class="headline-label">Headline</div>
-        <p class="headline" style="color: black;">{{ headline }}</p>
-      </div>
-    {% endif %}
-</body>
-</html>"""
 
+      <div class="score-line">
+        <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+          {% if result["ot1_score"] > result["ot2_score"] %}
+            {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+          {% else %}
+            {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+          {% endif %}
+          {% if result["overtime"] == "Yes" %} (OT){% endif %}
+        </span>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if headline %}
+    <div class="headline-box">
+      <div class="headline-label">Headline</div>
+      <p class="headline">{{ headline }}</p>
+    </div>
+  {% endif %}
+
+</body>
+</html>
 from flask import request, render_template_string
 
 @app.route('/', methods=['GET', 'POST'])
