@@ -1534,7 +1534,7 @@ HTML_TEMPLATE = """
     <div class="winner-box"
          style="background-color: {{ team_colors[winner_key][0]}};">
       <div class="winner-label"
-           style="color: {{ team_colors[winner_key][1];">
+           style="color: {{ team_colors[winner_key][1] }}">
         Winner:
         <span class="winner-name">
           {% if result["winner"] == result["team1"]["name"] %}
