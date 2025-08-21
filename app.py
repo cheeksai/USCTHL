@@ -1414,7 +1414,8 @@ HTML_TEMPLATE = """
       width: 60%;
       margin: 40px auto 20px auto;
       padding: 15px 20px;
-      border-radius: 1px;
+      border: 2px solid #000000;
+      border-radius: 0px;
       text-align: center;
     }
     .winner-label {
@@ -1435,7 +1436,8 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 10px 0;
       margin-top: 60px;
-      border-radius: 1px;
+      border: 2px solid #000000;
+      border-radius: 0px;
     }
     .headline-label {
       font-size: 1.1em;
