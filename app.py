@@ -1450,7 +1450,7 @@ HTML_TEMPLATE = """
     .overtime {
       font-size: 0.9em;
       margin-left: 6px;
-      color: black;
+      color: {{ team_colors[winner_key][1] }};
     }
   </style>
 </head>
@@ -1552,28 +1552,18 @@ HTML_TEMPLATE = """
         </span>
       </div>
     
-      <div class="final-score-label" style="color: {{ team_colors[winner_key][1] }};">Final Score:</div>
-      {% if result["ot1_score"] > result["ot2_score"] %}
-        <div class="score-line">
-          <span style="color: {{ team_colors[winner_key][1] }};">
-            {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-          </span>
-          {% if result["overtime"] == "Yes" %}
-            <span class="overtime">(OT)</span>
-          {% endif %}
-        </div>
-      {% else %}
-        <div class="score-line">
-          <span style="color: black;">
-            {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-          </span>
-          {% if result["overtime"] == "Yes" %}
-            <span class="overtime">(OT)</span>
-          {% endif %}
-        </div>
-      {% endif %}
-    </div>
+     <div class="final-score-label" style="color: {{ team_colors[winner_key][1] }};">Final Score:</div>
 
+    <div class="score-line">
+      <span style="color: {{ team_colors[winner_key][1] }};">
+        {% if result["overtime"] == "Yes" %}(OT) {% endif %}
+        {% if result["ot1_score"] > result["ot2_score"] %}
+          {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+        {% else %}
+          {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+        {% endif %}
+      </span>
+    </div>
 {% if headline %}
   <div class="headline-box">
     <div class="headline-label">Headline</div>
