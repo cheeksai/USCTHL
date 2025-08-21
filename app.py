@@ -1589,6 +1589,13 @@ def home():
         team_thing1 = normalize_team_input(raw_team1)
         team_thing2 = normalize_team_input(raw_team2)
 
+        result["team1"]["place"] = result["team1"]["place"].strip()
+        result["team2"]["place"] = result["team2"]["place"].strip()
+
+        result["team1"]["name"] = team_names[result["team1"]["place"]]
+        result["team2"]["name"] = team_names[result["team2"]["place"]]
+
+
         if team_thing1 and team_thing2:
             result = simulate_game(team_thing1, team_thing2)
             if result and not result.get("error"):
