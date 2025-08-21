@@ -1414,9 +1414,8 @@ HTML_TEMPLATE = """
       width: 60%;
       margin: 40px auto 20px auto;
       padding: 15px 20px;
-      border-radius: 0px;
+      border-radius: 1px;
       text-align: center;
-      border-top: 2px solid #000;
     }
     .winner-label {
       font-size: 1.1em;
@@ -1436,16 +1435,18 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 10px 0;
       margin-top: 60px;
-      border-top: 2px solid #000;
+      border-radius: 1px;
     }
     .headline-label {
       font-size: 1.1em;
       font-weight: bold;
       margin-bottom: 10px;
+      color: black;
     }
     .headline {
       font-size: 1.6em;
       font-weight: bold;
+      margin-bottom: 5px;
       color: black;
     }
   </style>
@@ -1470,7 +1471,6 @@ HTML_TEMPLATE = """
     {% else %}
 
       <div class="team-row">
-        <!-- Home Team -->
         <div class="team-box" style="border-color: {{ team_colors[result["team1"]["name"]][1] }};">
           <div class="team-content"
                style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
@@ -1491,7 +1491,6 @@ HTML_TEMPLATE = """
 
         <div class="vs-box">VS</div>
 
-        <!-- Away Team -->
         <div class="team-box" style="border-color: {{ team_colors[result["team2"]["name"]][1] }};">
           <div class="team-content"
                style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
