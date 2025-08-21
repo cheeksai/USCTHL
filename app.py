@@ -1528,20 +1528,13 @@ HTML_TEMPLATE = """
           <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
         </div>
       {% endif %}
-    
-     {% if headline %}
-      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
-        <div class="headline-label">Headline</div>
-        <p class="headline" style="color: black;">{{ headline }}</p>
-      </div>
-    {% endif %}
     </div>
     
     {% set winner_key = result["winner"] %}
     <div class="winner-box"
-         style="background-color: {{ team_colors[winner_key][0] if winner_key in team_colors else '#ccc' }};">
+         style="background-color: {{ team_colors[winner_key][0]}};">
       <div class="winner-label"
-           style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+           style="color: {{ team_colors[winner_key][1];">
         Winner:
         <span class="winner-name">
           {% if result["winner"] == result["team1"]["name"] %}
@@ -1553,6 +1546,12 @@ HTML_TEMPLATE = """
           {% endif %}
         </span>
       </div>
+        {% if headline %}
+      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
+        <div class="headline-label">Headline</div>
+        <p class="headline" style="color: black;">{{ headline }}</p>
+      </div>
+    {% endif %}
     
       <div class="final-score-label"
            style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
