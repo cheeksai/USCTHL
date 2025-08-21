@@ -1431,7 +1431,7 @@ HTML_TEMPLATE = """
       font-weight: bold;
     }
     .headline-box {
-      width: 100%;
+      width: 60%;
       background-color: white;
       text-align: center;
       padding: 10px 0;
