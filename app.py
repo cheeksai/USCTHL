@@ -1411,12 +1411,13 @@ HTML_TEMPLATE = """
       font-size: 0.95em;
     }
     .headline-box {
-      width: 60%;
-      margin: 0 auto 20px auto;
-      background-color: #fff;
-      border: 1px solid #000;
-      padding: 15px 20px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
       text-align: center;
+      padding: 10px 0;
+      z-index: 10;
     }
     .headline-label {
       font-size: 1.1em;
