@@ -1551,30 +1551,32 @@ HTML_TEMPLATE = """
         <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">Final Score:</div>
 
             <div class="score-line">
-          <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
-            {% if result["overtime"] == "Yes" %}(OT) {% endif %}
-            {% if result["ot1_score"] > result["ot2_score"] %}
-              {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-            {% else %}
-              {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+              <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+                {% if result["overtime"] == "Yes" %}(OT) {% endif %}
+                {% if result["ot1_score"] > result["ot2_score"] %}
+                  {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+                {% else %}
+                  {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+                {% endif %}
+              </span>
+            </div>
+            
+            {% if headline %}
+              <div class="headline-box"
+                   style="background-color: {{ team_colors[winner_key][0] if winner_key in team_colors else '#fff' }};
+                          border-color: {{ team_colors[winner_key][1] if winner_key in team_colors else '#000' }};">
+                <div class="headline-label"
+                     style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+                  Headline
+                </div>
+                <p class="headline"
+                   style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+                  {{ headline }}
+                </p>
+              </div>
             {% endif %}
-          </span>
-        </div>
-
-        {% if headline %}
-          <div class="headline-box">
-            <div class="headline-label">Headline</div>
-            <p class="headline">{{ headline }}</p>
-          </div>
-        {% endif %}
-
-      </div>
-
-    {% endif %}
-  {% endif %}
-
-</body>
-</html>"""
+<body>
+<html>"""
 
 from flask import request, render_template_string
 
