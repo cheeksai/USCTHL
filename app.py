@@ -1575,8 +1575,11 @@ HTML_TEMPLATE = """
                 </p>
               </div>
             {% endif %}
-<body>
-<html>"""
+            
+        {%endif%}
+    {%endif%}
+</body>
+</html>"""
 
 from flask import request, render_template_string
 
