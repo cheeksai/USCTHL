@@ -1555,7 +1555,7 @@ HTML_TEMPLATE = """
       <div class="final-score-label" style="color: {{ team_colors[winner_key][1] }};">Final Score:</div>
       {% if result["ot1_score"] > result["ot2_score"] %}
         <div class="score-line">
-          <span style="color: black;">
+          <span style="color: {{ team_colors[winner_key][1] }};">
             {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
           </span>
           {% if result["overtime"] == "Yes" %}
