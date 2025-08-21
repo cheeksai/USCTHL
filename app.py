@@ -1576,7 +1576,8 @@ HTML_TEMPLATE = """
   {% endif %}
 
 </body>
-</html>
+</html>"""
+
 from flask import request, render_template_string
 
 @app.route('/', methods=['GET', 'POST'])
