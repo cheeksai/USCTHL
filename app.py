@@ -1435,8 +1435,8 @@ HTML_TEMPLATE = """
       background-color: white;
       text-align: center;
       padding: 10px 0;
-      margin-top: 60px;
       border: 2px solid #000000;
+      margin: 60px auto 0 auto;
       border-radius: 0px;
     }
     .headline-label {
