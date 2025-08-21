@@ -1546,12 +1546,6 @@ HTML_TEMPLATE = """
           {% endif %}
         </span>
       </div>
-        {% if headline %}
-      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
-        <div class="headline-label">Headline</div>
-        <p class="headline" style="color: black;">{{ headline }}</p>
-      </div>
-    {% endif %}
     
       <div class="final-score-label"
            style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
@@ -1568,6 +1562,12 @@ HTML_TEMPLATE = """
             {% endif %}
           </span>
         </div>
+    {% if headline %}
+      <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
+        <div class="headline-label">Headline</div>
+        <p class="headline" style="color: black;">{{ headline }}</p>
+      </div>
+    {% endif %}
             
         {%endif%}
     {%endif%}
@@ -1595,6 +1595,8 @@ def home():
                 team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
                 result["team1"]["place"] = team_thing1
                 result["team2"]["place"] = team_thing2
+                result["team1"]["place"] = result["team1"]["place"].strip()
+                result["team2"]["place"] = result["team2"]["place"].strip()
 
                 headline = headline_generator(
                     team1 = result["team1"]["name"],
