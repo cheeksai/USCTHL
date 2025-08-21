@@ -1563,15 +1563,15 @@ HTML_TEMPLATE = """
             {% endif %}
           </span>
         </div>
+            
+        {%endif%}
+    {%endif%}
     {% if headline %}
       <div class="headline-box" style="background-color: #fff; border: 1px solid #000; text-align: center;">
         <div class="headline-label">Headline</div>
         <p class="headline" style="color: black;">{{ headline }}</p>
       </div>
     {% endif %}
-            
-        {%endif%}
-    {%endif%}
 </body>
 </html>"""
 
@@ -1592,6 +1592,11 @@ def home():
 
         if team_thing1 and team_thing2:
             result = simulate_game(team_thing1, team_thing2)
+            result["team1"]["name"] = result["team1"]["name"].strip()
+            result["team2"]["name"] = result["team2"]["name"].strip()
+            result["team1"]["place"] = result["team1"]["place"].strip()
+            result["team2"]["place"] = result["team2"]["place"].strip()
+            result["winner"] = result["winner"].strip()
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
                 team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
