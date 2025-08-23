@@ -273,7 +273,6 @@ def simulate_game(team1, team2):
     goalie1_ovr = info[team1 + '_OVR'].iloc[-2] if goalie1 == starter_goalie1 else info[team1 + '_OVR'].iloc[-1]
     goalie2_ovr = info[team2 + '_OVR'].iloc[-2] if goalie2 == starter_goalie2 else info[team2 + '_OVR'].iloc[-1]
 
-    all_goals = []
     player_goal_counter = {}
     score_tracker = {team1: 0, team2: 0}
     period_events = {1: [], 2: [], 3: []}
