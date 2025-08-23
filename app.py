@@ -1583,39 +1583,39 @@ HTML_TEMPLATE = """
         </div>
       {% endif %}
 
-      <div class="period-container">
-        {% for period in result["periods"] %}
-          <div class="period-box">
-            <h4>{{ period["label"] }}</h4>
-            {% if period["events"] %}
-              {% for event in period["events"] %}
-                <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
-              {% endfor %}
-            {% else %}
-              <p>No Scoring</p>
+      <div class="center-layout" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
+          <div class="jersey-box" style="width: 20%; text-align: center;">
+            <img src="{{ jersey_home_path }}" style="max-height: 260px;">
+            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+          </div>
+        
+          <div class="period-container" style="width: 60%;">
+            {% for period in result["periods"] %}
+              <div class="period-box">
+                <h4>{{ period["label"] }}</h4>
+                {% if period["events"] %}
+                  {% for event in period["events"] %}
+                    <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
+                  {% endfor %}
+                {% else %}
+                  <p>No Scoring</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+        
+            {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
+              <div class="period-box">
+                <h4>Overtime</h4>
+                <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+              </div>
             {% endif %}
           </div>
-        {% endfor %}
-
-        {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
-          <div class="period-box">
-            <h4>Overtime</h4>
-            <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+        
+          <div class="jersey-box" style="width: 20%; text-align: center;">
+            <img src="{{ jersey_away_path }}" style="max-height: 260px;">
+            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
           </div>
-        {% endif %}
-      </div>
-
-      <div class="jersey-row">
-        <div class="jersey-box">
-          <img src="{{ jersey_home_path }}">
-          <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
         </div>
-        <div class="jersey-box">
-          <img src="{{ jersey_away_path }}">
-          <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
-        </div>
-      </div>
-
 
     {% endif%}
     {% endif %}
