@@ -1303,6 +1303,21 @@ team_colors = {
     "Washington": ["rgb(4,0,74)", "rgb(254,244,0)"]
 }
 
+def get_jersey_paths(team_name):
+    jersey_base = "jerseys/"
+    home_file = all_home_jerseys.get(team_name)
+    away_file = all_away_jerseys.get(team_name)
+    return (
+        url_for('static', filename=jersey_base + home_file) if home_file else None,
+        url_for('static', filename=jersey_base + away_file) if away_file else None
+    )
+
+def get_venue_path(team_name):
+    venue_base = "venues/"
+    venue_file = venue_dictionary.get(team_name)
+    return url_for('static', filename=venue_base + venue_file) if venue_file else None
+
+
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -1512,6 +1527,12 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
+        {% if venue_path %}
+          <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
+            <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 80%; border: 2px solid #000;">
+          </div>
+        {% endif %}
+        
       <div class="period-container">
         {% for period in result["periods"] %}
           <div class="period-box">
@@ -1633,6 +1654,8 @@ def home():
                     team2_period1 = result["team2_periods"][0],
                     team2_period2 = result["team2_periods"][1],
                     team2_period3 = result["team2_periods"][2],
+                    home_team = result["team1"]["place"],
+                    away_team = result["team2"]["place"],
                     all_goals = result.get("all_goals", [])
                 )
             else:
@@ -1644,6 +1667,9 @@ def home():
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
         winner_key = result["winner"].split(" (")[0].strip()
+        home_team = result["team1"]["place"]
+        jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
+        venue_path = get_venue_path(home_team)
 
     def get_logo(team_name):
         logo_dir = os.path.join(app.static_folder, "logos")
@@ -1668,7 +1694,12 @@ def home():
         team_names=team_names,
         winner_key=winner_key,
         logo1=logo1,
-        logo2=logo2
+        logo2=logo2,
+        jersey_home_path=jersey_home_path,
+        jersey_away_path=jersey_away_path,
+        venue_path=venue_path,
+        all_goals=result.get("all_goals", [])
+
     )
 
 if __name__ == "__main__":
