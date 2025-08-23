@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import random
 import os
-from PIL import image
+from PIL import Image
 
 app = Flask(__name__)
 JERSEY_FOLDER = os.path.join("static", "jerseys")
