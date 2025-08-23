@@ -570,7 +570,7 @@ def simulate_game(team1, team2):
         "team1_periods": [team1_period1, team1_period2, team1_period3],
         "team2_periods": [team2_period1, team2_period2, team2_period3],
         "hat_trick_scorer": hat_trick_scorer,
-        "all_goals" : "all_goals
+        "all_goals" : all_goals
 
         "error": None
     }
