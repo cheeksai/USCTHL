@@ -1556,6 +1556,17 @@ HTML_TEMPLATE = """
           </div>
         </div>
 
+        <div class="jersey-row" style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+          <div class="jersey-box" style="width: 45%; text-align: center;">
+            <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 200px;">
+            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+          </div>
+          <div class="jersey-box" style="width: 45%; text-align: center;">
+            <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 200px;">
+            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
+          </div>
+        </div>
+
         <div class="vs-box">VS</div>
 
         <div class="team-box" style="border-color: {{ team_colors[result["team2"]["name"]][1] }};">
