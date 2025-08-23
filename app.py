@@ -1606,6 +1606,9 @@ from flask import request, render_template_string
 def home():
     result = None
     headline = None
+    jersey_home_path = None
+    jersey_away_path = None
+    venue_path = None
 
     if request.method == 'POST':
         raw_team1 = request.form.get('team1')
