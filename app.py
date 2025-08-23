@@ -1702,8 +1702,7 @@ def home():
         jersey_home_path=jersey_home_path,
         jersey_away_path=jersey_away_path,
         venue_path=venue_path,
-        all_goals=result.get("all_goals", [])
-
+        all_goals = all_goals
     )
 
 if __name__ == "__main__":
