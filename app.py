@@ -3,8 +3,11 @@ import pandas as pd
 import numpy as np
 import random
 import os
+from PIL import image
 
 app = Flask(__name__)
+JERSEY_FOLDER = os.path.join("static", "jerseys")
+VENUE_FOLDER = os.path.join("static", "venues")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -135,6 +138,51 @@ def normalize_team_input(raw_input):
     key = raw_input.strip().lower()
     return ALL_VALID_INPUTS.get(key)
 
+team_keys = [
+    "Arizona", "Atlanta", "Baltimore", "Boise", "Charleston", "Chicago", "Cincinnati", "Cleveland",
+    "Delaware", "Denver", "Detroit", "Florida", "Honolulu", "Houston", "Indianapolis", "Iowa",
+    "Jacksonville", "Kansas City", "Las Vegas", "Lincoln", "Long Island", "Madison", "Memphis",
+    "Mississippi", "Montana", "New York", "North Dakota", "Oklahoma", "Philadelphia", "Portland",
+    "Puerto Rico", "Raleigh", "Rapid City", "Richmond", "San Antonio", "Seattle", "South Dakota",
+    "St. Louis", "Tennessee", "Washington"
+]
+
+jersey_files = [f for f in os.listdir(JERSEY_FOLDER) if f.endswith(".png")]
+jersey_files.sort()
+
+jerseys_home = jersey_files[::3]
+jerseys_away = jersey_files[1::3]
+jerseys_alt = jersey_files[2::3]
+
+all_home_jerseys = dict(zip(team_keys, jerseys_home))
+all_away_jerseys = dict(zip(team_keys, jerseys_away))
+all_alt_jerseys = dict(zip(team_keys, jerseys_alt))
+
+venue_files = [f for f in os.listdir(VENUE_FOLDER) if f.endswith(".png")]
+venue_dictionary = {}
+
+for team in team_keys:
+    for file in venue_files:
+        if team in file:
+            venue_dictionary[team] = file
+            break
+
+venue_dictionary['Washington'] = 'Navy Federal Center (Olympia, Washington).png'
+venue_dictionary['South Dakota'] = venue_dictionary.pop('Sioux Falls', 'Sioux Falls Arena.png')
+venue_dictionary['Florida'] = 'Truist Stadium (Orlando, Florida).png'
+venue_dictionary['Long Island'] = 'Microsoft Ice Palace (Elmont, New York).png'
+
+def get_jersey_paths(team_name):
+    home_file = all_home_jerseys.get(team_name, "default_home.png")
+    away_file = all_away_jerseys.get(team_name, "default_away.png")
+    return (
+        url_for('static', filename=f'jerseys/{home_file}'),
+        url_for('static', filename=f'jerseys/{away_file}')
+    )
+
+def get_venue_path(team_name):
+    venue_file = venue_dictionary.get(team_name, "default_venue.png")
+    return url_for('static', filename=f'venues/{venue_file}')
 
 def expected_goals(x, idx,randomnum):
     goals = 0
