@@ -1589,9 +1589,49 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
+          <div style="width: 20%; text-align: center;">
+            <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 220px;">
+            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+          </div>
+        
+          <div style="width: 55%;">
+            {% if venue_path %}
+              <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
+                <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 100%; border: 2px solid #000;">
+              </div>
+            {% endif %}
+        
+            <div class="period-container">
+              {% for period in result["periods"] %}
+                <div class="period-box">
+                  <h4>{{ period["label"] }}</h4>
+                  {% if period["events"] %}
+                    {% for event in period["events"] %}
+                      <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
+                    {% endfor %}
+                  {% else %}
+                    <p>No Scoring</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+        
+              {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
+                <div class="period-box">
+                  <h4>Overtime</h4>
+                  <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        
+          <div style="width: 20%; text-align: center;">
+            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
+          </div>
+        </div>
+
         {% if venue_path %}
           <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
-            <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 80%; border: 2px solid #000;">
           </div>
         {% endif %}
         
