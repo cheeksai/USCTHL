@@ -1381,6 +1381,7 @@ HTML_TEMPLATE = """
     }
     .form-section {
       margin-bottom: 30px;
+      text-align: center;
     }
     .team-row {
       display: flex;
@@ -1396,22 +1397,9 @@ HTML_TEMPLATE = """
       border: 4px solid;
       padding: 0;
     }
-    .team-label {
-      text-align: center;
-      font-weight: bold;
-      padding: 8px;
-      background-color: #f0f0f0;
-      border-bottom: 2px solid #ccc;
-    }
     .team-content {
       display: flex;
       flex: 1;
-    }
-    .score-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: bold;
     }
     .team-info {
       flex: 2;
@@ -1434,11 +1422,6 @@ HTML_TEMPLATE = """
       max-height: 100%;
       object-fit: contain;
       padding: 10px;
-    }
-    .final-score-label {
-      font-weight: bold;
-      margin-top: 10px;
-      margin-bottom: 6px;
     }
     .vs-box {
       width: 10%;
@@ -1476,6 +1459,19 @@ HTML_TEMPLATE = """
       margin: 5px 0;
       font-size: 0.95em;
     }
+    .jersey-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .jersey-box {
+      width: 45%;
+    }
+    .jersey-box img {
+      max-height: 260px;
+    }
     .winner-box {
       width: 60%;
       margin: 40px auto 20px auto;
@@ -1493,7 +1489,10 @@ HTML_TEMPLATE = """
       font-size: 1.25em;
       font-weight: bold;
     }
-    .score-text {
+    .score-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-weight: bold;
     }
     .headline-box {
@@ -1521,7 +1520,7 @@ HTML_TEMPLATE = """
 </head>
 <body>
 
-  <h1>USCTHL Game Simulator</h1>
+  <h1 style="text-align: center;">USCTHL Game Simulator</h1>
 
   <form method="POST" class="form-section">
     <label for="team1">Home:</label>
@@ -1535,7 +1534,7 @@ HTML_TEMPLATE = """
 
   {% if result %}
     {% if result["error"] %}
-      <p style="color:red;">Error: {{ result["error"] }}</p>
+      <p style="color:red; text-align: center;">Error: {{ result["error"] }}</p>
     {% else %}
 
       <div class="team-row">
@@ -1546,7 +1545,7 @@ HTML_TEMPLATE = """
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
+                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
               </h3>
               <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
             </div>
@@ -1570,101 +1569,98 @@ HTML_TEMPLATE = """
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
+                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
               </h3>
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
           </div>
         </div>
       </div>
-        
-          <div style="width: 55%;">
-            {% if venue_path %}
-              <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
-                <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 100%; border: 2px solid #000;">
-              </div>
-            {% endif %}
-        
-            <div class="period-container">
-              {% for period in result["periods"] %}
-                <div class="period-box">
-                  <h4>{{ period["label"] }}</h4>
-                  {% if period["events"] %}
-                    {% for event in period["events"] %}
-                      <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
-                    {% endfor %}
-                  {% else %}
-                    <p>No Scoring</p>
-                  {% endif %}
-                </div>
-              {% endfor %}
-        
-              {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
-                <div class="period-box">
-                  <h4>Overtime</h4>
-                  <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
-                </div>
-              {% endif %}
-            </div>
-          </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
-          <div style="width: 20%; text-align: center;">
-            <img src="{{ jersey_home_path }}" style="max-height: 220px;">
-            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
-          </div>
-          
-          <div style="width: 20%; text-align: center;">
-            <img src="{{ jersey_away_path }}" style="max-height: 220px;">
-            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
-          </div>
+      {% if venue_path %}
+        <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
+          <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 90%; border: 2px solid #000;">
         </div>
+      {% endif %}
+
+      <div class="period-container">
+        {% for period in result["periods"] %}
+          <div class="period-box">
+            <h4>{{ period["label"] }}</h4>
+            {% if period["events"] %}
+              {% for event in period["events"] %}
+                <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
+              {% endfor %}
+            {% else %}
+              <p>No Scoring</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
+          <div class="period-box">
+            <h4>Overtime</h4>
+            <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="jersey-row">
+        <div class="jersey-box">
+          <img src="{{ jersey_home_path }}">
+          <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+        </div>
+        <div class="jersey-box">
+          <img src="{{ jersey_away_path }}">
+          <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
+        </div>
+      </div>
 
     {% endif %}
-  {% endif %}
-
-  {% if result and not result.get("error") %}
-    {% set winner_key = result["winner"] %}
-    <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
-      <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
-        Winner:
-        <span class="winner-name">
-          {% if result["winner"] == result["team1"]["name"] %}
-            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
-          {% elif result["winner"] == result["team2"]["name"] %}
-            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
-          {% else %}
-            {{ result["winner"] }}
-          {% endif %}
-        </span>
+        {% if result and not result.get("error") %}
+      {% set winner_key = result["winner"] %}
+      <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
+        <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
+          Winner:
+          <span class="winner-name">
+            {% if result["winner"] == result["team1"]["name"] %}
+              {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+            {% elif result["winner"] == result["team2"]["name"] %}
+              {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+            {% else %}
+              {{ result["winner"] }}
+            {% endif %}
+          </span>
+        </div>
+    
+        <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+          Final Score:
+        </div>
+    
+        <div class="score-line">
+          <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+            {% if result["ot1_score"] > result["ot2_score"] %}
+              {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+            {% else %}
+              {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+            {% endif %}
+            {% if result["overtime"] == "Yes" %} (OT){% endif %}
+          </span>
+        </div>
       </div>
-
-      <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
-        Final Score:
+    {% endif %}
+    
+    {% if headline %}
+      <div class="headline-box">
+        <div class="headline-label">Headline</div>
+        <p class="headline">{{ headline }}</p>
       </div>
-
-      <div class="score-line">
-        <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
-          {% if result["ot1_score"] > result["ot2_score"] %}
-            {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-          {% else %}
-            {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-          {% endif %}
-          {% if result["overtime"] == "Yes" %} (OT){% endif %}
-        </span>
-      </div>
-    </div>
-  {% endif %}
-
-  {% if headline %}
-    <div class="headline-box">
-      <div class="headline-label">Headline</div>
-      <p class="headline">{{ headline }}</p>
-    </div>
-  {% endif %}
+    {% endif %}
 
 </body>
 </html>"""
+    
+ 
 
 from flask import request, render_template_string
 
