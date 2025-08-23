@@ -1608,6 +1608,7 @@ def home():
     jersey_home_path = None
     jersey_away_path = None
     venue_path = None
+    all_goals = []
 
     if request.method == 'POST':
         raw_team1 = request.form.get('team1')
