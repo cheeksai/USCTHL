@@ -1577,12 +1577,6 @@ HTML_TEMPLATE = """
           </div>
         </div>
       </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
-          <div style="width: 20%; text-align: center;">
-            <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 220px;">
-            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
-          </div>
         
           <div style="width: 55%;">
             {% if venue_path %}
@@ -1613,9 +1607,15 @@ HTML_TEMPLATE = """
               {% endif %}
             </div>
           </div>
-        
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
           <div style="width: 20%; text-align: center;">
-            <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 220px;">
+            <img src="{{ jersey_home_path }}" style="max-height: 220px;">
+            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+          </div>
+          
+          <div style="width: 20%; text-align: center;">
+            <img src="{{ jersey_away_path }}" style="max-height: 220px;">
             <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
           </div>
         </div>
