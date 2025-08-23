@@ -1543,7 +1543,6 @@ HTML_TEMPLATE = """
                       color: {{ team_colors[result["team1"]["name"]][1] }};">
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
-              <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 180px; margin-top: 10px;">
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
               </h3>
@@ -1553,17 +1552,6 @@ HTML_TEMPLATE = """
                  style="border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
               <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
             </div>
-          </div>
-        </div>
-
-        <div class="jersey-row" style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
-          <div class="jersey-box" style="width: 45%; text-align: center;">
-            <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 200px;">
-            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
-          </div>
-          <div class="jersey-box" style="width: 45%; text-align: center;">
-            <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 200px;">
-            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
           </div>
         </div>
 
@@ -1630,32 +1618,6 @@ HTML_TEMPLATE = """
           </div>
         </div>
 
-        {% if venue_path %}
-          <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
-          </div>
-        {% endif %}
-        
-      <div class="period-container">
-        {% for period in result["periods"] %}
-          <div class="period-box">
-            <h4>{{ period["label"] }}</h4>
-            {% if period["events"] %}
-              {% for event in period["events"] %}
-                <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
-              {% endfor %}
-            {% else %}
-              <p>No Scoring</p>
-            {% endif %}
-          </div>
-        {% endfor %}
-
-        {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
-          <div class="period-box">
-            <h4>Overtime</h4>
-            <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
-          </div>
-        {% endif %}
-      </div>
     {% endif %}
   {% endif %}
 
