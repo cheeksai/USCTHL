@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, url_for
 import pandas as pd
 import numpy as np
 import random
@@ -441,12 +441,12 @@ def simulate_game(team1, team2):
 
         if difference > 0:
             ot_winner = team1
-            winner = f"{team1} (won in OT)"
+            winner = f"{team1} "
             score1 += 1
             ot_scorers = ot_scorers_team1
         else:
             ot_winner = team2
-            winner = f"{team2} (won in OT)"
+            winner = f"{team2} "
             score2 += 1
             ot_scorers = ot_scorers_team2
         #else:
@@ -836,7 +836,7 @@ headline_choices = {
     "{team1} turns scoring frenzy into convincing win",
     "{team2} can't keep pace as {team1} lights the lamp repeatedly",
     "{team1} runs wild in offensive showcase vs {team2}",
-    "Multi-goal effort from  powers {team1} past {team2}",
+    "{team1} overcomes {team2} with timely goals and relentless pressure",
     "Fireworks fly in {team1}'s high-octane victory"
 ],
 "high_score_team1_loss": [
@@ -854,7 +854,7 @@ headline_choices = {
     "{team2} turns scoring frenzy into convincing win",
     "{team1} can't keep pace as {team2} lights the lamp repeatedly",
     "{team2} runs wild in offensive showcase vs {team1}",
-    "Multi-goal effort from  powers {team2} past {team1}",
+    "{team2} overcomes {team1} with timely goals and relentless pressure",
     "Fireworks fly in {team2}'s high-octane victory"
 ],
 "high_score_team2_loss": [
@@ -1261,47 +1261,62 @@ def headline_generator(**kwargs):
     #elif shootout = 'Yes' then headline = shootout
 
 team_colors = {
-    "Arizona": ["rgb(237,28,36)", "rgb(255,242,0)"],
-    "Atlanta": ["rgb(13,0,76)", "rgb(230,119,0)"],
-    "Baltimore": ["rgb(13,0,76)", "rgb(0,174,239)"],
-    "Boise": ["rgb(71,41,43)", "rgb(232,211,172)"],
-    "Charleston": ["rgb(0,114,188)", "rgb(0,191,143)"],
-    "Chicago": ["rgb(236,0,140)", "rgb(16,16,16)"],
-    "Cincinnati": ["rgb(46,49,146)", "rgb(255,242,0)"],
-    "Cleveland": ["rgb(230,119,0)", "rgb(16,16,16)"],
-    "Delaware": ["rgb(237,28,36)", "rgb(255,252,0)"],
-    "Denver": ["rgb(241,203,16)", "rgb(241,72,16)"],
-    "Detroit": ["rgb(158,11,15)", "rgb(232,232,232)"],
-    "Florida": ["rgb(203,241,16)", "rgb(16,16,16)"],
-    "Honolulu": ["rgb(252,242,0)", "rgb(16,16,16)"],
-    "Houston": ["rgb(22,37,135)", "rgb(95,95,95)"],
-    "Indianapolis": ["rgb(16,241,201)", "rgb(16,16,16)"],
-    "Iowa": ["rgb(158,11,15)", "rgb(218,86,58)"],
-    "Jacksonville": ["rgb(241,34,16)", "rgb(16,16,16)"],
-    "Kansas City": ["rgb(0,88,38)", "rgb(16,16,16)"],
-    "Las Vegas": ["rgb(255,242,0)", "rgb(16,16,16)"],
-    "Lincoln": ["rgb(195,94,2)", "rgb(16,16,16)"],
-    "Long Island": ["rgb(30,183,213)", "rgb(235,235,235)"],
-    "Madison": ["rgb(68,14,98)", "rgb(235,235,235)"],
-    "Memphis": ["rgb(16,16,16)", "rgb(241,16,16)"],
-    "Mississippi": ["rgb(83,16,241)", "rgb(16,228,241)"],
-    "Montana": ["rgb(241,187,16)", "rgb(16,16,16)"],
-    "New York": ["rgb(49,49,49)", "rgb(237,28,36)"],
-    "North Dakota": ["rgb(0,114,54)", "rgb(118,118,118)"],
-    "Oklahoma": ["rgb(78,45,38)", "rgb(235,235,235)"],
-    "Philadelphia": ["rgb(121,0,0)", "rgb(195,94,2)"],
-    "Portland": ["rgb(46,49,146)", "rgb(235,235,235)"],
-    "Puerto Rico": ["rgb(241,176,16)", "rgb(72,72,72)"],
-    "Raleigh": ["rgb(16,241,50)", "rgb(16,16,16)"],
-    "Rapid City": ["rgb(118,118,118)", "rgb(121,0,0)"],
-    "Richmond": ["rgb(237,28,36)", "rgb(235,235,235)"],
-    "San Antonio": ["rgb(121,0,0)", "rgb(16,16,16)"],
-    "Seattle": ["rgb(57,181,74)", "rgb(237,28,36)"],
-    "South Dakota": ["rgb(158,11,15)", "rgb(212,153,30)"],
-    "St. Louis": ["rgb(242,101,34)", "rgb(16,16,16)"],
-    "Tennessee": ["rgb(72,72,72)", "rgb(16,16,16)"],
-    "Washington": ["rgb(13,0,76)", "rgb(255,242,0)"]
+    "Arizona": ["rgb(242,12,23)", "rgb(255,245,0)"],
+    "Atlanta": ["rgb(4,0,74)", "rgb(236,121,1)"],
+    "Baltimore": ["rgb(4,0,74)", "rgb(7,178,239)"],
+    "Boise": ["rgb(73,31,33)", "rgb(232,213,177)"],
+    "Charleston": ["rgb(0,118,195)", "rgb(4,4,4)"],
+    "Chicago": ["rgb(242,0,145)", "rgb(4,4,4)"],
+    "Cincinnati": ["rgb(42,41,152)", "rgb(253,247,1)"],
+    "Cleveland": ["rgb(235,121,2)", "rgb(4,4,4)"],
+    "Delaware": ["rgb(242,12,23)", "rgb(255,244,0)"],
+    "Denver": ["rgb(242,207,4)", "rgb(4,4,4)"],
+    "Detroit": ["rgb(160,2,3)", "rgb(252,252,252)"],
+    "Florida": ["rgb(210,245,4)", "rgb(4,4,4)"],
+    "Honolulu": ["rgb(254,244,0)", "rgb(4,4,4)"],
+    "Houston": ["rgb(9,25,138)", "rgb(102,95,101)"],
+    "Indianapolis": ["rgb(2,245,202)", "rgb(4,4,4)"],
+    "Iowa": ["rgb(161,2,3)", "rgb(225,86,52)"],
+    "Jacksonville": ["rgb(241,19,5)", "rgb(4,4,4)"],
+    "Kansas City": ["rgb(1,90,33)", "rgb(4,4,4)"],
+    "Las Vegas": ["rgb(242,230,7)", "rgb(4,4,4)"],
+    "Lincoln": ["rgb(202,96,0)", "rgb(4,4,4)"],
+    "Long Island": ["rgb(21,188,219)", "rgb(10,4,241)"],
+    "Madison": ["rgb(64,1,102)", "rgb(252,252,252)"],
+    "Memphis": ["rgb(4,4,4)", "rgb(242,4,3)"],
+    "Mississippi": ["rgb(84,4,241)", "rgb(0,230,242)"],
+    "Montana": ["rgb(241,191,0)", "rgb(4,4,4)"],
+    "New York": ["rgb(40,40,40)", "rgb(241,13,23)"],
+    "North Dakota": ["rgb(2,117,54)", "rgb(252,252,252)"],
+    "Oklahoma": ["rgb(74,37,31)", "rgb(252,252,252)"],
+    "Philadelphia": ["rgb(127,0,0)", "rgb(201,96,0)"],
+    "Portland": ["rgb(42,41,152)", "rgb(252,252,252)"],
+    "Puerto Rico": ["rgb(241,180,6)", "rgb(4,4,4)"],
+    "Raleigh": ["rgb(0,246,43)", "rgb(4,4,4)"],
+    "Rapid City": ["rgb(119,121,119)", "rgb(127,0,0)"],
+    "Richmond": ["rgb(242,12,23)", "rgb(4,4,4)"],
+    "San Antonio": ["rgb(127,0,0)", "rgb(252,252,252)"],
+    "Seattle": ["rgb(53,187,73)", "rgb(243,13,25)"],
+    "South Dakota": ["rgb(161,2,3)", "rgb(217,159,20)"],
+    "St. Louis": ["rgb(241,104,21)", "rgb(4,4,4)"],
+    "Tennessee": ["rgb(73,73,73)", "rgb(4,4,4)"],
+    "Washington": ["rgb(4,0,74)", "rgb(254,244,0)"]
 }
+
+def get_jersey_paths(team_name):
+    jersey_base = "jerseys/"
+    home_file = all_home_jerseys.get(team_name)
+    away_file = all_away_jerseys.get(team_name)
+    return (
+        url_for('static', filename=jersey_base + home_file) if home_file else None,
+        url_for('static', filename=jersey_base + away_file) if away_file else None
+    )
+
+def get_venue_path(team_name):
+    venue_base = "venues/"
+    venue_file = venue_dictionary.get(team_name)
+    return url_for('static', filename=venue_base + venue_file) if venue_file else None
+
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -1312,9 +1327,8 @@ HTML_TEMPLATE = """
     body {
       font-family: Arial, sans-serif;
       margin: 30px;
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
+      background-color: rgb(222,227,237);
+      color: black;
     }
     .form-section {
       margin-bottom: 30px;
@@ -1322,27 +1336,69 @@ HTML_TEMPLATE = """
     .team-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
       margin-bottom: 20px;
     }
     .team-box {
       width: 45%;
-      padding: 10px;
-      border: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      border: 4px solid;
+      padding: 0;
+    }
+    .team-label {
       text-align: center;
+      font-weight: bold;
+      padding: 8px;
+      background-color: #f0f0f0;
+      border-bottom: 2px solid #ccc;
+    }
+    .team-content {
+      display: flex;
+      flex: 1;
+    }
+    .score-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+    .team-info {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+    }
+    .team-logo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: inherit;
+    }
+    .team-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+    .final-score-label {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 6px;
     }
     .vs-box {
       width: 10%;
       text-align: center;
       font-size: 1.5em;
       font-weight: bold;
-      color: #rgb(16,16,16);
-    }
-    .logo {
-      width: 100px;
-      height: 100px;
-      background-color: #ddd;
-      margin: 10px auto;
+      color: #101010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .period-container {
       display: flex;
@@ -1362,26 +1418,25 @@ HTML_TEMPLATE = """
     .period-box h4 {
       margin-top: -5px;
       margin-bottom: 10px;
-      color: #2c3e50;
+      color: black;
       text-align: center;
     }
     .period-box p {
       margin: 5px 0;
       font-size: 0.95em;
     }
-    .headline {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-top: 30px;
-      color: #2c3e50;
-      text-align: center;
-    }
     .winner-box {
       width: 60%;
-      margin: 0 auto 20px auto;
+      margin: 40px auto 20px auto;
       padding: 15px 20px;
+      border: 2px solid #000000;
       border-radius: 0px;
       text-align: center;
+    }
+    .winner-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
     .winner-name {
       font-size: 1.25em;
@@ -1390,10 +1445,26 @@ HTML_TEMPLATE = """
     .score-text {
       font-weight: bold;
     }
-    .overtime {
-      font-style: italic;
-      color: #8e44ad;
+    .headline-box {
+      width: 60%;
+      background-color: white;
       text-align: center;
+      padding: 10px 0;
+      border: 2px solid #000000;
+      margin: 60px auto 0 auto;
+      border-radius: 0px;
+    }
+    .headline-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: black;
+    }
+    .headline {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: black;
     }
   </style>
 </head>
@@ -1417,27 +1488,51 @@ HTML_TEMPLATE = """
     {% else %}
 
       <div class="team-row">
-        <div class="team-box"
-             style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
-                    color: {{ team_colors[result["team1"]["name"]][1] }};">
-          <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
-            Home: {{ result["team1"]["name"] }}
-          </h3>
-          <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo" class="logo">
-          <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+        <div class="team-box" style="border-color: {{ team_colors[result["team1"]["name"]][1] }};">
+          <div class="team-content"
+               style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
+                      color: {{ team_colors[result["team1"]["name"]][1] }};">
+            <div class="team-info">
+              <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
+              <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
+                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
+              </h3>
+              <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+            </div>
+            <div class="team-logo"
+                 style="border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
+              <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
+            </div>
+          </div>
         </div>
+
         <div class="vs-box">VS</div>
-        <div class="team-box"
-             style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
-                    color: {{ team_colors[result["team2"]["name"]][1] }};">
-          <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
-            Away: {{ result["team2"]["name"] }}
-          </h3>
-          <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo" class="logo">
-          <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+
+        <div class="team-box" style="border-color: {{ team_colors[result["team2"]["name"]][1] }};">
+          <div class="team-content"
+               style="background-color: {{ team_colors[result["team2"]["name"]][0] }};
+                      color: {{ team_colors[result["team2"]["name"]][1] }};">
+            <div class="team-logo"
+                 style="border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
+              <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
+            </div>
+            <div class="team-info">
+              <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
+              <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
+                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
+              </h3>
+              <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+            </div>
+          </div>
         </div>
       </div>
 
+        {% if venue_path %}
+          <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
+            <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 80%; border: 2px solid #000;">
+          </div>
+        {% endif %}
+        
       <div class="period-container">
         {% for period in result["periods"] %}
           <div class="period-box">
@@ -1459,34 +1554,51 @@ HTML_TEMPLATE = """
           </div>
         {% endif %}
       </div>
-
-      <div class="winner-box"
-           style="background-color: {{ team_colors[winner_key][0] }};
-                  color: {{ team_colors[winner_key][1] }};">
-        <strong>Winner:</strong>
-        <span class="winner-name">{{ result["winner"] }}</span><br><br>
-        <strong>Final Score:</strong>
-        {% if result["ot1_score"] > result["ot2_score"] %}
-          <span style="color: {{ team_colors[winner_key][1] }};">
-            {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
-          </span>
-        {% else %}
-          <span style="color: {{ team_colors[winner_key][1] }};">
-            {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
-          </span>
-        {% endif %}
-      </div>
-
-      {% if headline %}
-        <p class="headline">{{ headline }}</p>
-      {% endif %}
-
     {% endif %}
   {% endif %}
 
+  {% if result and not result.get("error") %}
+    {% set winner_key = result["winner"] %}
+    <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
+      <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
+        Winner:
+        <span class="winner-name">
+          {% if result["winner"] == result["team1"]["name"] %}
+            {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+          {% elif result["winner"] == result["team2"]["name"] %}
+            {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+          {% else %}
+            {{ result["winner"] }}
+          {% endif %}
+        </span>
+      </div>
+
+      <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+        Final Score:
+      </div>
+
+      <div class="score-line">
+        <span style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
+          {% if result["ot1_score"] > result["ot2_score"] %}
+            {{ result["ot1_score"] }} - {{ result["ot2_score"] }}
+          {% else %}
+            {{ result["ot2_score"] }} - {{ result["ot1_score"] }}
+          {% endif %}
+          {% if result["overtime"] == "Yes" %} (OT){% endif %}
+        </span>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if headline %}
+    <div class="headline-box">
+      <div class="headline-label">Headline</div>
+      <p class="headline">{{ headline }}</p>
+    </div>
+  {% endif %}
+
 </body>
-</html>
-"""
+</html>"""
 
 from flask import request, render_template_string
 
@@ -1499,14 +1611,26 @@ def home():
         raw_team1 = request.form.get('team1')
         raw_team2 = request.form.get('team2')
 
-        team_thing1 = normalize_team_input(raw_team1)
-        team_thing2 = normalize_team_input(raw_team2)
+        team_thing1 = normalize_team_input(raw_team1).strip()
+        team_thing2 = normalize_team_input(raw_team2).strip()
+
 
         if team_thing1 and team_thing2:
             result = simulate_game(team_thing1, team_thing2)
+            result["team1"]["place"] = result["team1"].get("place", team_thing1).strip()
+            result["team2"]["place"] = result["team2"].get("place", team_thing2).strip()
+        
+            result["team1"]["name"] = result["team1"]["name"].strip()
+            result["team2"]["name"] = result["team2"]["name"].strip()
+            result["winner"] = result["winner"].strip()
+
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
                 team2_period1, team2_period2, team2_period3 = result.get("team2_periods", [0, 0, 0])
+                result["team1"]["place"] = team_thing1
+                result["team2"]["place"] = team_thing2
+                result["team1"]["place"] = result["team1"]["place"].strip()
+                result["team2"]["place"] = result["team2"]["place"].strip()
 
                 headline = headline_generator(
                     team1 = result["team1"]["name"],
@@ -1530,34 +1654,52 @@ def home():
                     team2_period1 = result["team2_periods"][0],
                     team2_period2 = result["team2_periods"][1],
                     team2_period3 = result["team2_periods"][2],
+                    home_team = result["team1"]["place"],
+                    away_team = result["team2"]["place"],
                     all_goals = result.get("all_goals", [])
                 )
             else:
                 result = {"error": "Invalid team thing there, bub"}
         else:
             result = {"error": "please enter a valid input bub"}
+            
 
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
-        winner_key = result["winner"].split(" (")[0]
+        winner_key = result["winner"].split(" (")[0].strip()
+        home_team = result["team1"]["place"]
+        jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
+        venue_path = get_venue_path(home_team)
 
     def get_logo(team_name):
-        filename = f"{team_name.lower()}.png"
-        full_path = os.path.join(app.static_folder, "logos", filename)
-        if os.path.exists(full_path):
-            return url_for('static', filename=f'logos/{filename}')
+        logo_dir = os.path.join(app.static_folder, "logos")
+        prefix = team_name + " "
+        suffix = "Logo.jpg"
+    
+        for file in os.listdir(logo_dir):
+            if file.startswith(prefix) and file.endswith(suffix):
+                return url_for('static', filename=f'logos/{file}')
+        return None
 
     logo1 = get_logo(result["team1"]["name"]) if result else None
     logo2 = get_logo(result["team2"]["name"]) if result else None
+
+    team_colors.setdefault("overtime", ["#000000", "#000000"])
 
     return render_template_string(
         HTML_TEMPLATE,
         result=result,
         headline=headline,
         team_colors=team_colors,
+        team_names=team_names,
         winner_key=winner_key,
         logo1=logo1,
-        logo2=logo2
+        logo2=logo2,
+        jersey_home_path=jersey_home_path,
+        jersey_away_path=jersey_away_path,
+        venue_path=venue_path,
+        all_goals=result.get("all_goals", [])
+
     )
 
 if __name__ == "__main__":
