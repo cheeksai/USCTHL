@@ -1659,7 +1659,7 @@ def home():
                     team2_period3 = result["team2_periods"][2],
                     home_team = result["team1"]["place"],
                     away_team = result["team2"]["place"],
-                    all_goals = result.get("all_goals", [])
+                    all_goals = result.get("all_goals", []) if isinstance(result, dict) else []
                 )
                 home_team = result["team1"]["place"]
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
