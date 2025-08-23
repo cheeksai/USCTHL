@@ -1661,6 +1661,9 @@ def home():
                     away_team = result["team2"]["place"],
                     all_goals = result.get("all_goals", [])
                 )
+                home_team = result["team1"]["place"]
+                jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
+                venue_path = get_venue_path(home_team)
             else:
                 result = {"error": "Invalid team thing there, bub"}
         else:
@@ -1670,9 +1673,6 @@ def home():
     winner_key = None
     if result and isinstance(result, dict) and "winner" in result and not result.get("error"):
         winner_key = result["winner"].split(" (")[0].strip()
-        home_team = result["team1"]["place"]
-        jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
-        venue_path = get_venue_path(home_team)
 
     def get_logo(team_name):
         logo_dir = os.path.join(app.static_folder, "logos")
