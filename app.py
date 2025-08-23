@@ -1634,6 +1634,8 @@ def home():
                 result["team2"]["place"] = team_thing2
                 result["team1"]["place"] = result["team1"]["place"].strip()
                 result["team2"]["place"] = result["team2"]["place"].strip()
+                all_goals = result.get("all_goals", []) if isinstance(result, dict) else []
+
 
                 headline = headline_generator(
                     team1 = result["team1"]["name"],
@@ -1659,7 +1661,7 @@ def home():
                     team2_period3 = result["team2_periods"][2],
                     home_team = result["team1"]["place"],
                     away_team = result["team2"]["place"],
-                    all_goals = result.get("all_goals", []) if isinstance(result, dict) else []
+                    all_goals = all_goals
                 )
                 home_team = result["team1"]["place"]
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
