@@ -1392,6 +1392,7 @@ HTML_TEMPLATE = """
       width: 45%;
       display: flex;
       flex-direction: column;
+      justify-content: stretch;
       border: 4px solid;
       padding: 0;
     }
@@ -1463,6 +1464,7 @@ HTML_TEMPLATE = """
       padding: 15px 20px;
       margin-bottom: 20px;
       text-align: left;
+      min-height: 120px;
     }
     .period-box h4 {
       margin-top: -5px;
@@ -1567,7 +1569,6 @@ HTML_TEMPLATE = """
             </div>
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
-              <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 180px; margin-top: 10px;">
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
               </h3>
@@ -1614,6 +1615,7 @@ HTML_TEMPLATE = """
           </div>
         
           <div style="width: 20%; text-align: center;">
+            <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 220px;">
             <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
           </div>
         </div>
