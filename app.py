@@ -1616,6 +1616,8 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
+
+    {% endif%}
     {% endif %}
         {% if result and not result.get("error") %}
       {% set winner_key = result["winner"] %}
