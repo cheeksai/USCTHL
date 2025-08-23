@@ -1634,7 +1634,7 @@ def home():
                 result["team2"]["place"] = team_thing2
                 result["team1"]["place"] = result["team1"]["place"].strip()
                 result["team2"]["place"] = result["team2"]["place"].strip()
-                all_goals = result.get("all_goals", []) if isinstance(result, dict) else []
+                all_goals = result.get("all_goals", [])
 
 
                 headline = headline_generator(
