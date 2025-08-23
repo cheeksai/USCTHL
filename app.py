@@ -1543,6 +1543,7 @@ HTML_TEMPLATE = """
                       color: {{ team_colors[result["team1"]["name"]][1] }};">
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
+              <img src="{{ jersey_home_path }}" alt="Home Jersey" style="max-height: 180px; margin-top: 10px;">
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]]}}
               </h3>
@@ -1567,6 +1568,7 @@ HTML_TEMPLATE = """
             </div>
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
+              <img src="{{ jersey_away_path }}" alt="Away Jersey" style="max-height: 180px; margin-top: 10px;">
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]]}}
               </h3>
@@ -1716,6 +1718,16 @@ def home():
                 home_team = result["team1"]["place"]
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
                 venue_path = get_venue_path(home_team)
+                random_num = random.randint(1, 100)
+                home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
+            
+                home_team = result["team1"]["place"]
+                away_team = result["team2"]["place"]
+            
+                jersey_home_path = url_for('static', filename=f'jerseys/{home_choice.get(home_team, "default_home.png")}')
+                jersey_away_path = url_for('static', filename=f'jerseys/{all_away_jerseys.get(away_team, "default_away.png")}')
+
+
             else:
                 result = {"error": "Invalid team thing there, bub"}
         else:
