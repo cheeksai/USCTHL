@@ -1387,7 +1387,7 @@ HTML_TEMPLATE = """
       display: flex;
       justify-content: space-between;
       align-items: stretch;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
     .team-box {
       width: 45%;
@@ -1464,6 +1464,8 @@ HTML_TEMPLATE = """
       justify-content: center;
       gap: 80px;
       margin: 80px auto 40px auto;
+      margin-top: 40px;
+      margin-bottom: 40px;
       text-align: center;
     }
     .jersey-box {
@@ -1579,17 +1581,23 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-      {% if venue_path %}
-        <div class="venue-box" style="text-align: center; margin-bottom: 30px;">
-          <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 90%; border: 2px solid #000;">
-        </div>
-      {% endif %}
-
-      <div class="center-layout" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
-          <div class="jersey-box" style="width: 20%; text-align: center;">
+      <div class="venue-jersey-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
+          <div class="jersey-box" style="width: 20%; text-align: center; border: 2px solid {{ team_colors[result["team1"]["name"]][1] }}; padding: 10px;">
             <img src="{{ jersey_home_path }}" style="max-height: 300px;">
-            <div style="font-weight: bold; margin-top: 8px;"> </div>
+            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
           </div>
+        
+          {% if venue_path %}
+            <div class="venue-box" style="width: 60%; text-align: center;">
+              <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 100%; border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
+            </div>
+          {% endif %}
+        
+          <div class="jersey-box" style="width: 20%; text-align: center; border: 2px solid {{ team_colors[result["team2"]["name"]][0] }}; padding: 10px;">
+            <img src="{{ jersey_away_path }}" style="max-height: 300px;">
+            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
+          </div>
+        </div>
         
           <div class="period-container" style="width: 60%;">
             {% for period in result["periods"] %}
@@ -1613,11 +1621,6 @@ HTML_TEMPLATE = """
             {% endif %}
           </div>
         
-          <div class="jersey-box" style="width: 20%; text-align: center;">
-            <img src="{{ jersey_away_path }}" style="max-height: 300px;">
-            <div style="font-weight: bold; margin-top: 8px;"> </div>
-          </div>
-        </div>
 
     {% endif%}
     {% endif %}
