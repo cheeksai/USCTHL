@@ -1464,14 +1464,16 @@ HTML_TEMPLATE = """
       display: flex;
       justify-content: center;
       gap: 80px;
-      margin: 40px auto;
+      margin: 80px auto 40px auto;
       text-align: center;
     }
     .jersey-box {
       width: 45%;
+      padding: 10px;
     }
     .jersey-box img {
-      max-height: 260px;
+      max-height: 300px;
+      width: auto;
     }
     .winner-box {
       width: 60%;
