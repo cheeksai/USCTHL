@@ -1438,9 +1438,11 @@ HTML_TEMPLATE = """
       flex-direction: column;
       align-items: center;
       margin-top: 30px;
+      width: 60%;
+      margin: auto;
     }
     .period-box {
-      width: 60%;
+      width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
       border-radius: 0;
@@ -1468,13 +1470,38 @@ HTML_TEMPLATE = """
       margin-bottom: 40px;
       text-align: center;
     }
+      .venue-jersey-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 60px auto 40px auto;
+      width: 100%;
+      max-width: 1200px;
+      box-sizing: border-box;
+    }
+    .jersey-box,
+    .venue-box {
+      box-sizing: border-box;
+    }
     .jersey-box {
-      width: 45%;
+      width: 20%;
+      text-align: center;
       padding: 10px;
+      border: 2px solid #000000;
     }
     .jersey-box img {
-      max-height: 300px;
-      width: auto;
+      max-height: 280px;
+      max-width: 100%;
+      height: auto;
+    }
+    .venue-box {
+      width: 60%;
+      text-align: center;
+    }
+    .venue-box img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #000000;
     }
     .winner-box {
       width: 60%;
@@ -1524,7 +1551,7 @@ HTML_TEMPLATE = """
 </head>
 <body>
 
-  <h1 style="text-align: center;">USCTHL Game Simulator</h1>
+  <h1 style="text-align: left;">USCTHL Game Simulator</h1>
 
   <form method="POST" class="form-section">
     <label for="team1">Home:</label>
