@@ -1381,7 +1381,7 @@ HTML_TEMPLATE = """
     }
     .form-section {
       margin-bottom: 30px;
-      text-align: center;
+      text-align: left;
     }
     .team-row {
       display: flex;
@@ -1434,7 +1434,6 @@ HTML_TEMPLATE = """
       justify-content: center;
     }
     .period-container {
-      width: 60%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1446,7 +1445,7 @@ HTML_TEMPLATE = """
       border: 1px solid #000000;
       border-radius: 0;
       padding: 15px 20px;
-      margin-bottom: 20px;
+      margin: 0 auto 20px auto;
       text-align: left;
       min-height: 120px;
     }
@@ -1588,7 +1587,7 @@ HTML_TEMPLATE = """
 
       <div class="center-layout" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
           <div class="jersey-box" style="width: 20%; text-align: center;">
-            <img src="{{ jersey_home_path }}" style="max-height: 260px;">
+            <img src="{{ jersey_home_path }}" style="max-height: 300px;">
             <div style="font-weight: bold; margin-top: 8px;"> </div>
           </div>
         
@@ -1615,7 +1614,7 @@ HTML_TEMPLATE = """
           </div>
         
           <div class="jersey-box" style="width: 20%; text-align: center;">
-            <img src="{{ jersey_away_path }}" style="max-height: 260px;">
+            <img src="{{ jersey_away_path }}" style="max-height: 300px;">
             <div style="font-weight: bold; margin-top: 8px;"> </div>
           </div>
         </div>
