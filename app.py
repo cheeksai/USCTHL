@@ -1434,6 +1434,7 @@ HTML_TEMPLATE = """
       justify-content: center;
     }
     .period-container {
+      width: 60%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1586,7 +1587,7 @@ HTML_TEMPLATE = """
       <div class="center-layout" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
           <div class="jersey-box" style="width: 20%; text-align: center;">
             <img src="{{ jersey_home_path }}" style="max-height: 260px;">
-            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
+            <div style="font-weight: bold; margin-top: 8px;"> </div>
           </div>
         
           <div class="period-container" style="width: 60%;">
@@ -1613,7 +1614,7 @@ HTML_TEMPLATE = """
         
           <div class="jersey-box" style="width: 20%; text-align: center;">
             <img src="{{ jersey_away_path }}" style="max-height: 260px;">
-            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
+            <div style="font-weight: bold; margin-top: 8px;"> </div>
           </div>
         </div>
 
