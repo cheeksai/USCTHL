@@ -1607,29 +1607,32 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-     <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team1"]["name"]][1] }};">
-      <div style="font-weight: bold; margin-bottom: 8px;">
-        {% if result["home_jersey_type"] == "Alternate" %}
-          Alternate Jersey
-        {% else %}
-          Home Jersey
-        {% endif %}
-      </div>
-      <img src="{{ jersey_home_path }}">
-    </div>
+     <div class="venue-jersey-row">
+          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+              {% if result["home_jersey_type"] == "Alternate" %}
+                Alternate Jersey
+              {% else %}
+                Home Jersey
+              {% endif %}
+            </div>
+            <img src="{{ jersey_home_path }}">
+          </div>
         
           {% if venue_path %}
             <div class="venue-box">
               <div style="font-weight: bold; margin-bottom: 8px;">
-                Venue: {{ result["venue_name"] }}
+                <div class="label-text">Venue: {{ result["venue_name"] }}</div>
               </div>
               <img src="{{ venue_path }}" alt="Venue Image" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
             </div>
+          {% endif %}
         
-          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team2"]["name"]][1] }};">
-              <div style="font-weight: bold; margin-bottom: 8px;">Away Jersey</div>
-              <img src="{{ jersey_away_path }}">
-            </div>
+          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team2"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px;">Away Jersey</div>
+            <img src="{{ jersey_away_path }}">
+          </div>
+        </div>
                 
           <div class="period-container" style="width: 60%;">
             {% for period in result["periods"] %}
@@ -1769,7 +1772,8 @@ def home():
                 home_team = result["team1"]["place"]
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
                 venue_path = get_venue_path(home_team)
-                print(venue_path)
+                venue_file = venue_dictionary.get(home_team, "default_venue.png")
+                venue_name = venue_file[:-4]
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
             
