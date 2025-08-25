@@ -1449,7 +1449,6 @@ HTML_TEMPLATE = """
       padding: 15px 20px;
       margin: 0 auto 20px auto;
       text-align: left;
-      min-height: 120px;
     }
     .period-box h4 {
       margin-top: -5px;
@@ -1608,24 +1607,30 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-      <div class="venue-jersey-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin: 40px 0;">
-          <div class="jersey-box" style="width: 20%; text-align: center; border: 2px solid {{ team_colors[result["team1"]["name"]][1] }}; padding: 10px;">
-            <img src="{{ jersey_home_path }}" style="max-height: 300px;">
-            <div style="font-weight: bold; margin-top: 8px;">Home Jersey</div>
-          </div>
+     <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team1"]["name"]][1] }};">
+      <div style="font-weight: bold; margin-bottom: 8px;">
+        {% if result["home_jersey_type"] == "Alternate" %}
+          Alternate Jersey
+        {% else %}
+          Home Jersey
+        {% endif %}
+      </div>
+      <img src="{{ jersey_home_path }}">
+    </div>
         
           {% if venue_path %}
-            <div class="venue-box" style="width: 60%; text-align: center;">
-              <img src="{{ venue_path }}" alt="Venue Image" style="max-width: 100%; border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
+            <div class="venue-box">
+              <div style="font-weight: bold; margin-bottom: 8px;">
+                Venue: {{ result["venue_name"] }}
+              </div>
+              <img src="{{ venue_path }}" alt="Venue Image" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
             </div>
-          {% endif %}
         
-          <div class="jersey-box" style="width: 20%; text-align: center; border: 2px solid {{ team_colors[result["team2"]["name"]][0] }}; padding: 10px;">
-            <img src="{{ jersey_away_path }}" style="max-height: 300px;">
-            <div style="font-weight: bold; margin-top: 8px;">Away Jersey</div>
-          </div>
-        </div>
-        
+          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team2"]["name"]][1] }};">
+              <div style="font-weight: bold; margin-bottom: 8px;">Away Jersey</div>
+              <img src="{{ jersey_away_path }}">
+            </div>
+                
           <div class="period-container" style="width: 60%;">
             {% for period in result["periods"] %}
               <div class="period-box">
