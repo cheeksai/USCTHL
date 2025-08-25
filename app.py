@@ -168,7 +168,7 @@ for team in team_keys:
             break
 
 venue_dictionary['Washington'] = 'Navy Federal Center (Olympia, Washington).png'
-venue_dictionary['South Dakota'] = venue_dictionary.pop('Sioux Falls', 'Sioux Falls Arena.png')
+venue_dictionary['South Dakota'] = venue_dictionary.pop('Sioux Falls', 'Sioux Falls Arena (Sioux Falls).png')
 venue_dictionary['Florida'] = 'Truist Stadium (Orlando, Florida).png'
 venue_dictionary['Long Island'] = 'Microsoft Ice Palace (Elmont, New York).png'
 
