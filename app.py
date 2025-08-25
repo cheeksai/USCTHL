@@ -108,7 +108,7 @@ team_names = {
     "Memphis": "Cannons",
     "Mississippi": "Blue Jays",
     "Montana": "Miners",
-    "New York": "Steam Rollers",
+    "New York": "Steamrollers",
     "North Dakota": "Bison",
     "Oklahoma": "Twisters",
     "Philadelphia": "Destroyers",
@@ -1439,14 +1439,14 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
       width: 60%;
-      margin: 60px auto 0 auto;
+      margin: 40px auto 20px auto;
     }
     .period-box {
       width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
       border-radius: 0;
-      padding: 10px;
+      padding: 15px;
       margin: 60px auto 0 auto;
       text-align: left;
     }
@@ -1530,9 +1530,9 @@ HTML_TEMPLATE = """
       width: 60%;
       background-color: white;
       text-align: center;
-      padding: 10px 0;
+      padding: 15px 20px 0;
       border: 2px solid #000000;
-      margin: 60px auto 0 auto;
+      margin: 40px auto 20px auto;
       border-radius: 0px;
     }
     .headline-label {
