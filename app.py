@@ -1613,11 +1613,9 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-     <div class="venue-jersey-row">
+    <div class="venue-jersey-row">
           <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px; background-color: {{ team_colors[result["team1"]["name"]][0] }};">
-              Away Jersey
-            </div>
+            <div style="font-weight: bold; margin-bottom: 8px; border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
               {% if result["home_choice"] == "all_alt_jerseys" %}
                 Alternate Jersey
               {% else %}
@@ -1637,7 +1635,7 @@ HTML_TEMPLATE = """
           {% endif %}
         
           <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px; background-color: {{ team_colors[result["team2"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px; border: 2px solid {{ team_colors[result["team2"]["name"]][0] }};">
               Away Jersey
             </div>
             <img src="{{ jersey_away_path }}">
@@ -1673,8 +1671,7 @@ HTML_TEMPLATE = """
               </div>
             {% endif %}
           </div>
-        </div>
-        
+        </div>            
 
     {% endif%}
     {% endif %}
@@ -1711,13 +1708,6 @@ HTML_TEMPLATE = """
       </div>
     {% endif %}
     
-    {% if headline %}
-      <div class="headline-box">
-        <div class="headline-label">Headline</div>
-        <p class="headline">{{ headline }}</p>
-      </div>
-    {% endif %}
-
 </body>
 </html>"""
     
