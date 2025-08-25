@@ -1644,6 +1644,7 @@ HTML_TEMPLATE = """
                 {% endif %}
               </div>
             {% endfor %}
+            {% endif %}
         
             {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
               <div class="period-box">
