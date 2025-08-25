@@ -1440,14 +1440,27 @@ HTML_TEMPLATE = """
       margin-top: 30px;
       width: 60%;
       margin: 40px auto 20px auto;
+      padding: 15px 20px 0;
+    }
+    .centered-content {
+      width: 60%;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .headline-box,
+    .period-container {
+      width: 100%;
+      text-align: center;
     }
     .period-box {
       width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
       border-radius: 0;
-      padding: 15px;
-      margin: 60px auto 0 auto;
+      padding: 15px 20px;
+      margin: 20px 0;
       text-align: left;
     }
     .period-box h4 {
@@ -1525,15 +1538,6 @@ HTML_TEMPLATE = """
       align-items: center;
       gap: 6px;
       font-weight: bold;
-    }
-    .headline-box {
-      width: 60%;
-      background-color: white;
-      text-align: center;
-      padding: 15px 20px 0;
-      border: 2px solid #000000;
-      margin: 40px auto 20px auto;
-      border-radius: 0px;
     }
     .headline-label {
       font-size: 1.1em;
@@ -1635,7 +1639,15 @@ HTML_TEMPLATE = """
           </div>
         </div>
                 
-          <div class="period-container" style="width: 60%;">
+        <div class="centered-content">
+          {% if headline %}
+            <div class="headline-box">
+              <div class="headline-label">Headline</div>
+              <p class="headline">{{ headline }}</p>
+            </div>
+          {% endif %}
+        
+          <div class="period-container">
             {% for period in result["periods"] %}
               <div class="period-box">
                 <h4>{{ period["label"] }}</h4>
@@ -1656,6 +1668,7 @@ HTML_TEMPLATE = """
               </div>
             {% endif %}
           </div>
+        </div>
         
 
     {% endif%}
