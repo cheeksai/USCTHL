@@ -1774,7 +1774,7 @@ def home():
                 venue_path = get_venue_path(home_team)
                 venue_file = venue_dictionary.get(home_team, "default_venue.png")
                 raw = venue_file[:-4]
-                parenthesis_index = raw.find("(")
+                venue_name = raw
                 venue_name = venue_name.replace("_","'")
                 result["venue_name"] = venue_name
                 random_num = random.randint(1, 100)
