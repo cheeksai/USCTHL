@@ -1473,10 +1473,9 @@ HTML_TEMPLATE = """
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 20px;
       margin: 60px auto 40px auto;
-      width: 100%;
       max-width: 1200px;
-      box-sizing: border-box;
     }
     .jersey-box,
     .venue-box {
@@ -1773,6 +1772,7 @@ def home():
                 venue_path = get_venue_path(home_team)
                 venue_file = venue_dictionary.get(home_team, "default_venue.png")
                 venue_name = venue_file[:-4]
+                result["venue_name"] = venue_name
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
             
