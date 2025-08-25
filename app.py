@@ -1485,7 +1485,7 @@ HTML_TEMPLATE = """
     .jersey-box {
       width: 20%;
       text-align: center;
-      padding: 10px;
+      padding: 8px;
       border: 2px solid #000000;
     }
     .jersey-box img {
@@ -1769,6 +1769,7 @@ def home():
                 home_team = result["team1"]["place"]
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
                 venue_path = get_venue_path(home_team)
+                print(venue_path)
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
             
