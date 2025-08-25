@@ -1774,6 +1774,7 @@ def home():
                 raw = venue_file[:-4]
                 parenthesis_index = raw.find("(")
                 venue_name = raw[:parenthesis_index].strip() if parenthesis_index != -1 else raw
+                venue_name = venue_name.replace("_","'")
                 result["venue_name"] = venue_name
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
