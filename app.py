@@ -1499,7 +1499,7 @@ HTML_TEMPLATE = """
       width: 20%;
       text-align: center;
       padding: 8px;
-      border: 2px solid #000000;
+      border: 4px solid #000000;
     }
     .jersey-box img {
       max-height: 280px;
@@ -1515,7 +1515,7 @@ HTML_TEMPLATE = """
       max-width: 100%;
       max-height: 280px;
       height: auto;
-      border: 2px solid #000000;
+      border: 4px solid #000000;
     }
     .winner-box {
       width: 60%;
@@ -1615,7 +1615,9 @@ HTML_TEMPLATE = """
 
      <div class="venue-jersey-row">
           <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px;">
+            <div style="font-weight: bold; margin-bottom: 8px; background-color: {{ team_colors[result["team1"]["name"]][0] }};">
+              Away Jersey
+            </div>
               {% if result["home_choice"] == "all_alt_jerseys" %}
                 Alternate Jersey
               {% else %}
@@ -1630,12 +1632,14 @@ HTML_TEMPLATE = """
               <div style="font-weight: bold; margin-bottom: 8px;">
                 <div class="label-text">Venue: {{ result["venue_name"] }}</div>
               </div>
-              <img src="{{ venue_path }}" alt="Venue Image" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
+              <img src="{{ venue_path }}" alt="Venue Image" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
             </div>
           {% endif %}
         
           <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px;">Away Jersey</div>
+            <div style="font-weight: bold; margin-bottom: 8px; background-color: {{ team_colors[result["team2"]["name"]][0] }};">
+              Away Jersey
+            </div>
             <img src="{{ jersey_away_path }}">
           </div>
         </div>
