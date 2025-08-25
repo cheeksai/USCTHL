@@ -1472,7 +1472,7 @@ HTML_TEMPLATE = """
     .venue-jersey-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 20px;
       margin: 60px auto 40px auto;
       max-width: 1200px;
@@ -1494,10 +1494,12 @@ HTML_TEMPLATE = """
     }
     .venue-box {
       width: 60%;
+      height: 100%;
       text-align: center;
     }
     .venue-box img {
       max-width: 100%;
+      max-height: 280px;
       height: auto;
       border: 2px solid #000000;
     }
@@ -1607,7 +1609,7 @@ HTML_TEMPLATE = """
       </div>
 
      <div class="venue-jersey-row">
-          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
+          <div class="jersey-box">
             <div style="font-weight: bold; margin-bottom: 8px;">
               {% if result["home_choice"] == "all_alt_jerseys" %}
                 Alternate Jersey
@@ -1627,7 +1629,7 @@ HTML_TEMPLATE = """
             </div>
           {% endif %}
         
-          <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team2"]["name"]][0] }};">
+          <div class="jersey-box">
             <div style="font-weight: bold; margin-bottom: 8px;">Away Jersey</div>
             <img src="{{ jersey_away_path }}">
           </div>
@@ -1773,11 +1775,11 @@ def home():
                 venue_file = venue_dictionary.get(home_team, "default_venue.png")
                 raw = venue_file[:-4]
                 parenthesis_index = raw.find("(")
-                venue_name = raw[:parenthesis_index].strip() if parenthesis_index != -1 else raw
                 venue_name = venue_name.replace("_","'")
                 result["venue_name"] = venue_name
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
+                result["home_choice"] = "all_alt_jerseys" if random_num >= 81 else "all_home_jerseys"
             
                 home_team = result["team1"]["place"]
                 away_team = result["team2"]["place"]
