@@ -1609,7 +1609,7 @@ HTML_TEMPLATE = """
      <div class="venue-jersey-row">
           <div class="jersey-box" style="border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
             <div style="font-weight: bold; margin-bottom: 8px;">
-              {% if result["home_jersey_type"] == "Alternate" %}
+              {% if result["home_choice"] == "all_alt_jerseys" %}
                 Alternate Jersey
               {% else %}
                 Home Jersey
