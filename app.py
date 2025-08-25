@@ -1614,16 +1614,16 @@ HTML_TEMPLATE = """
       </div>
 
     <div class="venue-jersey-row">
-          <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px; border: 2px solid {{ team_colors[result["team1"]["name"]][0] }};">
-              {% if result["home_choice"] == "all_alt_jerseys" %}
-                Alternate Jersey
-              {% else %}
-                Home Jersey
-              {% endif %}
+          <div class="jersey-box" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+                {% if result["home_choice"] == "all_alt_jerseys" %}
+                  Alternate Jersey
+                {% else %}
+                  Home Jersey
+                {% endif %}
+              </div>
+              <img src="{{ jersey_home_path }}">
             </div>
-            <img src="{{ jersey_home_path }}">
-          </div>
         
           {% if venue_path %}
             <div class="venue-box">
@@ -1634,21 +1634,14 @@ HTML_TEMPLATE = """
             </div>
           {% endif %}
         
-          <div class="jersey-box">
-            <div style="font-weight: bold; margin-bottom: 8px; border: 2px solid {{ team_colors[result["team2"]["name"]][0] }};">
-              Away Jersey
-            </div>
-            <img src="{{ jersey_away_path }}">
+        <div class="jersey-box" style="border: 4px solid {{ team_colors[result["team2"]["name"]][0] }};">
+          <div style="font-weight: bold; margin-bottom: 8px;">
+            Away Jersey
           </div>
+          <img src="{{ jersey_away_path }}">
         </div>
                 
         <div class="centered-content">
-          {% if headline %}
-            <div class="headline-box">
-              <div class="headline-label">Headline</div>
-              <p class="headline">{{ headline }}</p>
-            </div>
-          {% endif %}
         
           <div class="period-container">
             {% for period in result["periods"] %}
@@ -1705,6 +1698,13 @@ HTML_TEMPLATE = """
             {% if result["overtime"] == "Yes" %} (OT){% endif %}
           </span>
         </div>
+      </div>
+    {% endif %}
+
+    {% if headline %}
+      <div class="headline-box">
+        <div class="headline-label">Headline</div>
+        <p class="headline">{{ headline }}</p>
       </div>
     {% endif %}
     
