@@ -1771,7 +1771,9 @@ def home():
                 jersey_home_path, jersey_away_path = get_jersey_paths(home_team)
                 venue_path = get_venue_path(home_team)
                 venue_file = venue_dictionary.get(home_team, "default_venue.png")
-                venue_name = venue_file[:-4]
+                raw = venue_file[:-4]
+                parenthesis_index = raw.find("(")
+                venue_name = raw[:parenthesis_index].strip() if parenthesis_index != -1 else raw
                 result["venue_name"] = venue_name
                 random_num = random.randint(1, 100)
                 home_choice = all_alt_jerseys if random_num >= 81 else all_home_jerseys
