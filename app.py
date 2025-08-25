@@ -1439,15 +1439,15 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
       width: 60%;
-      margin: auto;
+      margin: 60px auto 0 auto;
     }
     .period-box {
       width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
       border-radius: 0;
-      padding: 15px 20px;
-      margin: 0 auto 20px auto;
+      padding: 10px;
+      margin: 60px auto 0 auto;
       text-align: left;
     }
     .period-box h4 {
