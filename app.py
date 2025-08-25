@@ -1470,7 +1470,7 @@ HTML_TEMPLATE = """
       margin-bottom: 40px;
       text-align: center;
     }
-      .venue-jersey-row {
+    .venue-jersey-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
