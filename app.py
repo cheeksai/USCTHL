@@ -1440,15 +1440,8 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
       width: 60%;
-      margin: 20px 0;
+      margin: 40px auto 20px auto;
       padding: 15px 20px 0;
-    }
-    .centered-content {
-      width: 60%;
-      margin: 40px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     .headline-box,
     .period-container {
@@ -1456,7 +1449,7 @@ HTML_TEMPLATE = """
       text-align: center;
       background-color: white;
       border: 4px solid #000000;
-      margin: 20px 0;
+      margin: 40px auto 20px auto;
     }
     .period-box {
       width: 100%;
@@ -1522,7 +1515,7 @@ HTML_TEMPLATE = """
     }
     .winner-box {
       width: 60%;
-      margin: 20px 0;
+      margin: 40px auto 20px auto;
       padding: 15px 20px;
       border: 2px solid #000000;
       border-radius: 0px;
@@ -1645,7 +1638,6 @@ HTML_TEMPLATE = """
           </div>
         </div>
                 
-        <div class="centered-content">
           <div class="period-container">
             {% for period in result["periods"] %}
               <div class="period-box">
@@ -1681,7 +1673,6 @@ HTML_TEMPLATE = """
                       {{ result["winner"] }}
                     {% endif %}
                   </span>
-        </div>
     
         <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
           Final Score:
