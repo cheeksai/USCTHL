@@ -1440,7 +1440,7 @@ HTML_TEMPLATE = """
       align-items: center;
       margin-top: 30px;
       width: 60%;
-      margin: 40px auto 20px auto;
+      margin: 20px 0;
       padding: 15px 20px 0;
     }
     .centered-content {
@@ -1454,6 +1454,9 @@ HTML_TEMPLATE = """
     .period-container {
       width: 100%;
       text-align: center;
+      background-color: white;
+      border: 4px solid #000000;
+      margin: 20px 0;
     }
     .period-box {
       width: 100%;
@@ -1519,7 +1522,7 @@ HTML_TEMPLATE = """
     }
     .winner-box {
       width: 60%;
-      margin: 40px auto 20px auto;
+      margin: 20px 0;
       padding: 15px 20px;
       border: 2px solid #000000;
       border-radius: 0px;
@@ -1663,25 +1666,21 @@ HTML_TEMPLATE = """
                 <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
               </div>
             {% endif %}
-          </div>
-        </div>        
-
-    {% endif%}
-    {% endif %}
-        {% if result and not result.get("error") %}
-      {% set winner_key = result["winner"] %}
-      <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
-        <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
-          Winner:
-          <span class="winner-name">
-            {% if result["winner"] == result["team1"]["name"] %}
-              {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
-            {% elif result["winner"] == result["team2"]["name"] %}
-              {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
-            {% else %}
-              {{ result["winner"] }}
-            {% endif %}
-          </span>
+                  
+            {% if result and not result.get("error") %}
+              {% set winner_key = result["winner"] %}
+              <div class="winner-box" style="background-color: {{ team_colors[winner_key][0] }};">
+                <div class="winner-label" style="color: {{ team_colors[winner_key][1] }}">
+                  Winner:
+                  <span class="winner-name">
+                    {% if result["winner"] == result["team1"]["name"] %}
+                      {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+                    {% elif result["winner"] == result["team2"]["name"] %}
+                      {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+                    {% else %}
+                      {{ result["winner"] }}
+                    {% endif %}
+                  </span>
         </div>
     
         <div class="final-score-label" style="color: {{ team_colors[winner_key][1] if winner_key in team_colors else 'black' }};">
