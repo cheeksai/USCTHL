@@ -1706,7 +1706,8 @@ HTML_TEMPLATE = """
         <p class="headline">{{ headline }}</p>
       </div>
     {% endif %}
-{% endif %}
+    
+    {% endif %}
     
 </body>
 </html>"""
