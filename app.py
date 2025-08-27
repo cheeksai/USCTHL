@@ -1480,12 +1480,10 @@ HTML_TEMPLATE = """
       text-align: center;
     }
     .venue-jersey-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      gap: 20px;
+      display: block;
       margin: 60px auto 40px auto;
-      max-width: 1200px;
+      max-width: 600px;
+    }
     }
     .jersey-box,
     .venue-box {
