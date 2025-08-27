@@ -1448,7 +1448,7 @@ HTML_TEMPLATE = """
       width: 60%;
       text-align: center;
       background-color: white;
-      border: 4px solid #000000;
+      border: 2px solid #000000;
       margin: 30px auto;
     }
     .period-box {
@@ -1458,7 +1458,7 @@ HTML_TEMPLATE = """
       border-radius: 0;
       padding: 15px 20px;
       margin: 30px 0;
-      text-align: left;
+      text-align: center;
     }
     .period-box h4 {
       margin-top: -5px;
