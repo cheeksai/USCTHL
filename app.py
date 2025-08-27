@@ -1610,16 +1610,16 @@ HTML_TEMPLATE = """
       </div>
 
    <div class="venue-jersey-row">
-          <div class="jersey-box" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
-            <div style="font-weight: bold; margin-bottom: 8px;">
-              {% if result["home_choice"] == "all_alt_jerseys" %}
-                Alternate Jersey
-              {% else %}
-                Home Jersey
-              {% endif %}
+          <div class="jersey-box">
+              <div style="font-weight: bold; margin-bottom: 8px;">
+                {% if result["home_choice"] == "all_alt_jerseys" %}
+                  Alternate Jersey
+                {% else %}
+                  Home Jersey
+                {% endif %}
+              </div>
+              <img src="{{ jersey_home_path }}" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
             </div>
-            <img src="{{ jersey_home_path }}">
-          </div>
         
           {% if venue_path %}
             <div class="venue-box">
@@ -1630,13 +1630,12 @@ HTML_TEMPLATE = """
             </div>
           {% endif %}
         
-          <div class="jersey-box" style="border: 4px solid {{ team_colors[result["team2"]["name"]][0] }};">
-            <div style="font-weight: bold; margin-bottom: 8px;">
-              Away Jersey
+          <div class="jersey-box">
+              <div style="font-weight: bold; margin-bottom: 8px;">
+                Away Jersey
+              </div>
+              <img src="{{ jersey_away_path }}" style="border: 4px solid {{ team_colors[result["team2"]["name"]][0] }};">
             </div>
-            <img src="{{ jersey_away_path }}">
-          </div>
-        </div>
                 
         {% for period in result["periods"] %}
           <div class="period-box">
