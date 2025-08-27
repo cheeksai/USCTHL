@@ -1484,18 +1484,19 @@ HTML_TEMPLATE = """
     }
     .venue-jersey-row {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: stretch;
-      gap: 40px;
+      gap: 60px;
       margin: 40px auto;
+      max-width: 1200px;
     }
     .jersey-box,
     .venue-box {
       box-sizing: border-box;
       flex: 1;
     }
-    .jersey-box {
-      width: 20%;
+    jersey-box {
+      flex: 0 0 20%;
       text-align: center;
       padding: 8px;
     }
@@ -1505,10 +1506,8 @@ HTML_TEMPLATE = """
       height: auto;
     }
     .venue-box {
-      width: 60%;
-      height: 100%;
-      text-align: center;
       flex: 1;
+      text-align: center;
     }
     .venue-box img {
       max-width: 100%;
