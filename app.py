@@ -1486,16 +1486,17 @@ HTML_TEMPLATE = """
       display: flex;
       justify-content: space-between;
       align-items: stretch;
-      gap: 60px;
+      gap: 40px;
       margin: 40px auto;
       max-width: 1200px;
+      padding: 0 40px;
     }
     .jersey-box,
     .venue-box {
       box-sizing: border-box;
       flex: 1;
     }
-    jersey-box {
+    .jersey-box {
       flex: 0 0 20%;
       text-align: center;
       padding: 8px;
