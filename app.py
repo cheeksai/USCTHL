@@ -1476,7 +1476,7 @@ HTML_TEMPLATE = """
     .venue-jersey-row {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 40px;
       margin: 40px auto;
       max-width: 1000px;
@@ -1484,6 +1484,7 @@ HTML_TEMPLATE = """
     .jersey-box,
     .venue-box {
       box-sizing: border-box;
+      flex: 1;
     }
     .jersey-box {
       width: 20%;
@@ -1499,6 +1500,7 @@ HTML_TEMPLATE = """
       width: 60%;
       height: 100%;
       text-align: center;
+      flex: 1;
     }
     .venue-box img {
       max-width: 100%;
