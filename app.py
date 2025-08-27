@@ -1443,7 +1443,6 @@ HTML_TEMPLATE = """
       margin: 40px auto 20px auto;
       padding: 15px 20px 0;
     }
-    .period-box,
     .winner-box,
     .headline-box {
       width: 60%;
@@ -1454,11 +1453,21 @@ HTML_TEMPLATE = """
       border: 2px solid #000;
       box-sizing: border-box;
     }
+    .period-box {
+      width: 60%;
+      margin: 30px auto;
+      padding: 15px 20px;
+      text-align: left;
+      background-color: white;
+      border: 2px solid #000;
+      box-sizing: border-box;
+    
+    }
     .period-box h4 {
       margin-top: -5px;
       margin-bottom: 10px;
       color: black;
-      text-align: center;
+      text-align: left;
     }
     .period-box p {
       margin: 5px 0;
