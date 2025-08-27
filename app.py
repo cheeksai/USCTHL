@@ -1443,22 +1443,16 @@ HTML_TEMPLATE = """
       margin: 40px auto 20px auto;
       padding: 15px 20px 0;
     }
-    .headline-box,
-    .period-container {
+    .period-box,
+    .winner-box,
+    .headline-box {
       width: 60%;
+      margin: 30px auto;
+      padding: 15px 20px;
       text-align: center;
       background-color: white;
-      border: 2px solid #000000;
-      margin: 30px auto;
-    }
-    .period-box {
-      width: 60%;
-      background-color: #FFFFFF;
-      border: 1px solid #000000;
-      border-radius: 0;
-      padding: 15px 20px;
-      margin: 30px 0;
-      text-align: center;
+      border: 2px solid #000;
+      box-sizing: border-box;
     }
     .period-box h4 {
       margin-top: -5px;
@@ -1480,10 +1474,12 @@ HTML_TEMPLATE = """
       text-align: center;
     }
     .venue-jersey-row {
-      display: block;
-      margin: 60px auto 40px auto;
-      max-width: 600px;
-    }
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin: 40px auto;
+      max-width: 1000px;
     }
     .jersey-box,
     .venue-box {
@@ -1493,7 +1489,6 @@ HTML_TEMPLATE = """
       width: 20%;
       text-align: center;
       padding: 8px;
-      border: 4px solid #000000;
     }
     .jersey-box img {
       max-height: 280px;
@@ -1510,14 +1505,6 @@ HTML_TEMPLATE = """
       max-height: 280px;
       height: auto;
       border: 4px solid #000000;
-    }
-    .winner-box {
-      width: 60%;
-      margin: 30px auto;
-      padding: 15px 20px;
-      border: 2px solid #000000;
-      border-radius: 0px;
-      text-align: center;
     }
     .winner-label {
       font-size: 1.1em;
@@ -1607,17 +1594,17 @@ HTML_TEMPLATE = """
         </div>
       </div>
 
-   <div class="venue-jersey-row">
+        <div class="venue-jersey-row">
           <div class="jersey-box">
-              <div style="font-weight: bold; margin-bottom: 8px;">
-                {% if result["home_choice"] == "all_alt_jerseys" %}
-                  Alternate Jersey
-                {% else %}
-                  Home Jersey
-                {% endif %}
-              </div>
-              <img src="{{ jersey_home_path }}" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+              {% if result["home_choice"] == "all_alt_jerseys" %}
+                Alternate Jersey
+              {% else %}
+                Home Jersey
+              {% endif %}
             </div>
+            <img src="{{ jersey_home_path }}" style="border: 4px solid {{ team_colors[result["team1"]["name"]][0] }};">
+          </div>
         
           {% if venue_path %}
             <div class="venue-box">
@@ -1629,12 +1616,13 @@ HTML_TEMPLATE = """
           {% endif %}
         
           <div class="jersey-box">
-              <div style="font-weight: bold; margin-bottom: 8px;">
-                Away Jersey
-              </div>
-              <img src="{{ jersey_away_path }}" style="border: 4px solid {{ team_colors[result["team2"]["name"]][0] }};">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+              Away Jersey
             </div>
-                
+            <img src="{{ jersey_away_path }}" style="border: 4px solid {{ team_colors[result["team2"]["name"]][0] }};">
+          </div>
+        </div>
+        
         {% for period in result["periods"] %}
           <div class="period-box">
             <h4>{{ period["label"] }}</h4>
@@ -1648,6 +1636,7 @@ HTML_TEMPLATE = """
           </div>
         {% endfor %}
         
+        <!-- Overtime -->
         {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
           <div class="period-box">
             <h4>Overtime</h4>
@@ -1694,7 +1683,6 @@ HTML_TEMPLATE = """
             <p class="headline">{{ headline }}</p>
           </div>
         {% endif %}
-
     
     {% endif %}
 {% endif %}
