@@ -1467,7 +1467,7 @@ HTML_TEMPLATE = """
       margin-top: -5px;
       margin-bottom: 10px;
       color: black;
-      text-align: left;
+      text-align: center;
     }
     .period-box p {
       margin: 5px 0;
@@ -1476,7 +1476,7 @@ HTML_TEMPLATE = """
     .jersey-row {
       display: flex;
       justify-content: center;
-      gap: 80px;
+      gap: 40px;
       margin: 80px auto 40px auto;
       margin-top: 40px;
       margin-bottom: 40px;
@@ -1488,7 +1488,6 @@ HTML_TEMPLATE = """
       align-items: stretch;
       gap: 40px;
       margin: 40px auto;
-      max-width: 1000px;
     }
     .jersey-box,
     .venue-box {
