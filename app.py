@@ -1484,17 +1484,24 @@ HTML_TEMPLATE = """
     }
     .venue-jersey-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: stretch;
       gap: 40px;
       margin: 40px auto;
       max-width: 1200px;
       padding: 0 40px;
     }
-    .jersey-box,
     .venue-box {
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       flex: 1;
+      box-sizing: border-box;
+    }
+    .venue-box {
+      flex: 0 0 60%;
+      text-align: center;
     }
     .jersey-box {
       flex: 0 0 20%;
@@ -1502,7 +1509,7 @@ HTML_TEMPLATE = """
       padding: 8px;
     }
     .jersey-box img {
-      max-height: 280px;
+      height: 280px;
       max-width: 100%;
       height: auto;
     }
@@ -1512,7 +1519,7 @@ HTML_TEMPLATE = """
     }
     .venue-box img {
       max-width: 100%;
-      max-height: 280px;
+      height: 280px;
       height: auto;
       border: 4px solid #000000;
     }
