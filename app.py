@@ -25,6 +25,8 @@ assist_matrix = os.path.join(BASE_DIR, "assists")
 df1 = pd.read_csv(assist_matrix, sep='\t', index_col=0)
 df1 = df1.drop(index=df1.index[-1], columns='assister')
 
+all_df = pd.read_csv(total_goals_assists)
+
 
 
 print(info.columns.tolist())
@@ -399,6 +401,15 @@ def simulate_game(team1, team2):
         player_goal_sequence[player] = player_goal_sequence.get(player, 0) + 1
         goal_number = player_goal_sequence[player]
 
+        idx = 0
+        for i in df_all['Player']:
+            if i != player:
+                idx += 1
+            else:
+                break
+                
+        goal_number = df_all['Goals'].iloc[idx]
+
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
         else:
@@ -408,13 +419,21 @@ def simulate_game(team1, team2):
         
         for name, num in assists:
             if name != 'Unassisted':
+                
                 player_assist_counter[name] = player_assist_counter.get(name, 0) + 1
 
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
 
+        idx = 0
+        for i in all_df['Player']:
+            if i != player:
+                idx += 1
+            else:
+                break
+
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({player_assist_counter.get(name, 0)})"
+                f"#{num} {name} ({player_assist_counter.get(name, 0) + all_df['Assists'].iloc[idx]})"
                 for name, num in valid_assists
             ])
         else:
