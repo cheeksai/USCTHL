@@ -402,13 +402,13 @@ def simulate_game(team1, team2):
         goal_number = player_goal_sequence[player]
 
         idx = 0
-        for i in df_all['Player']:
+        for i in all_df['Player']:
             if i != player:
                 idx += 1
             else:
                 break
                 
-        goal_number = df_all['Goals'].iloc[idx]
+        goal_number = all_df['Goals'].iloc[idx]
 
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
