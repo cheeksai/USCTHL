@@ -536,27 +536,30 @@ def simulate_game(team1, team2):
     
     if ot_scorers:
         scorer_name = random.choice(ot_scorers)
-        player_goal_counter[scorer_name] = player_goal_counter.get(scorer_name, 0) + 1
-        player_goal_match_counter[scorer_name] = player_goal_match_counter.get(scorer_name, 0) + 1
-        goal_idx = all_df.index[all_df['Player'] == scorer_name][0]
-        player_goal_match_counter[scorer_name] = player_goal_match_counter.get(scorer_name, 0) + 1
-        ot_goal_number = all_df.loc[all_df['Player'] == scorer_name, 'Goals'].iloc[0] + player_goal_match_counter[scorer_name]
-
         
+        player_goal_match_counter[scorer_name] = player_goal_match_counter.get(scorer_name, 0) + 1
+        
+        ot_goal_number = all_df.loc[all_df['Player'] == scorer_name, 'Goals'].iloc[0] + player_goal_match_counter[scorer_name]
+    
         minute = 5 - random.randint(1, 5)
         second = 59 - random.randint(0, 59)
         time = f'{minute}:{second:02}'
         
         team = ot_winner
         team_abbr = place_abbreviations.get(team, 'N/A')
-
+    
+        score_tracker[team] += 1
+        if team == team1:
+            score_live = f'{score_tracker[team1]} - {score_tracker[team2]}' 
+        else:
+            score_live = f'{score_tracker[team2]} - {score_tracker[team1]}'
+    
         assists = generate_assists(scorer_name, dataframe, df1)
         for name, num in assists:
             if name != "Unassisted":
                 player_assist_counter[name] = player_assist_counter.get(name, 0) + 1
-        
+    
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
-
         if valid_assists:
             assist_text = ", ".join([
                 f"#{num} {name} ({all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] + player_assist_counter[name]})"
@@ -564,40 +567,34 @@ def simulate_game(team1, team2):
             ])
         else:
             assist_text = "Unassisted"
-
+    
         idx = dataframe[dataframe['Player'] == scorer_name].index[0]
         number = dataframe['Number'].iloc[idx]
-
-        if team == team1:
-            score_tracker[team1] += 1
-            score_live = f'{score_tracker[team1]} - {score_tracker[team2]}' 
-        else:
-            score_tracker[team2] += 1
-            score_live = f'{score_tracker[team2]} - {score_tracker[team1]}'
-
+    
+        all_goals.append((4, minute, second, team, scorer_name, time))
+    
+        winning = 'Tie'
         if score_tracker[team1] > score_tracker[team2]:
             winning = team1
         elif score_tracker[team2] > score_tracker[team1]:
             winning = team2
-
+    
         ot_scorers = [
             f'{team_abbr} Goal: #{number} {scorer_name} ({ot_goal_number})\nAssists: {assist_text}\nTime: {time}\nScore: {score_live} {winning}'
         ]
-
-        all_goals.append((4, minute, second, team, scorer_name, time))
-
+    
         raw = ot_scorers[0].split(" - ")[0]
         ot_scorers_name = raw.split("#")[1].split("(")[0].strip()
-        ot_scorers_name = ot_scorers_name[2:]
     else:
         ot_scorers = ['N/A']
         ot_scorers_name = 'N/A'
-
+    
     ot1_score = score1
     ot2_score = score2
     
     scorers_team1 = [f"{player} - {formatted_time}" for p, m, s, team, player, formatted_time in all_goals if team == team1]
     scorers_team2 = [f"{player} - {formatted_time}" for p, m, s, team, player, formatted_time in all_goals if team == team2]
+
 
     team1_data = {
         "name": team1,
