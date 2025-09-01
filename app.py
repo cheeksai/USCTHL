@@ -395,7 +395,7 @@ def simulate_game(team1, team2):
     for idx, (x, player) in enumerate(zip(overalls2, players2)):
         goals, (_, sorted_times) = expected_goals(x, idx, randomnum=(goalie1_ovr / 84) * random.uniform(0.01, 1))
         for p, m, s, formatted_time in sorted_times:
-            all_goals.append((p, m, s, team1, player, formatted_time))
+            all_goals.append((p, m, s, team2, player, formatted_time))
             player_goal_counter[player] = player_goal_counter.get(player, 0) + 1
             goal_idx = all_df.index[all_df['Player'] == player][0]
             goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[player]
