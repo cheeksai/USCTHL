@@ -406,8 +406,8 @@ def simulate_game(team1, team2):
     for p, m, s, team, player, formatted_time in all_goals:
         score_tracker[team] += 1
 
-        goal_idx = all_df.index[all_df['Player'] == player][0]
-        goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter.get(player, 0)
+        player_goal_match_counter[player] = player_goal_match_counter.get(player, 0) + 1
+        goal_number = player_goal_match_counter[player]
 
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
@@ -432,7 +432,7 @@ def simulate_game(team1, team2):
 
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({player_assist_counter.get(name, 0) + all_df['Assists'].iloc[idx]})"
+                f"#{num} {name} ({player_assist_counter[name]})"
                 for name, num in valid_assists
             ])
         else:
@@ -535,7 +535,8 @@ def simulate_game(team1, team2):
         scorer_name = random.choice(ot_scorers)
         player_goal_counter[scorer_name] = player_goal_counter.get(scorer_name, 0) + 1
         goal_idx = all_df.index[all_df['Player'] == scorer_name][0]
-        ot_goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[scorer_name]
+        ot_goal_number = player_goal_match_counter[scorer_name]
+
         
         minute = 5 - random.randint(1, 5)
         second = 59 - random.randint(0, 59)
@@ -555,7 +556,7 @@ def simulate_game(team1, team2):
 
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({player_assist_counter.get(name, 0)})"
+                f"#{num} {name} ({player_assist_counter[name]})"
                 for name, num in valid_assists
             ])
         else:
