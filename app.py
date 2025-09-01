@@ -434,10 +434,10 @@ def simulate_game(team1, team2):
                 break
 
         if valid_assists:
-        assist_text = ", ".join([
-            f"#{num} {name} ({(all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] if not all_df.loc[all_df['Player'] == name, 'Assists'].empty else 0) + player_assist_counter.get(name, 0)})"
-            for name, num in valid_assists
-        ])
+            assist_text = ", ".join([
+                f"#{num} {name} ({(all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] if not all_df.loc[all_df['Player'] == name, 'Assists'].empty else 0) + player_assist_counter.get(name, 0)})"
+                for name, num in valid_assists
+            ])
         else:
             assist_text = "Unassisted"
             
