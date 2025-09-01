@@ -408,8 +408,7 @@ def simulate_game(team1, team2):
                 idx += 1
             else:
                 break
-        try:
-            goal_number = all_df['Goals'].iloc[idx] + player_goal_sequence.get(player, 0) + 1
+        goal_number = all_df['Goals'].iloc[idx] + player_goal_sequence.get(player, 0) + 1
 
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
@@ -536,8 +535,8 @@ def simulate_game(team1, team2):
     if ot_scorers:
         scorer_name = random.choice(ot_scorers)
         player_goal_counter[scorer_name] = player_goal_counter.get(scorer_name, 0) + 1
-        player_goal_sequence[scorer_name] = player_goal_sequence.get(scorer_name, 0) + 1
-        ot_goal_number = player_goal_sequence[scorer_name]
+        goal_idx = all_df.index[all_df['Player'] == scorer_name][0]
+        ot_goal_number = all_df['Goals'].iloc[goal_idx] + 1  # +1 for this OT goal
 
         minute = 5 - random.randint(1, 5)
         second = 59 - random.randint(0, 59)
@@ -547,10 +546,11 @@ def simulate_game(team1, team2):
         team_abbr = place_abbreviations.get(team, 'N/A')
 
         assists = generate_assists(scorer_name, dataframe, df1)
-        
-        for name, num in assists:
-            if name != 'Unassisted':
-                player_assist_counter[name] = player_assist_counter.get(name, 0) + 1
+        player_assist_counter.update({
+            name: player_assist_counter.get(name, 0) + 1
+            for name, num in assists if name != "Unassisted"
+        })
+
         
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
 
