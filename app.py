@@ -329,8 +329,9 @@ def simulate_game(team1, team2):
     goalie1_ovr = info[team1 + '_OVR'].iloc[-2] if goalie1 == starter_goalie1 else info[team1 + '_OVR'].iloc[-1]
     goalie2_ovr = info[team2 + '_OVR'].iloc[-2] if goalie2 == starter_goalie2 else info[team2 + '_OVR'].iloc[-1]
 
-    player_goal_counter = {}
     player_goal_match_counter = {}
+    player_assist_counter = {}
+    player_goal_counter = {}
     score_tracker = {team1: 0, team2: 0}
     period_events = {1: [], 2: [], 3: []}
 
@@ -394,7 +395,7 @@ def simulate_game(team1, team2):
     for idx, (x, player) in enumerate(zip(overalls2, players2)):
         goals, (_, sorted_times) = expected_goals(x, idx, randomnum=(goalie1_ovr / 84) * random.uniform(0.01, 1))
         for p, m, s, formatted_time in sorted_times:
-            all_goals.append((p, m, s, team2, player, formatted_time))
+            all_goals.append((p, m, s, team1, player, formatted_time))
             player_goal_counter[player] = player_goal_counter.get(player, 0) + 1
             goal_idx = all_df.index[all_df['Player'] == player][0]
             goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[player]
@@ -408,7 +409,8 @@ def simulate_game(team1, team2):
         score_tracker[team] += 1
 
         player_goal_match_counter[player] = player_goal_match_counter.get(player, 0) + 1
-        goal_number = player_goal_match_counter[player]
+        goal_number = all_df.loc[all_df['Player'] == player, 'Goals'].iloc[0] + player_goal_match_counter[player]
+
 
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
@@ -535,8 +537,10 @@ def simulate_game(team1, team2):
     if ot_scorers:
         scorer_name = random.choice(ot_scorers)
         player_goal_counter[scorer_name] = player_goal_counter.get(scorer_name, 0) + 1
+        player_goal_match_counter[scorer_name] = player_goal_match_counter.get(scorer_name, 0) + 1
         goal_idx = all_df.index[all_df['Player'] == scorer_name][0]
-        ot_goal_number = player_goal_match_counter[scorer_name]
+        player_goal_match_counter[scorer_name] = player_goal_match_counter.get(scorer_name, 0) + 1
+        ot_goal_number = all_df.loc[all_df['Player'] == scorer_name, 'Goals'].iloc[0] + player_goal_match_counter[scorer_name]
 
         
         minute = 5 - random.randint(1, 5)
@@ -547,17 +551,15 @@ def simulate_game(team1, team2):
         team_abbr = place_abbreviations.get(team, 'N/A')
 
         assists = generate_assists(scorer_name, dataframe, df1)
-        player_assist_counter.update({
-            name: player_assist_counter.get(name, 0) + 1
-            for name, num in assists if name != "Unassisted"
-        })
-
+        for name, num in assists:
+            if name != "Unassisted":
+                player_assist_counter[name] = player_assist_counter.get(name, 0) + 1
         
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
 
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({player_assist_counter[name]})"
+                f"#{num} {name} ({all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] + player_assist_counter[name]})"
                 for name, num in valid_assists
             ])
         else:
