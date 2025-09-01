@@ -435,7 +435,7 @@ def simulate_game(team1, team2):
 
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({player_assist_counter[name]})"
+                f"#{num} {name} ({all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] + player_assist_counter.get(name, 0)})"
                 for name, num in valid_assists
             ])
         else:
@@ -560,13 +560,15 @@ def simulate_game(team1, team2):
                 player_assist_counter[name] = player_assist_counter.get(name, 0) + 1
     
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
+
         if valid_assists:
             assist_text = ", ".join([
-                f"#{num} {name} ({all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] + player_assist_counter[name]})"
+                f"#{num} {name} ({all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] + player_assist_counter.get(name, 0)})"
                 for name, num in valid_assists
             ])
         else:
             assist_text = "Unassisted"
+
     
         idx = dataframe[dataframe['Player'] == scorer_name].index[0]
         number = dataframe['Number'].iloc[idx]
