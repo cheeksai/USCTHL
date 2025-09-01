@@ -4,6 +4,7 @@ import numpy as np
 import random
 import os
 from PIL import Image
+import requests
 
 app = Flask(__name__)
 JERSEY_FOLDER = os.path.join("static", "jerseys")
@@ -25,10 +26,14 @@ assist_matrix = os.path.join(BASE_DIR, "assists")
 df1 = pd.read_csv(assist_matrix, sep='\t', index_col=0)
 df1 = df1.drop(index=df1.index[-1], columns='assister')
 
-all_dfs = os.path.join(BASE_DIR, "total_goals_assists")
-all_df = pd.read_csv(all_dfs)
+url = "https://docs.google.com/spreadsheets/d/FILE_ID/export?format=csv"
+file_path = os.path.join(BASE_DIR, "total_goals_assists")
 
+response = requests.get(url)
+with open(file_path, "wb") as f:
+    f.write(response.content)
 
+all_df = pd.read_csv(file_path)
 
 print(info.columns.tolist())
 
