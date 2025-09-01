@@ -4,7 +4,7 @@ import numpy as np
 import random
 import os
 from PIL import Image
-import requests
+import urllib.request
 
 app = Flask(__name__)
 JERSEY_FOLDER = os.path.join("static", "jerseys")
@@ -29,9 +29,7 @@ df1 = df1.drop(index=df1.index[-1], columns='assister')
 url = "https://docs.google.com/spreadsheets/d/FILE_ID/export?format=csv"
 file_path = os.path.join(BASE_DIR, "total_goals_assists")
 
-response = requests.get(url)
-with open(file_path, "wb") as f:
-    f.write(response.content)
+urllib.request.urlretrieve(url, file_path)
 
 all_df = pd.read_csv(file_path)
 
