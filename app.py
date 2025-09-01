@@ -438,9 +438,9 @@ def simulate_game(team1, team2):
             f"#{num} {name} ({(all_df.loc[all_df['Player'] == name, 'Assists'].iloc[0] if not all_df.loc[all_df['Player'] == name, 'Assists'].empty else 0) + player_assist_counter.get(name, 0)})"
             for name, num in valid_assists
         ])
-    else:
-        assist_text = "Unassisted"
-        
+        else:
+            assist_text = "Unassisted"
+            
         idx = dataframe[dataframe['Player'] == player].index[0]
         number = dataframe['Number'].iloc[idx]
 
@@ -568,6 +568,7 @@ def simulate_game(team1, team2):
             ])
         else:
             assist_text = "Unassisted"
+
 
 
     
