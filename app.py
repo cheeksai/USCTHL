@@ -387,12 +387,16 @@ def simulate_game(team1, team2):
         for p, m, s, formatted_time in sorted_times:
             all_goals.append((p, m, s, team1, player, formatted_time))
             player_goal_counter[player] = player_goal_counter.get(player, 0) + 1
+            goal_idx = all_df.index[all_df['Player'] == player][0]
+            goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[player]
 
     for idx, (x, player) in enumerate(zip(overalls2, players2)):
         goals, (_, sorted_times) = expected_goals(x, idx, randomnum=(goalie1_ovr / 84) * random.uniform(0.01, 1))
         for p, m, s, formatted_time in sorted_times:
             all_goals.append((p, m, s, team2, player, formatted_time))
             player_goal_counter[player] = player_goal_counter.get(player, 0) + 1
+            goal_idx = all_df.index[all_df['Player'] == player][0]
+            goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[player]
 
     all_goals.sort(key=lambda x: (x[0], x[1]*60 + x[2]))
 
@@ -402,13 +406,8 @@ def simulate_game(team1, team2):
     for p, m, s, team, player, formatted_time in all_goals:
         score_tracker[team] += 1
 
-        idx = 0
-        for i in all_df['Player']:
-            if i != player:
-                idx += 1
-            else:
-                break
-        goal_number = all_df['Goals'].iloc[idx] + player_goal_sequence.get(player, 0) + 1
+        goal_idx = all_df.index[all_df['Player'] == player][0]
+        goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter.get(player, 0)
 
         if score_tracker[team1] > score_tracker[team2]:
             score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
@@ -536,8 +535,8 @@ def simulate_game(team1, team2):
         scorer_name = random.choice(ot_scorers)
         player_goal_counter[scorer_name] = player_goal_counter.get(scorer_name, 0) + 1
         goal_idx = all_df.index[all_df['Player'] == scorer_name][0]
-        ot_goal_number = all_df['Goals'].iloc[goal_idx] + 1  # +1 for this OT goal
-
+        ot_goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[scorer_name]
+        
         minute = 5 - random.randint(1, 5)
         second = 59 - random.randint(0, 59)
         time = f'{minute}:{second:02}'
