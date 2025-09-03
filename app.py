@@ -26,12 +26,11 @@ assist_matrix = os.path.join(BASE_DIR, "assists")
 df1 = pd.read_csv(assist_matrix, sep='\t', index_col=0)
 df1 = df1.drop(index=df1.index[-1], columns='assister')
 
-url = "https://docs.google.com/spreadsheets/d/1Itp69-_15wsWqn5Vm0OxnzVEftGKYgz8MH1J8-BjLFs/export?format=csv"
-file_path = os.path.join(BASE_DIR, "total_goals_assists")
+def get_all_df():
+    url = "https://docs.google.com/spreadsheets/d/1Itp69-_15wsWqn5Vm0OxnzVEftGKYgz8MH1J8-BjLFs/export?format=csv"
+    return pd.read_csv(url)
 
-urllib.request.urlretrieve(url, file_path)
-
-all_df = pd.read_csv(file_path)
+all_df = get_all_df()
 
 print(info.columns.tolist())
 
@@ -339,6 +338,7 @@ def simulate_game(team1, team2):
 
 
     def simulate_team(players, overalls, goalies, team_name, score_tracker):
+        all_df = get_all_df()
         lines = []
         total_goals = 0
         scores1 = 0
@@ -384,6 +384,7 @@ def simulate_game(team1, team2):
         
         return lines, total_goals, period_goals, hat_trick_scorer
 
+    all_df = get_all_df()
     for idx, (x, player) in enumerate(zip(overalls1, players1)):
         goals, (_, sorted_times) = expected_goals(x, idx, randomnum=(goalie2_ovr / 84) * random.uniform(0.01, 1))
         for p, m, s, formatted_time in sorted_times:
@@ -404,6 +405,8 @@ def simulate_game(team1, team2):
 
     player_goal_sequence = {}
     player_assist_counter = {}
+
+    all_df = get_all_df()
     
     for p, m, s, team, player, formatted_time in all_goals:
         score_tracker[team] += 1
@@ -427,6 +430,7 @@ def simulate_game(team1, team2):
         valid_assists = [(name, num) for name, num in assists if name != 'Unassisted']
 
         idx = 0
+        all_df = get_all_df()
         for i in all_df['Player']:
             if i != player:
                 idx += 1
@@ -531,8 +535,8 @@ def simulate_game(team1, team2):
                 #x, idx, randomnum=(goalies / 84) * random.uniform(0.00000001, 1)
             #)
             #print(winner+'working on it still ')
-                
-
+                   
+    all_df = get_all_df()
     
     if ot_scorers:
         scorer_name = random.choice(ot_scorers)
