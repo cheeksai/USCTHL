@@ -1913,10 +1913,6 @@ def home():
         jersey_home_path=jersey_home_path,
         jersey_away_path=jersey_away_path,
         venue_path=venue_path,
-        shots1=shots1,
-        shots2=shots2,
-        saves1=saves1,
-        saves2=saves2,
         all_goals = all_goals
     )
 
