@@ -1740,9 +1740,9 @@ HTML_TEMPLATE = """
         <div class="period-box">
           <h4>Shots & Saves</h4>
           <p>{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} — 
-             Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }}, Save Percentage: {{ 1 - (result["ot1_score"] /  result["saves1"])</p>
+             Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }}, Save Percentage: {{ 1 - (result["ot1_score"] /  result["shots1"]) }}</p>
           <p>{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} — 
-             Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }}, Save Percentage: {{ 1 - (result["ot2_score"] /  result["saves2"])</p>
+             Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }}, Save Percentage: {{ 1 - (result["ot2_score"] /  result["shots2"]) }}</p>
         </div>
         
         {% if result and not result.get("error") %}
