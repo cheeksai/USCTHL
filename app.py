@@ -401,7 +401,43 @@ def simulate_game(team1, team2):
             goal_idx = all_df.index[all_df['Player'] == player][0]
             goal_number = all_df['Goals'].iloc[goal_idx] + player_goal_counter[player]
 
+    shots1_list = []
+    shots2_list = []
+
     all_goals.sort(key=lambda x: (x[0], x[1]*60 + x[2]))
+
+
+
+
+    for idx, (x, player) in enumerate(zip(overalls1, players1)):
+        goal_idx = all_df.index[all_df['Player'] == player][0]
+        shooter_overall = x
+        shots = 0
+        shots = (shooter_overall / 40) * random.uniform(0,1.500)
+        shots = round(shots)
+    
+        shots1_list.append(shots)
+    
+        
+    shots1 = sum(shots_list1)
+    goals1 = sum(1 for goal in all_goals if goal[3] == team1)
+    saves1 = shots1 - goals1
+
+    for idx, (x, player) in enumerate(zip(overalls2, players2)):
+        goal_idx = all_df.index[all_df['Player'] == player][0]
+        shooter_overall = x
+        shots = 0
+        shots = (shooter_overall / 40) * random.uniform(0,1.500)
+        shots = round(shots)
+    
+        shots2_list.append(shots)
+    
+        
+    shots2 = sum(shots_list2)
+    goals2 = sum(1 for goal in all_goals if goal[3] == team2)
+    saves2 = shots2 - goals2
+
+    
 
     player_goal_sequence = {}
     player_assist_counter = {}
@@ -573,6 +609,11 @@ def simulate_game(team1, team2):
         else:
             assist_text = "Unassisted"
 
+        if team == team1:
+            shots1 += 1
+        else:
+            shots2 += 1
+
 
 
     
@@ -608,13 +649,17 @@ def simulate_game(team1, team2):
         "name": team1,
         "goalie": goalie1,
         "scorers": scorers_team1,
-        "total_goals": score1
+        "total_goals": score1,
+        "shots": shots1,
+        "saves": saves1
     }
     team2_data = {
         "name": team2,
         "goalie": goalie2,
         "scorers": scorers_team2,
-        "total_goals": score2
+        "total_goals": score2,
+        "shots": shots2,
+        "saves": saves2
     }
         
 
@@ -648,6 +693,10 @@ def simulate_game(team1, team2):
         "team2_periods": [team2_period1, team2_period2, team2_period3],
         "hat_trick_scorer": hat_trick_scorer,
         "all_goals" : all_goals,
+        "shots1": shots1,
+        "shots2": shots2,
+        "saves1": saves1,
+        "saves2": saves2,
 
         "error": None
     }
@@ -1681,13 +1730,20 @@ HTML_TEMPLATE = """
           </div>
         {% endfor %}
         
-        <!-- Overtime -->
         {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
           <div class="period-box">
             <h4>Overtime</h4>
             <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
           </div>
         {% endif %}
+
+        <div class="period-box">
+          <h4>Shots & Saves</h4>
+          <p>{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} — 
+             Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }}, Save Percentage: {{ 1 - (result["ot1_score"] /  result["saves1"])</p>
+          <p>{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} — 
+             Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }}, Save Percentage: {{ 1 - (result["ot2_score"] /  result["saves2"])</p>
+        </div>
         
         {% if result and not result.get("error") %}
           {% set winner_key = result["winner"] %}
@@ -1857,6 +1913,10 @@ def home():
         jersey_home_path=jersey_home_path,
         jersey_away_path=jersey_away_path,
         venue_path=venue_path,
+        shots1=shots1,
+        shots2=shots2,
+        saves1=saves1,
+        saves2=saves2,
         all_goals = all_goals
     )
 
