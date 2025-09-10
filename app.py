@@ -1737,13 +1737,32 @@ HTML_TEMPLATE = """
           </div>
         {% endif %}
 
-        <div class="period-box">
-          <h4>Shots and Saves</h4>
-          <p>{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} - 
-             Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }}, Save Percentage: {{ (1 - (result["ot1_score"] /  result["shots1"]))|round(2) }}</p>
-          <p>{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} - 
-             Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }}, Save Percentage: {{ (1 - (result["ot2_score"] /  result["shots2"]))|round(2) }}</p>
-        </div>
+        <h4>Shots and Saves</h4>
+        <table style="width:100%;">
+          <tr>
+            <td style="width:50%; vertical-align:top;">
+              <div class="period-box">
+                <p>
+                  {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} -
+                  Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }},
+                  Save Percentage:
+                  {{ (1 - (result["ot1_score"] / result["shots1"]))|round(2) }}
+                </p>
+              </div>
+            </td>
+            <td style="width:50%; vertical-align:top;">
+              <div class="period-box">
+                <p>
+                  {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} -
+                  Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }},
+                  Save Percentage:
+                  {{ (1 - (result["ot2_score"] / result["shots2"]))|round(2) }}
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+
         
         {% if result and not result.get("error") %}
           {% set winner_key = result["winner"] %}
