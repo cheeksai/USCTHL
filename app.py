@@ -1737,13 +1737,13 @@ HTML_TEMPLATE = """
           </div>
         {% endif %}
 
-        <h4>Shots and Saves</h4>
+        <h4style="text-align: center;">Shots and Saves</h4>
         <table style="width:100%;">
           <tr>
-            <td style="width:50%; vertical-align:top;">
+            <td style="width:100%; vertical-align:top;">
               <div class="period-box">
                 <p>
-                  {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} -
+                  {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} {{ result["team1"]["goalie"] }} - 
                   Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }},
                   Save Percentage:
                   {{ (1 - (result["ot1_score"] / result["shots1"]))|round(2) }}
@@ -1753,7 +1753,7 @@ HTML_TEMPLATE = """
             <td style="width:50%; vertical-align:top;">
               <div class="period-box">
                 <p>
-                  {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} -
+                  {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} {{ result["team2"]["goalie"] }} - 
                   Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }},
                   Save Percentage:
                   {{ (1 - (result["ot2_score"] / result["shots2"]))|round(2) }}
