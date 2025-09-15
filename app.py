@@ -434,7 +434,7 @@ def simulate_game(team1, team2):
         shots2_list.append(shots)
 
     
-    shots1 = saves2
+    shots2 = sum(shots2_list)
     goals2 = sum(1 for goal in all_goals if goal[3] == team2)
     
     saves1 = shots2 - goals2
