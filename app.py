@@ -423,14 +423,10 @@ def simulate_game(team1, team2):
     goals1 = sum(1 for goal in all_goals if goal[3] == team1)
     saves1 = shots1 - goals1
 
-    for idx, (x, player) in enumerate(zip(overalls2, players2)):
-        goal_idx = all_df.index[all_df['Player'] == player][0]
-        shooter_overall = x
-        shots = 0
-        shots = (shooter_overall / 40) * random.uniform(0,1.500)
-        shots = round(shots)
+    shots = saves
+    saves2 = shots
     
-        shots2_list.append(shots)
+    shots2_list.append(shots)
     
         
     shots2 = sum(shots2_list)
