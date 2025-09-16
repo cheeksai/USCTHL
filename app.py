@@ -1604,23 +1604,25 @@ HTML_TEMPLATE = """
     }
    .shots-saves-box {
       display: grid;
-      grid-template-columns: 1fr 1fr;   /* two teams */
-      grid-template-rows: 1fr 1fr;      /* top + bottom */
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       width: 60%;
       margin: 30px auto;
       background-color: white;
       border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
+      border-collapse: collapse;
     }
     .team-half {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 12px;
+      padding: 10px;
       box-sizing: border-box;
-      border: 2px solid #000;   /* inner borders */
+      border: 2px solid #000;
+      margin: 0;
     }
     .team-label,
     .goalie-label {
