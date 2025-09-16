@@ -1796,7 +1796,7 @@ HTML_TEMPLATE = """
             <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
             <div class="stat-line">Saves: {{ result["saves1"] }}</div>
             <div class="stat-line">
-              Save %: {{ "{:.3f}".format(result["saves1"] / result["shots2"]) }}
+              Save Pct: {{ "{:.3f}".format(result["saves1"] / result["shots2"]) }}
             </div>
           </div>
           
@@ -1805,7 +1805,7 @@ HTML_TEMPLATE = """
             <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
             <div class="stat-line">Saves: {{ result["saves2"] }}</div>
             <div class="stat-line">
-              Save %: {{ "{:.3f}".format(result["saves2"] / result["shots1"]) }}
+              Save Pct: {{ "{:.3f}".format(result["saves2"] / result["shots1"]) }}
             </div>
           </div>
         </div>
