@@ -1602,6 +1602,52 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 8px;
     }
+    .shots-saves-bigbox {
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px auto;
+      width: 90%;
+    }
+    
+    .team-stats-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #ccc;
+      padding: 10px;
+    }
+    
+    .team-stats-side:last-child {
+      border-right: none;
+    }
+    
+    .team-half {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .top-half {
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .team-label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 1.1em;
+    }
+    
+    .goalie-label {
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    
+    .stat-line {
+      margin: 3px 0;
+    }
     .jersey-box img {
       height: 280px;
       max-width: 100%;
@@ -1756,25 +1802,46 @@ HTML_TEMPLATE = """
 
         <h4 style="text-align: center;">Shots and Saves</h4>
 
-        <div class="shots-saves-container">
-          <div class="shots-box">
-            <p>
-              {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }} {{ result["team1"]["goalie"] }} – 
-              Shots: {{ result["shots1"] }}, Saves: {{ result["saves1"] }},
-              Save Percentage:
-              {{ (1 - (result["ot1_score"] / result["shots1"]))|round(2) }}
-            </p>
+        <div class="shots-saves-bigbox">
+          <div class="team-stats-side">
+            <div class="team-half top-half">
+              <div class="team-label">{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}</div>
+              <div class="stat-line">Shots For: {{ result["shots1"] }}</div>
+              <div class="stat-line">Goals For: {{ result["team1"]["total_goals"] }}</div>
+            </div>
+            <div class="team-half bottom-half">
+              <div class="goalie-label">{{ result["team1"]["goalie"] }}</div>
+              <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
+              <div class="stat-line">Saves: {{ result["saves1"] }}</div>
+              <div class="stat-line">
+                Save %: 
+                {% if result["shots2"] > 0 %}
+                  {{ (result["saves1"] / result["shots2"])|round(3) }}
+                {% else %}N/A{% endif %}
+              </div>
+            </div>
           </div>
         
-          <div class="shots-box">
-            <p>
-              {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }} {{ result["team2"]["goalie"] }} – 
-              Shots: {{ result["shots2"] }}, Saves: {{ result["saves2"] }},
-              Save Percentage:
-              {{ (1 - (result["ot2_score"] / result["shots2"]))|round(2) }}
-            </p>
+          <div class="team-stats-side">
+            <div class="team-half top-half">
+              <div class="team-label">{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}</div>
+              <div class="stat-line">Shots For: {{ result["shots2"] }}</div>
+              <div class="stat-line">Goals For: {{ result["team2"]["total_goals"] }}</div>
+            </div>
+            <div class="team-half bottom-half">
+              <div class="goalie-label">{{ result["team2"]["goalie"] }}</div>
+              <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
+              <div class="stat-line">Saves: {{ result["saves2"] }}</div>
+              <div class="stat-line">
+                Save %: 
+                {% if result["shots1"] > 0 %}
+                  {{ (result["saves2"] / result["shots1"])|round(3) }}
+                {% else %}N/A{% endif %}
+              </div>
+            </div>
           </div>
         </div>
+
         
         {% if result and not result.get("error") %}
           {% set winner_key = result["winner"] %}
