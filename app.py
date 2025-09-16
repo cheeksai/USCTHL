@@ -1610,10 +1610,19 @@ HTML_TEMPLATE = """
       border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
     }
     .team-half {
-      border: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 10px;
+      margin: 0;
+      box-sizing: border-box;
+      border: 1px solid #000;
     }
     .shots-saves-box .team-half:nth-child(1),
     .shots-saves-box .team-half:nth-child(2) {
