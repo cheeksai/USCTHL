@@ -1603,25 +1603,17 @@ HTML_TEMPLATE = """
       padding: 8px;
     }
     .shots-saves-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
       width: 60%;
       margin: 30px auto;
+      padding: 15px 20px;
       background-color: white;
       border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
     }
     .team-half {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      border: 1px solid #ccc;
       padding: 10px;
-      margin: 0;
-      box-sizing: border-box;
-      border: 1px solid #000;
     }
     .shots-saves-box .team-half:nth-child(1),
     .shots-saves-box .team-half:nth-child(2) {
