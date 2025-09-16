@@ -1602,51 +1602,45 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 8px;
     }
-    .shots-saves-bigbox {
+    .shots-saves-box {
       display: flex;
       justify-content: space-between;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 15px auto;
-      width: 90%;
+      width: 60%;
+      margin: 30px auto;
+      padding: 15px 20px;
+      background-color: white;
+      border: 2px solid #000;
+      box-sizing: border-box;
     }
-    
     .team-stats-side {
       flex: 1;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid #ccc;
-      padding: 10px;
-    }
-    
+      border-right: 1px solid #000;
+    }  
     .team-stats-side:last-child {
       border-right: none;
     }
-    
     .team-half {
       flex: 1;
       padding: 10px;
-      text-align: center;
+      text-align: left;  /* align like period boxes */
     }
-    
     .top-half {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #000;
     }
-    
     .team-label {
       font-weight: bold;
       margin-bottom: 6px;
-      font-size: 1.1em;
     }
-    
     .goalie-label {
-      font-style: italic;
+      font-weight: bold;
       margin-bottom: 6px;
     }
-    
     .stat-line {
-      margin: 3px 0;
+      display: block;
+      width: 100%;
+      margin: 4px 0;
     }
     .jersey-box img {
       height: 280px;
@@ -1802,7 +1796,7 @@ HTML_TEMPLATE = """
 
         <h4 style="text-align: center;">Shots and Saves</h4>
 
-        <div class="shots-saves-bigbox">
+        <div class="shots-saves-box">
           <div class="team-stats-side">
             <div class="team-half top-half">
               <div class="team-label">{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}</div>
@@ -1814,10 +1808,7 @@ HTML_TEMPLATE = """
               <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
               <div class="stat-line">Saves: {{ result["saves1"] }}</div>
               <div class="stat-line">
-                Save %: 
-                {% if result["shots2"] > 0 %}
-                  {{ (result["saves1"] / result["shots2"])|round(3) }}
-                {% else %}N/A{% endif %}
+                Save %: {{ (result["saves1"] / result["shots2"])|round(3) }}
               </div>
             </div>
           </div>
@@ -1833,10 +1824,7 @@ HTML_TEMPLATE = """
               <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
               <div class="stat-line">Saves: {{ result["saves2"] }}</div>
               <div class="stat-line">
-                Save %: 
-                {% if result["shots1"] > 0 %}
-                  {{ (result["saves2"] / result["shots1"])|round(3) }}
-                {% else %}N/A{% endif %}
+                Save %: {{ (result["saves2"] / result["shots1"])|round(3) }}
               </div>
             </div>
           </div>
