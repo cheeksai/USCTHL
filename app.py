@@ -1612,7 +1612,6 @@ HTML_TEMPLATE = """
       border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
-      border-collapse: collapse;
     }
     .team-half {
       display: flex;
@@ -1620,9 +1619,9 @@ HTML_TEMPLATE = """
       justify-content: center;
       align-items: center;
       padding: 10px;
-      box-sizing: border-box;
-      border: 2px solid #000;
       margin: 0;
+      box-sizing: border-box;
+      border: 1px solid #000;   /* thin internal grid lines */
     }
     .team-label,
     .goalie-label {
