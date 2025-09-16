@@ -1602,7 +1602,7 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 8px;
     }
-   .shots-saves-box {
+    .shots-saves-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
@@ -1621,7 +1621,15 @@ HTML_TEMPLATE = """
       padding: 10px;
       margin: 0;
       box-sizing: border-box;
-      border: 1px solid #000;   /* thin internal grid lines */
+      border: 1px solid #000;
+    }
+    .shots-saves-box .team-half:nth-child(1),
+    .shots-saves-box .team-half:nth-child(2) {
+      border-bottom: none;
+    }
+    .shots-saves-box .team-half:nth-child(1),
+    .shots-saves-box .team-half:nth-child(3) {
+      border-right: none;
     }
     .team-label,
     .goalie-label {
