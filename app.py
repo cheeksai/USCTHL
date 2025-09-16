@@ -1602,45 +1602,33 @@ HTML_TEMPLATE = """
       text-align: center;
       padding: 8px;
     }
-    .shots-saves-box {
-      display: flex;
-      justify-content: space-between;
+   .shots-saves-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* two teams */
+      grid-template-rows: 1fr 1fr;      /* top + bottom */
       width: 60%;
       margin: 30px auto;
-      padding: 15px 20px;
       background-color: white;
       border: 2px solid #000;
       box-sizing: border-box;
-    }
-    .team-stats-side {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid #000;
-    }  
-    .team-stats-side:last-child {
-      border-right: none;
+      text-align: center;
     }
     .team-half {
-      flex: 1;
-      padding: 10px;
-      text-align: left;  /* align like period boxes */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 2px solid #000;   /* inner borders */
     }
-    .top-half {
-      border-bottom: 1px solid #000;
-    }
-    .team-label {
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
+    .team-label,
     .goalie-label {
       font-weight: bold;
       margin-bottom: 6px;
     }
     .stat-line {
-      display: block;
-      width: 100%;
-      margin: 4px 0;
+      margin: 3px 0;
     }
     .jersey-box img {
       height: 280px;
@@ -1808,7 +1796,7 @@ HTML_TEMPLATE = """
               <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
               <div class="stat-line">Saves: {{ result["saves1"] }}</div>
               <div class="stat-line">
-                Save %: {{ (result["saves1"] / result["shots2"])|round(3) }}
+                Save %: {{ "%.3f"|format(result["saves1"] / result["shots2"]) }}
               </div>
             </div>
           </div>
@@ -1824,7 +1812,7 @@ HTML_TEMPLATE = """
               <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
               <div class="stat-line">Saves: {{ result["saves2"] }}</div>
               <div class="stat-line">
-                Save %: {{ (result["saves2"] / result["shots1"])|round(3) }}
+                Save %: {{ "%.3f"|format(result["saves2"] / result["shots1"])| }}
               </div>
             </div>
           </div>
