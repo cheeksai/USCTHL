@@ -1543,20 +1543,6 @@ HTML_TEMPLATE = """
       border: 2px solid #000;
       box-sizing: border-box;
     }
-    .shots-saves-container {
-      display: flex;
-      justify-content: space-between;
-      width: 60%;
-      margin: 0 auto;
-      gap: 20px;
-    }
-    .shots-box {
-      width: calc(50% - 10px);
-      border: 2px solid #000;
-      padding: 15px 20px;
-      box-sizing: border-box;
-      background-color: white;
-    }
     .period-box h4 {
       margin-top: -5px;
       margin-bottom: 10px;
@@ -1605,14 +1591,14 @@ HTML_TEMPLATE = """
     .shots-saves-box {
       width: 60%;
       margin: 30px auto;
-      padding: 15px 20px;
+      padding: 0px 20px;
       background-color: white;
       border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: auto auto;
     }
     .team-half {
       display: flex;
