@@ -1591,32 +1591,30 @@ HTML_TEMPLATE = """
     .shots-saves-box {
       width: 60%;
       margin: 30px auto;
-      padding: 0px 20px;
+      padding: 0;
       background-color: white;
-      border: 2px solid #000;
+      border: 2px solid #000; /* outer box */
       box-sizing: border-box;
       text-align: center;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-rows: 1fr 1fr;
     }
     .team-half {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 10px;
-      margin: 0;
+      padding: 15px;
       box-sizing: border-box;
-      border: 1px solid #000;
     }
     .shots-saves-box .team-half:nth-child(1),
     .shots-saves-box .team-half:nth-child(2) {
-      border-bottom: none;
-    }
+      border-bottom: 2px solid #000;
+    }    
     .shots-saves-box .team-half:nth-child(1),
     .shots-saves-box .team-half:nth-child(3) {
-      border-right: none;
+      border-right: 2px solid #000;
     }
     .team-label,
     .goalie-label {
@@ -1781,35 +1779,33 @@ HTML_TEMPLATE = """
         <h4 style="text-align: center;">Shots and Saves</h4>
 
         <div class="shots-saves-box">
-          <div class="team-stats-side">
-            <div class="team-half top-half">
-              <div class="team-label">{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}</div>
-              <div class="stat-line">Shots For: {{ result["shots1"] }}</div>
-              <div class="stat-line">Goals For: {{ result["team1"]["total_goals"] }}</div>
-            </div>
-            <div class="team-half bottom-half">
-              <div class="goalie-label">{{ result["team1"]["goalie"] }}</div>
-              <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
-              <div class="stat-line">Saves: {{ result["saves1"] }}</div>
-              <div class="stat-line">
-                Save %: {{ "{:.3f}".format(result["saves1"] / result["shots2"]) }}
-              </div>
+          <div class="team-half">
+            <div class="team-label">{{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}</div>
+            <div class="stat-line">Shots For: {{ result["shots1"] }}</div>
+            <div class="stat-line">Goals For: {{ result["team1"]["total_goals"] }}</div>
+          </div>
+          
+          <div class="team-half">
+            <div class="team-label">{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}</div>
+            <div class="stat-line">Shots For: {{ result["shots2"] }}</div>
+            <div class="stat-line">Goals For: {{ result["team2"]["total_goals"] }}</div>
+          </div>
+          
+          <div class="team-half">
+            <div class="goalie-label">{{ result["team1"]["goalie"] }}</div>
+            <div class="stat-line">Shots Against: {{ result["shots2"] }}</div>
+            <div class="stat-line">Saves: {{ result["saves1"] }}</div>
+            <div class="stat-line">
+              Save %: {{ "{:.3f}".format(result["saves1"] / result["shots2"]) }}
             </div>
           </div>
-        
-          <div class="team-stats-side">
-            <div class="team-half top-half">
-              <div class="team-label">{{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}</div>
-              <div class="stat-line">Shots For: {{ result["shots2"] }}</div>
-              <div class="stat-line">Goals For: {{ result["team2"]["total_goals"] }}</div>
-            </div>
-            <div class="team-half bottom-half">
-              <div class="goalie-label">{{ result["team2"]["goalie"] }}</div>
-              <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
-              <div class="stat-line">Saves: {{ result["saves2"] }}</div>
-              <div class="stat-line">
-                Save %: {{ "{:.3f}".format(result["saves2"] / result["shots1"]) }}
-              </div>
+          
+          <div class="team-half">
+            <div class="goalie-label">{{ result["team2"]["goalie"] }}</div>
+            <div class="stat-line">Shots Against: {{ result["shots1"] }}</div>
+            <div class="stat-line">Saves: {{ result["saves2"] }}</div>
+            <div class="stat-line">
+              Save %: {{ "{:.3f}".format(result["saves2"] / result["shots1"]) }}
             </div>
           </div>
         </div>
