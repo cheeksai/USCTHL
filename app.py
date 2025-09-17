@@ -636,8 +636,8 @@ def simulate_game(team1, team2):
             f'{team_abbr} Goal: #{number} {scorer_name} ({ot_goal_number})\nAssists: {assist_text}\nTime: {time}\nScore: {score_live} {winning}'
         ]
     
-        raw = ot_scorers[0].split(" - ")[0]
-        ot_scorers_name = raw.split(" ", 1)[1].strip()
+        ot_scorers_name = scorer_name
+
     else:
         ot_scorers = ['N/A']
         ot_scorers_name = 'N/A'
