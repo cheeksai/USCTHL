@@ -27,7 +27,7 @@ df1 = pd.read_csv(assist_matrix, sep='\t', index_col=0)
 df1 = df1.drop(index=df1.index[-1], columns='assister')
 
 def get_all_df():
-    url = "https://docs.google.com/spreadsheets/d/1Itp69-_15wsWqn5Vm0OxnzVEftGKYgz8MH1J8-BjLFs/export?format=csv"
+    url = "https://docs.google.com/spreadsheets/d/1Itp69-_15wsWqn5Vm0OxnzVEftGKYgz8MH1J8-BjLFs/export?format=csv&gid=901448711"
     return pd.read_csv(url)
 
 all_df = get_all_df()
