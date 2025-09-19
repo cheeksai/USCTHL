@@ -1534,24 +1534,24 @@ HTML_TEMPLATE = """
       border: 2px solid #000;
       box-sizing: border-box;
     }
-    .period-box {
+   .period-box {
       width: 60%;
       margin: 30px auto;
-      padding: 15px 20px;
+      padding: 25px 20px 12px 20px;
       text-align: left;
       background-color: white;
       border: 2px solid #000;
       box-sizing: border-box;
     }
     .period-box h4 {
-      margin-top: -5px;
-      margin-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 12px;
       color: black;
       text-align: center;
     }
     .period-box p {
       white-space: pre-line;
-      margin: 12px 0;    /* balanced spacing top and bottom, like OT */
+      margin: 12px 0;
       font-size: 0.95em;
     }
     .jersey-row {
