@@ -1550,8 +1550,9 @@ HTML_TEMPLATE = """
       text-align: center;
     }
     .period-box p {
-      margin: 5px 0;
+      margin: 5px 0 12px 0;
       font-size: 0.95em;
+      white-space: pre-line;
     }
     .jersey-row {
       display: flex;
@@ -1772,7 +1773,7 @@ HTML_TEMPLATE = """
         {% if result["overtime"] == "Yes" and result["ot_scorers_name"] %}
           <div class="period-box">
             <h4>Overtime</h4>
-            <p style="white-space: pre-line;">{{ result["ot_scorers"][0] }}</p>
+            <p>{{ result["ot_scorers"][0] }}</p>
           </div>
         {% endif %}
 
