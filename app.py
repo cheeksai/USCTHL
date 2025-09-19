@@ -456,9 +456,9 @@ def simulate_game(team1, team2):
 
 
         if score_tracker[team1] > score_tracker[team2]:
-            score_live = f"{score_tracker[team1]} – {score_tracker[team2]}"
+            score_live = f"{score_tracker[team1]} - {score_tracker[team2]}"
         else:
-            score_live = f"{score_tracker[team2]} – {score_tracker[team1]}"
+            score_live = f"{score_tracker[team2]} - {score_tracker[team1]}"
 
         assists = generate_assists(player, dataframe, df1)
         
