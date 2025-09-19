@@ -1550,9 +1550,9 @@ HTML_TEMPLATE = """
       text-align: center;
     }
     .period-box p {
-      margin: 5px 0 12px 0;
-      font-size: 0.95em;
       white-space: pre-line;
+      margin: 12px 0;    /* balanced spacing top and bottom, like OT */
+      font-size: 0.95em;
     }
     .jersey-row {
       display: flex;
@@ -1762,7 +1762,7 @@ HTML_TEMPLATE = """
             <h4>{{ period["label"] }}</h4>
             {% if period["events"] %}
               {% for event in period["events"] %}
-                <p style="white-space: pre-line; margin-bottom: 12px;">{{ event }}</p>
+                <p>{{ event }}</p>
               {% endfor %}
             {% else %}
               <p>No Scoring</p>
