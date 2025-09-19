@@ -360,9 +360,9 @@ def simulate_game(team1, team2):
                     count = player_goal_counter.get(player, 0)
                     score_tracker[team_name] += 1
                     if score_tracker[team1] > score_tracker[team2]:
-                        score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
+                        score_live = f"{score_tracker[team1]} - {score_tracker[team2]}"
                     else:
-                        score_live = f"{score_tracker[team2]}-{score_tracker[team1]}"
+                        score_live = f"{score_tracker[team2]} - {score_tracker[team1]}"
                     lines.append((p, m, s, f"{team_name}: {player} ({count}) - {formatted_time}  {score_live}"))
 
         period_goals = {1: 0, 2: 0, 3: 0}
@@ -456,9 +456,9 @@ def simulate_game(team1, team2):
 
 
         if score_tracker[team1] > score_tracker[team2]:
-            score_live = f"{score_tracker[team1]}–{score_tracker[team2]}"
+            score_live = f"{score_tracker[team1]} – {score_tracker[team2]}"
         else:
-            score_live = f"{score_tracker[team2]}–{score_tracker[team1]}"
+            score_live = f"{score_tracker[team2]} – {score_tracker[team1]}"
 
         assists = generate_assists(player, dataframe, df1)
         
@@ -1537,7 +1537,7 @@ HTML_TEMPLATE = """
   .period-box {
       width: 60%;
       margin: 30px auto;
-      padding: 15px 20px 8px 20px;  /* top, right, bottom, left */
+      padding: 15px 20px 8px 20px;
       text-align: left;
       background-color: white;
       border: 2px solid #000;
@@ -1594,7 +1594,7 @@ HTML_TEMPLATE = """
       margin: 30px auto;
       padding: 0;
       background-color: white;
-      border: 2px solid #000; /* outer box */
+      border: 2px solid #000;
       box-sizing: border-box;
       text-align: center;
       display: grid;
