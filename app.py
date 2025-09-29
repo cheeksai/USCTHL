@@ -130,6 +130,71 @@ team_names = {
     "Washington": "Admirals"
 }
 
+
+
+
+
+SPREADSHEET_ID = "1Itp69-_15wsWqn5Vm0OxnzVEftGKYgz8MH1J8-BjLFs"
+
+team_numbers = {
+    "Arizona": 1435535115,
+    "Atlanta": 888141733,
+    "Baltimore": 503686005,
+    "Boise": 750071424,
+    "Charleston": 2087597914,
+    "Chicago": 1599849612,
+    "Cincinnati": 1195128043,
+    "Cleveland": 697945638,
+    "Delaware": 2124645408,
+    "Denver": 624788037,
+    "Detroit": 994558500,
+    "Florida": 1295798409,
+    "Honolulu": 1621536475,
+    "Houston": 1090037678,
+    "Indianapolis": 555149247,
+    "Iowa": 1723983700,
+    "Jacksonville": 1466698401,
+    "Kansas City": 565027749,
+    "Las Vegas": 1102993627,
+    "Lincoln": 172849477,
+    "Long Island": 1416927440,
+    "Madison": 143547049,
+    "Memphis": 324956747,
+    "Mississippi": 823629263,
+    "Montana": 1991791274,
+    "New York": 1324891444,
+    "North Dakota": 534637864,
+    "Oklahoma": 1690806917,
+    "Philadelphia": 1412039289,
+    "Portland": 793149975,
+    "Puerto Rico": 416384457,
+    "Raleigh": 231553409,
+    "Rapid City": 146700288,
+    "Richmond": 1825774570,
+    "San Antonio": 320722104,
+    "Seattle": 620582435,
+    "South Dakota": 604675873,
+    "St. Louis": 1224712422,
+    "Tennessee": 1593284944,
+    "Washington": 103364398
+}
+
+def get_sheet_values(gid):
+    gid = team_numbers.get(team)
+    url = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/export?format=csv&gid={gid}"
+    df = pd.read_csv(url)
+    
+    l2 = df.iloc[1, 11]  
+    m2 = df.iloc[1, 12]
+    n2 = df.iloc[1, 13]
+    
+    return l2, m2, n2
+
+
+
+
+
+
 ALL_VALID_INPUTS = {}
 
 for city, abbr in place_abbreviations.items():
@@ -1698,6 +1763,10 @@ HTML_TEMPLATE = """
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
               </h3>
+                <p style="font-size: 0.85em; margin-top: 6px;">
+                  Record: {{ result["team1"]["record"] }}
+                </p>
+
               <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
             </div>
             <div class="team-logo"
@@ -1722,6 +1791,9 @@ HTML_TEMPLATE = """
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
               </h3>
+                <p style="font-size: 0.85em; margin-top: 6px;">
+                  Record: {{ result["team2"]["record"] }}
+                </p>
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
           </div>
@@ -1881,12 +1953,19 @@ def home():
 
         if team_thing1 and team_thing2:
             result = simulate_game(team_thing1, team_thing2)
+            
             result["team1"]["place"] = result["team1"].get("place", team_thing1).strip()
             result["team2"]["place"] = result["team2"].get("place", team_thing2).strip()
         
             result["team1"]["name"] = result["team1"]["name"].strip()
             result["team2"]["name"] = result["team2"]["name"].strip()
             result["winner"] = result["winner"].strip()
+
+            wins1, losses1, otls1 = get_sheet_values(team_thing1)
+            wins2, losses2, otls2 = get_sheet_values(team_thing2)
+
+            result["team1"]["record"] = f"{wins1}-{losses1}-{otls1}" if wins1 is not None else "N/A"
+            result["team2"]["record"] = f"{wins2}-{losses2}-{otls2}" if wins2 is not None else "N/A"
 
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
