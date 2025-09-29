@@ -1964,7 +1964,7 @@ def home():
             wins1, losses1, otls1 = get_sheet_values(team_thing1)
             wins2, losses2, otls2 = get_sheet_values(team_thing2)
 
-            result["team1"]["record"] = f"{wins1:0f}-{losses1:.0f}-{otls1:.0f}" if wins1 is not None else "N/A"
+            result["team1"]["record"] = f"{wins1:.0f}-{losses1:.0f}-{otls1:.0f}" if wins1 is not None else "N/A"
             result["team2"]["record"] = f"{wins2:.0f}-{losses2:.0f}-{otls2:.0f}" if wins2 is not None else "N/A"
 
             if result and not result.get("error"):
