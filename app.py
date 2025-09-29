@@ -1764,7 +1764,7 @@ HTML_TEMPLATE = """
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
               </h3>
                 <p style="font-size: 0.85em; margin-top: 6px;">
-                  Record: {{ result["team1"]["record"] }}
+                  {{ result["team1"]["record"] }}
                 </p>
 
               <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
@@ -1792,7 +1792,7 @@ HTML_TEMPLATE = """
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
               </h3>
                 <p style="font-size: 0.85em; margin-top: 6px;">
-                  Record: {{ result["team2"]["record"] }}
+                  {{ result["team2"]["record"] }}
                 </p>
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
@@ -1964,8 +1964,8 @@ def home():
             wins1, losses1, otls1 = get_sheet_values(team_thing1)
             wins2, losses2, otls2 = get_sheet_values(team_thing2)
 
-            result["team1"]["record"] = f"{wins1}-{losses1}-{otls1}" if wins1 is not None else "N/A"
-            result["team2"]["record"] = f"{wins2}-{losses2}-{otls2}" if wins2 is not None else "N/A"
+            result["team1"]["record"] = f"{wins1:0f}-{losses1:.0f}-{otls1:.0f}" if wins1 is not None else "N/A"
+            result["team2"]["record"] = f"{wins2:.0f}-{losses2:.0f}-{otls2:.0f}" if wins2 is not None else "N/A"
 
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
