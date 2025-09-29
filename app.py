@@ -179,7 +179,7 @@ team_numbers = {
     "Washington": 103364398
 }
 
-def get_sheet_values(gid):
+def get_sheet_values(team):
     gid = team_numbers.get(team)
     url = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/export?format=csv&gid={gid}"
     df = pd.read_csv(url)
