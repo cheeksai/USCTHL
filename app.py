@@ -1763,7 +1763,7 @@ HTML_TEMPLATE = """
               <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
               </h3>
-                <p style="font-size: 0.85em; margin-top: 6px;">
+                <p style="font-size: 0.85em; margin-top: 1px;">
                   {{ result["team1"]["record"] }}
                 </p>
 
@@ -1791,7 +1791,7 @@ HTML_TEMPLATE = """
               <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
               </h3>
-                <p style="font-size: 0.85em; margin-top: 6px;">
+                <p style="font-size: 0.85em; margin-top: 1px;">
                   {{ result["team2"]["record"] }}
                 </p>
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
