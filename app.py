@@ -184,9 +184,9 @@ def get_sheet_values(gid):
     url = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/export?format=csv&gid={gid}"
     df = pd.read_csv(url)
     
-    l2 = df.iloc[1, 11]  
-    m2 = df.iloc[1, 12]
-    n2 = df.iloc[1, 13]
+    l2 = df.iloc[0, 11]  
+    m2 = df.iloc[0, 12]
+    n2 = df.iloc[0, 13]
     
     return l2, m2, n2
 
