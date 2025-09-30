@@ -1760,15 +1760,16 @@ HTML_TEMPLATE = """
                       color: {{ team_colors[result["team1"]["name"]][1] }};">
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
-              <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }};">
+              <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }}; line-height: 1.1; margin-bottom: 2px;">
                 {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
               </h3>
-                <p style="font-size: 0.85em; margin-top: 1px;">
-                  {{ result["team1"]["record"] }}
-                </p>
-
+              <p style="font-size: 0.85em; margin-top: 0;">
+                {{ result["team1"]["record"] }}
+              </p>
+            
               <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
             </div>
+
             <div class="team-logo"
                  style="border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
               <img src="{{ logo1 }}" alt="{{ result["team1"]["name"] }} logo">
@@ -1788,14 +1789,16 @@ HTML_TEMPLATE = """
             </div>
             <div class="team-info">
               <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
-              <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }};">
+              <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }}; line-height: 1.1; margin-bottom: 2px;">
                 {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
               </h3>
-                <p style="font-size: 0.85em; margin-top: 1px;">
-                  {{ result["team2"]["record"] }}
-                </p>
+              <p style="font-size: 0.85em; margin-top: 0;">
+                {{ result["team2"]["record"] }}
+              </p>
+            
               <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
+
           </div>
         </div>
       </div>
