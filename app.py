@@ -1758,17 +1758,21 @@ HTML_TEMPLATE = """
           <div class="team-content"
                style="background-color: {{ team_colors[result["team1"]["name"]][0] }};
                       color: {{ team_colors[result["team1"]["name"]][1] }};">
-            <div class="team-info">
-              <div style="font-weight: bold; margin-bottom: 10px;">Home</div>
-              <h3 style="color: {{ team_colors[result["team1"]["name"]][1] }}; line-height: 1.1; margin-bottom: 2px;">
-                {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
-              </h3>
-              <p style="font-size: 0.85em; margin-top: 0;">
-                {{ result["team1"]["record"] }}
-              </p>
+           <div class="team-info" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 15px; height: 100%;">
+              <div style="font-weight: bold;">Home</div>
             
-              <p><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
+              <div style="text-align: center;">
+                <h3 style="margin: 0; line-height: 1.2;">
+                  {{ result["team1"]["place"] }} {{ team_names[result["team1"]["place"]] }}
+                </h3>
+                <p style="margin: 2px 0 0 0; font-size: 0.85em;">
+                  {{ result["team1"]["record"] }}
+                </p>
+              </div>
+            
+              <p style="margin: 0;"><strong>Goalie:</strong> {{ result["team1"]["goalie"] }}</p>
             </div>
+
 
             <div class="team-logo"
                  style="border-left: 4px solid {{ team_colors[result["team1"]["name"]][1] }};">
@@ -1787,17 +1791,21 @@ HTML_TEMPLATE = """
                  style="border-right: 4px solid {{ team_colors[result["team2"]["name"]][1] }};">
               <img src="{{ logo2 }}" alt="{{ result["team2"]["name"] }} logo">
             </div>
-            <div class="team-info">
-              <div style="font-weight: bold; margin-bottom: 10px;">Away</div>
-              <h3 style="color: {{ team_colors[result["team2"]["name"]][1] }}; line-height: 1.1; margin-bottom: 2px;">
-                {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
-              </h3>
-              <p style="font-size: 0.85em; margin-top: 0;">
-                {{ result["team2"]["record"] }}
-              </p>
+            <div class="team-info" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 15px; height: 100%;">
+              <div style="font-weight: bold;">Away</div>
             
-              <p><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
+              <div style="text-align: center;">
+                <h3 style="margin: 0; line-height: 1.2;">
+                  {{ result["team2"]["place"] }} {{ team_names[result["team2"]["place"]] }}
+                </h3>
+                <p style="margin: 2px 0 0 0; font-size: 0.85em;">
+                  {{ result["team2"]["record"] }}
+                </p>
+              </div>
+            
+              <p style="margin: 0;"><strong>Goalie:</strong> {{ result["team2"]["goalie"] }}</p>
             </div>
+
 
           </div>
         </div>
