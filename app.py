@@ -242,6 +242,7 @@ venue_dictionary['South Dakota'] = venue_dictionary.pop('Sioux Falls', 'Behr Are
 venue_dictionary['Florida'] = 'Truist Stadium (Orlando, Florida).png'
 venue_dictionary['Long Island'] = 'Microsoft Ice Palace (Elmont, New York).png'
 venue_dictionary["New York"] = 'Pepsi Center (New York, New York).png'
+venue_dictionary["Tennessee"] = 'Applebees Arena (Nashville, Tennessee).png'
 
 def get_jersey_paths(team_name):
     home_file = all_home_jerseys.get(team_name, "default_home.png")
