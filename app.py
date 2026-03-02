@@ -264,7 +264,7 @@ def expected_goals(x, idx,randomnum):
 
     if 0 <= idx <= 11:
         xgpg = (1/40)*x - (15/8)
-    elif 12 <= idx <= 18:
+    elif 12 <= idx <= 17:
         xgpg = (1/100)*x - (3/4)
     else:
         xgpg = 0
