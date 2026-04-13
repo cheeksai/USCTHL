@@ -187,8 +187,12 @@ def get_sheet_values(team):
     l2 = df.iloc[0, 11]  
     m2 = df.iloc[0, 12]
     n2 = df.iloc[0, 13]
+
+    conference = df.iloc[0,22]
+    seed = df.iloc[0,23]
     
-    return l2, m2, n2
+    #return l2, m2, n2
+    return conference, seed
 
 
 
@@ -1982,11 +1986,14 @@ def home():
             result["team2"]["name"] = result["team2"]["name"].strip()
             result["winner"] = result["winner"].strip()
 
-            wins1, losses1, otls1 = get_sheet_values(team_thing1)
-            wins2, losses2, otls2 = get_sheet_values(team_thing2)
+            #wins1, losses1, otls1 = get_sheet_values(team_thing1)
+            #wins2, losses2, otls2 = get_sheet_values(team_thing2)
 
-            result["team1"]["record"] = f"{wins1:.0f}-{losses1:.0f}-{otls1:.0f}" if wins1 is not None else "N/A"
-            result["team2"]["record"] = f"{wins2:.0f}-{losses2:.0f}-{otls2:.0f}" if wins2 is not None else "N/A"
+            conference1, seed1 = get_sheet_values(team_thing1)
+            conference2, seed2 = get_sheet_values(team_thing2)
+#conference No. seed
+            result["team1"]["record"] = f"{conference1} No. {seed1}" if wins1 is not None else "N/A"
+            result["team2"]["record"] = f"{conference2} No. {seed2}" if wins2 is not None else "N/A"
 
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
