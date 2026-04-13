@@ -379,14 +379,14 @@ def simulate_game(team1, team2):
    
     goalie_num = random.randint(1,100)
 
-    if goalie_num > 35:
+    if goalie_num > 0:
         goalie1 = starter_goalie1
     else:
         goalie1 = backup_goalie1
 
     goalie_num1 = random.randint(1,100)
 
-    if goalie_num1 > 35:
+    if goalie_num1 > 0:
         goalie2 = starter_goalie2
     else:
         goalie2 = backup_goalie2
