@@ -1992,8 +1992,8 @@ def home():
             conference1, seed1 = get_sheet_values(team_thing1)
             conference2, seed2 = get_sheet_values(team_thing2)
 #conference No. seed
-            result["team1"]["record"] = f"{conference1} No. {seed1}" if conference1 is not None else "N/A"
-            result["team2"]["record"] = f"{conference2} No. {seed2}" if conference1 is not None else "N/A"
+            result["team1"]["record"] = f"{conference1}: Seed#{int(seed1)}" if conference1 is not None else "N/A"
+            result["team2"]["record"] = f"{conference2}: Seed #{int(seed2)}" if conference1 is not None else "N/A"
 
             if result and not result.get("error"):
                 team1_period1, team1_period2, team1_period3 = result.get("team1_periods", [0, 0, 0])
