@@ -1741,7 +1741,7 @@ HTML_TEMPLATE = """
 </head>
 <body>
 
-  <h1 style="text-align: left;">USCTHL Game Simulator</h1>
+  <h1 style="text-align: left;">USCTHL Game Simulator - Playoff Mode</h1>
 
   <form method="POST" class="form-section">
     <label for="team1">Home:</label>
