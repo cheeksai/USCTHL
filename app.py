@@ -655,7 +655,7 @@ def simulate_game(team1, team2):
         
         ot_goal_number = all_df.loc[all_df['Player'] == scorer_name, 'Goals'].iloc[0] + player_goal_match_counter[scorer_name]
     
-        minute = 5 - random.randint(1, 5)
+        minute = 20 - random.randint(1, 20)
         second = 59 - random.randint(0, 59)
         time = f'{minute}:{second:02}'
         
